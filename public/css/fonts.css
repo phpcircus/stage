@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'bad_handwriting';
+    src: url('../fonts/BadHandwriting72.woff2') format('woff2'),
+        url('../fonts/BadHandwriting72.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
