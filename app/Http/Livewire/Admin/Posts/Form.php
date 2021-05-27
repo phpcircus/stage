@@ -89,14 +89,25 @@ class Form extends Modal
     {
         $validated = $this->validate();
 
-        $post = request()->user()->posts()->create([
-            'title' => $this->title,
-            'summary' => $this->summary,
-            'body' => $this->body,
-            'published_at' => $this->published_at,
-            'active' => $this->active,
-            'primary_image' => '/' . $this->primaryImage->storePublicly('images'),
-        ]);
+        if (! $this->model->uuid) {
+            request()->user()->posts()->create([
+                'title' => $this->title,
+                'summary' => $this->summary,
+                'body' => $this->body,
+                'published_at' => $this->published_at,
+                'active' => $this->active,
+                'primary_image' => '/' . $this->primaryImage->storePublicly('images'),
+            ]);
+        } else {
+            $this->model->update([
+                'title' => $this->title,
+                'summary' => $this->summary,
+                'body' => $this->body,
+                'published_at' => $this->published_at,
+                'active' => $this->active,
+                'primary_image' => '/' . $this->primaryImage->storePublicly('images'),
+            ]);
+        }
 
         $this->emitSelf('notify-saved');
         $this->show = false;
