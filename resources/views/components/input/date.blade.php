@@ -1,6 +1,6 @@
 <div x-data="{ value: @entangle($attributes->wire('model')), picker: undefined }"
     x-init="new Pikaday({ field: $refs.input, format: 'MM/DD/YYYY', onOpen() { this.setDate($refs.input.value) } })"
-    x-on:change="value = $event.target.value" class="flex rounded-md shadow-sm">
+    x-on:change="value = $event.target.value" class="flex w-full rounded-md shadow-sm lg:w-1/4">
     <span
         class="inline-flex items-center px-3 text-gray-500 border border-r-0 border-gray-300 rounded-l-md bg-gray-50 sm:text-sm">
         <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
@@ -9,6 +9,10 @@
         </svg>
     </span>
 
-    <input {{ $attributes->whereDoesntStartWith('wire:model') }} x-ref="input" x-bind:value="value"
-        class="flex-1 block w-full transition duration-150 ease-in-out rounded-none rounded-r-md form-input sm:text-sm sm:leading-5" />
+    <input {{ $attributes->whereDoesntStartWith('wire:model')->merge([
+            'class' => 'flex-1 block w-full p-2 transition duration-150 ease-in-out border border-l-0 border-gray-300 rounded-none rounded-r-md form-input sm:text-sm sm:leading-5'
+        ]) }}
+        x-ref="input"
+        x-bind:value="value"
+        type="text" />
 </div>

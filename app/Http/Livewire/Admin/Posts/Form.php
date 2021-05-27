@@ -2,16 +2,16 @@
 
 namespace App\Http\Livewire\Admin\Posts;
 
+use App\Http\Livewire\Components\Modal;
 use App\Models\Post;
-use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class Form extends Component
+class Form extends Modal
 {
     use WithFileUploads;
 
     /** @var \App\Models\Post|null */
-    public $post;
+    public $model;
 
     /** @var string */
     public $title;
@@ -22,7 +22,11 @@ class Form extends Component
     /** @var string */
     public $body;
 
+    /** @var \Illuminate\Http\UploadedFile */
     public $primaryImage;
+
+    /** @var string */
+    public $primaryImageUrl;
 
     /** @var bool */
     public $active;
@@ -32,12 +36,17 @@ class Form extends Component
 
     /** @var array */
     protected $rules = [
-        'title' => 'string,max:200',
-        'summary' => 'string,max:1000',
-        'body' => 'string',
+        'title' => ['string', 'max:200'],
+        'summary' => ['string', 'max:1000'],
+        'body' => ['string'],
+        'active' => ['boolean'],
+        'published_at' => ['nullable', 'date'],
+        'primaryImage' => ['nullable', 'image', 'max:2000'],
+    ];
+
+    /** @var array */
+    protected $casts = [
         'active' => 'boolean',
-        'published_at' => 'nullable,date',
-        'primaryImage' => 'nullable|image|max:2000',
     ];
 
     /**
@@ -51,13 +60,26 @@ class Form extends Component
     }
 
     /**
-     * Mount the component.
-     *
-     * @return void
+     * When modal is hidden, reset the properties.
      */
-    public function mount(?Post $post = null)
+    public function updatedShow($value): void
     {
-        $this->post = $post ?? resolve(Post::class);
+        if ($value === false) {
+            $this->reset();
+        }
+    }
+
+    /**
+     * Set the form fields for editing a Post.
+     */
+    public function setFields(Post $post): void
+    {
+        $this->title = $post->title;
+        $this->summary = $post->summary;
+        $this->body = $post->body;
+        $this->active = $post->active;
+        $this->published_at = $post->published_at ? $post->published_at->format('m/d/Y') : '';
+        $this->primaryImageUrl = $post->primary_image;
     }
 
     /**
@@ -65,12 +87,18 @@ class Form extends Component
      */
     public function save(): void
     {
-        $this->validate();
+        $validated = $this->validate();
 
-        $this->primaryImage->store('images');
+        $post = request()->user()->posts()->create([
+            'title' => $this->title,
+            'summary' => $this->summary,
+            'body' => $this->body,
+            'published_at' => $this->published_at,
+            'active' => $this->active,
+            'primary_image' => '/' . $this->primaryImage->storePublicly('images'),
+        ]);
 
         $this->emitSelf('notify-saved');
-
-        dd('wtf');
+        $this->show = false;
     }
 }
