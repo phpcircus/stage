@@ -21,7 +21,8 @@ class PostsOverview extends Component
     public function render()
     {
         return view('livewire.posts-overview', [
-            'posts' => Post::active()->orderBy('published_at', 'desc')->paginate(8),
+            'posts' => Post::active()->orderBy('published_at', 'desc')->paginate(9),
+            'page' => request()->input('page'),
         ]);
     }
 }

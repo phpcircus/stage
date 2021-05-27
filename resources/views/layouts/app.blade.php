@@ -28,6 +28,11 @@
         <div class="min-h-screen bg-gray-100">
             @livewire('navigation-menu')
 
+            <!--Notification pop-up -->
+            <div class="flex justify-end w-full">
+                <x-notification />
+            </div>
+
             <!-- Page Content -->
             <main>
                 {{ $slot }}
@@ -40,5 +45,6 @@
         <script src="https://unpkg.com/moment"></script>
         <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
         <script src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
+        @stack('scripts')
     </body>
 </html>

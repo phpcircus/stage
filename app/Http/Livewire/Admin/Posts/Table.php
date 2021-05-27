@@ -18,7 +18,7 @@ class Table extends Component
     public function render()
     {
         return view('livewire.admin.posts.table', [
-            'posts' => Post::paginate(10),
+            'posts' => Post::latest()->paginate(10),
         ]);
     }
 }

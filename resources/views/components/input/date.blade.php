@@ -12,6 +12,7 @@
     <input {{ $attributes->whereDoesntStartWith('wire:model')->merge([
             'class' => 'flex-1 block w-full p-2 transition duration-150 ease-in-out border border-l-0 border-gray-300 rounded-none rounded-r-md form-input sm:text-sm sm:leading-5'
         ]) }}
+        tabindex="0"
         x-ref="input"
         x-bind:value="value"
         type="text" />
