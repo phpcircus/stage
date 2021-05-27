@@ -64,7 +64,7 @@ class Form extends Modal
      */
     public function updatedShow($value): void
     {
-        if ($value === false) {
+        if (false === $value) {
             $this->reset();
         }
     }
@@ -87,7 +87,9 @@ class Form extends Modal
      */
     public function save(): void
     {
-        $validated = $this->validate();
+        $this->validate();
+
+        $primaryImage = $this->handlePrimaryImage();
 
         if (! $this->model->uuid) {
             request()->user()->posts()->create([
@@ -96,7 +98,7 @@ class Form extends Modal
                 'body' => $this->body,
                 'published_at' => $this->published_at,
                 'active' => $this->active,
-                'primary_image' => '/' . $this->primaryImage->storePublicly('images'),
+                'primary_image' => $primaryImage,
             ]);
         } else {
             $this->model->update([
@@ -105,11 +107,25 @@ class Form extends Modal
                 'body' => $this->body,
                 'published_at' => $this->published_at,
                 'active' => $this->active,
-                'primary_image' => '/' . $this->primaryImage->storePublicly('images'),
+                'primary_image' => $primaryImage,
             ]);
         }
 
-        $this->emitSelf('notify-saved');
+        $this->notify(['success', 'Success', 'Post saved!', 2500]);
         $this->show = false;
+    }
+
+    /**
+     * Handle the primary_image property for the Post.
+     */
+    protected function handlePrimaryImage(): string
+    {
+        if ($this->primaryImage) {
+            return '/'.$this->primaryImage->storePublicly('images');
+        } elseif ($this->primaryImageUrl) {
+            return $this->primaryImageUrl;
+        } else {
+            return '/img/lightbulb.png';
+        }
     }
 }

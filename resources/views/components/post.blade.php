@@ -1,12 +1,14 @@
 @props([
     'post',
-    'loop'
+    'loop',
+    'page'
 ])
-@if($loop->iteration  == 1)
+
+@if($loop->iteration  == 1 && ($page == 1 || $page == null))
     <section class="col-span-6 p-8 overflow-hidden font-sans text-gray-600 shadow lg:grid lg:grid-cols-3 lg:gap-4 bg-white/25">
         <!-- Post Image -->
-        <div class="w-full col-span-1 mb-2 lg:mb-0">
-            <img src="{{ $post->primary_image }}" />
+        <div class="flex items-center justify-center col-span-1 mb-2 bg-blue-100 rounded-lg lg:mb-0">
+            <img src="{{ $post->primary_image }}" class="object-cover w-full h-auto rounded-lg shadow-md" />
         </div>
         <!-- Post Categories and timestamp -->
         <div class="flex flex-col col-span-2">
@@ -32,8 +34,8 @@
 @else
 <section class="{{ $loop->iteration < 4 ? 'col-span-3' : 'col-span-2' }} p-8 overflow-hidden font-sans text-gray-600 shadow bg-white/25">
     <div class="flex flex-col items-start w-full">
-        <div class="w-full mb-2">
-            <img src="{{ $post->primary_image }}" />
+        <div class="flex items-center justify-center mb-2 bg-blue-100 rounded-lg">
+            <img src="{{ $post->primary_image }}" class="object-cover w-full h-auto rounded-lg shadow-md" />
         </div>
         <div class="mb-2">
             @foreach($post->categories as $category)
