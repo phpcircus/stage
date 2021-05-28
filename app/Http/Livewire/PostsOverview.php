@@ -29,4 +29,22 @@ class PostsOverview extends Component
             'page' => request()->input('page'),
         ]);
     }
+
+    /**
+     * Move to the previous page.
+     */
+    public function previousPage(): void
+    {
+        $this->setPage(max($this->page - 1, 1));
+        $this->dispatchBrowserEvent('paginationChanged');
+    }
+
+    /**
+     * Move to the next page.
+     */
+    public function nextPage(): void
+    {
+        $this->setPage($this->page + 1);
+        $this->dispatchBrowserEvent('paginationChanged');
+    }
 }

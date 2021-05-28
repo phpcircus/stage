@@ -13,8 +13,8 @@
 
 <section class="{{ $columnSpan }} p-8 overflow-hidden font-sans text-gray-600 shadow bg-white/25">
     <div class="flex flex-col items-start w-full">
-        <div class="flex items-center justify-center mb-2 bg-blue-100 rounded-lg">
-            <img src="{{ $post->primary_image }}" class="object-cover w-full h-auto rounded-lg shadow-md" />
+        <div class="flex items-center justify-center w-full mb-4 rounded-lg">
+            <img src="{{ $post->primary_image }}" class="object-cover w-auto h-auto rounded-lg shadow-lg max-h-80" />
         </div>
         <div class="mb-2">
             @foreach($post->categories as $category)

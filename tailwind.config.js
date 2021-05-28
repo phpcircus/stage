@@ -14,7 +14,8 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
-                badhandwriting: ['bad_handwriting', defaultTheme.fontFamily.sans],
+                badhandwriting: ['bad_handwriting', ...defaultTheme.fontFamily.sans],
+                protogrotesk: ['Proto Grotesk Web', ...defaultTheme.fontFamily.sans],
             },
         },
     },
