@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\ShowPost;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,8 @@ Route::get('/home', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/admin/posts', function () {
     return view('admin.posts.index');
 })->name('admin.posts');
+
+Route::get('/posts/{post}', ShowPost::class)->name('posts.show');
 
 Route::get('/posts', function () {
     return view('posts');

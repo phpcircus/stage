@@ -18,11 +18,11 @@
         </div>
         <p class="mb-4 text-xs italic text-gray-500">Published {{ $post->published_at->diffForHumans() }}</p>
         <h2 class="self-start my-2 text-2xl font-medium text-gray-900 title-font"><a
-                href="/posts/{{ $post->slug }}"
+                href="{{ route('posts.show', $post->slug) }}"
                 class="inline-block hover:underline">{{ $post->title }}</a>
         </h2>
         <p class="mb-4 leading-relaxed">{{ $post->summary }}</p>
-        <a href="/posts/{{ $post->slug }}"
+        <a href="{{ route('posts.show', $post->slug) }}"
             class="inline-flex items-center self-end text-gray-900 hover:underline">Read More
         </a>
     </div>
