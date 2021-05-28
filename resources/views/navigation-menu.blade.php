@@ -1,22 +1,24 @@
 <div class="w-auto mx-4 lg:w-4/5 lg:mx-auto">
     <header class="font-semibold text-gray-900">
         <div class="relative flex flex-col items-center py-4 mx-auto xl:flex-row xl:mb-4">
-            <img src="/img/phpstage.png" class="h-16 mb-8 mr-0 xl:mb-0 xl:mr-24" />
+            <a href="{{ route('home') }}">
+                <img src="/img/phpstage.png" class="h-16 mb-8 mr-0 xl:mb-0 xl:mr-24" />
+            </a>
             <nav class="flex flex-wrap items-center justify-around w-full md:w-auto lg:justify-center">
                 <a href="/"
-                    class="border-b-4 {{ request()->routeIs('home') ? 'border-red-500' : 'border-red-500/25'  }} text-sm xl:text-lg transform hover:scale-125 inline-flex px-3 py-1 mr-0 text-gray-900 uppercase transition-colors duration-200 lg:mr-6 focus:outline-none">
+                    class="border-b-4 {{ request()->routeIs('*home*') ? 'border-red-500' : 'border-red-500/25'  }} text-sm xl:text-lg transform hover:scale-125 inline-flex px-3 py-1 mr-0 text-gray-900 uppercase transition-colors duration-200 lg:mr-6 focus:outline-none">
                     Home
                 </a>
                 <a href="{{ route('posts') }}"
-                    class="border-b-4 {{ request()->routeIs('posts') ? 'border-red-500' : 'border-red-500/25'  }} text-sm xl:text-lg transform hover:scale-125 inline-flex px-3 py-1 mr-0 text-gray-900 uppercase transition-colors duration-200 lg:mr-6 focus:outline-none">
+                    class="border-b-4 {{ request()->routeIs('*posts*') ? 'border-red-500' : 'border-red-500/25'  }} text-sm xl:text-lg transform hover:scale-125 inline-flex px-3 py-1 mr-0 text-gray-900 uppercase transition-colors duration-200 lg:mr-6 focus:outline-none">
                     Posts
                 </a>
                 <a href="{{ route('about') }}"
-                    class="border-b-4 {{ request()->routeIs('about') ? 'border-red-500' : 'border-red-500/25'  }} text-sm xl:text-lg transform hover:scale-125 inline-flex px-3 py-1 mr-0 text-gray-900 uppercase transition-colors duration-200 lg:mr-6 focus:outline-none">
+                    class="border-b-4 {{ request()->routeIs('*about*') ? 'border-red-500' : 'border-red-500/25'  }} text-sm xl:text-lg transform hover:scale-125 inline-flex px-3 py-1 mr-0 text-gray-900 uppercase transition-colors duration-200 lg:mr-6 focus:outline-none">
                     About Me
                 </a>
                 <a href="{{ route('projects') }}"
-                    class="border-b-4 {{ request()->routeIs('projects') ? 'border-red-500' : 'border-red-500/25'  }} text-sm xl:text-lg transform hover:scale-125 inline-flex px-3 py-1 mr-0 text-gray-900 uppercase transition-colors duration-200 lg:mr-6 focus:outline-none">
+                    class="border-b-4 {{ request()->routeIs('*projects*') ? 'border-red-500' : 'border-red-500/25'  }} text-sm xl:text-lg transform hover:scale-125 inline-flex px-3 py-1 mr-0 text-gray-900 uppercase transition-colors duration-200 lg:mr-6 focus:outline-none">
                     Projects
                 </a>
             </nav>
