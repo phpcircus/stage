@@ -178,6 +178,7 @@ return [
         App\Providers\JetstreamServiceProvider::class,
         App\Providers\LivewireServiceProvider::class,
         App\Providers\DateServiceProvider::class,
+        App\Providers\MacroServiceProvider::class,
 
     ],
 
