@@ -6,3 +6,27 @@
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'Proto Grotesk Web';
+    src: url('../fonts/ProtoGroteskWeb-Regular.eot');
+    src: local('../fonts/Proto Grotesk Web Regular'), local('ProtoGroteskWeb-Regular'),
+        url('../fonts/ProtoGroteskWeb-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/ProtoGroteskWeb-Regular.woff2') format('woff2'),
+        url('../fonts/ProtoGroteskWeb-Regular.woff') format('woff'),
+        url('../fonts/ProtoGroteskWeb-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Proto Grotesk Web';
+    src: url('../fonts/ProtoGroteskWeb-Bold.eot');
+    src: local('../fonts/Proto Grotesk Web Bold'), local('ProtoGroteskWeb-Bold'),
+        url('../fonts/ProtoGroteskWeb-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/ProtoGroteskWeb-Bold.woff2') format('woff2'),
+        url('../fonts/ProtoGroteskWeb-Bold.woff') format('woff'),
+        url('../fonts/ProtoGroteskWeb-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
