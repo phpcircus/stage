@@ -1,4 +1,4 @@
-<header id="up" class="relative w-3/4 h-56 mx-auto bg-fixed bg-center bg-no-repeat bg-cover md:h-96">
+<header id="up" class="relative h-56 mx-auto bg-fixed bg-center bg-no-repeat bg-cover md:h-96">
     <!-- Overlay Background + Center Control -->
     <div class="flex justify-start h-48 md:h-80">
         <div>
