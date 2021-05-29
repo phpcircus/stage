@@ -30,7 +30,7 @@
                         @auth
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                 <button class="flex text-sm transition border-2 border-red-500 rounded-full hover:border-red-500/25 focus:outline-none focus:border-gray-300">
-                                    <img src="/img/devcircus.jpg" alt="Clayton Stone profile picture" class="object-cover w-12 h-12 rounded-full">
+                                    <img src="{{ auth()->user()->profile_photo_url }}" alt="Clayton Stone profile picture" class="object-cover w-12 h-12 rounded-full">
                                 </button>
                             @else
                                 <span class="inline-flex rounded-md">
