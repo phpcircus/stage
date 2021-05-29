@@ -803,14 +803,11 @@ select {
 .top-0 {
 	top: 0px;
 }
-.top-\[20px\] {
-	top: 20px;
+.top-\[12px\] {
+	top: 12px;
 }
 .right-\[60px\] {
 	right: 60px;
-}
-.top-\[12px\] {
-	top: 12px;
 }
 .z-0 {
 	z-index: 0;
@@ -927,9 +924,6 @@ select {
 .ml-auto {
 	margin-left: auto;
 }
-.mr-0 {
-	margin-right: 0px;
-}
 .mt-12 {
 	margin-top: 3rem;
 }
@@ -941,6 +935,9 @@ select {
 }
 .mb-8 {
 	margin-bottom: 2rem;
+}
+.mr-0 {
+	margin-right: 0px;
 }
 .block {
 	display: block;
@@ -1170,9 +1167,6 @@ select {
 }
 .justify-between {
 	justify-content: space-between;
-}
-.justify-around {
-	justify-content: space-around;
 }
 .gap-6 {
 	gap: 1.5rem;
@@ -2413,6 +2407,16 @@ select {
 		border-left-width: 1px;
 	}
 
+	.md\:px-6 {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
+
+	.md\:px-12 {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+
 	.md\:text-8xl {
 		font-size: 6rem;
 		line-height: 1;
@@ -2425,12 +2429,16 @@ select {
 }
 @media (min-width: 1024px) {
 
+	.lg\:top-\[20px\] {
+		top: 20px;
+	}
+
 	.lg\:right-0 {
 		right: 0px;
 	}
 
-	.lg\:top-\[20px\] {
-		top: 20px;
+	.lg\:right-\[40px\] {
+		right: 40px;
 	}
 
 	.lg\:col-span-4 {
@@ -2483,10 +2491,6 @@ select {
 		display: none;
 	}
 
-	.lg\:h-16 {
-		height: 4rem;
-	}
-
 	.lg\:w-1\/3 {
 		width: 33.333333%;
 	}
@@ -2511,10 +2515,6 @@ select {
 		flex-direction: row;
 	}
 
-	.lg\:justify-center {
-		justify-content: center;
-	}
-
 	.lg\:justify-between {
 		justify-content: space-between;
 	}
@@ -2533,6 +2533,11 @@ select {
 		padding-right: 0px;
 	}
 
+	.lg\:px-3 {
+		padding-left: 0.75rem;
+		padding-right: 0.75rem;
+	}
+
 	.lg\:py-4 {
 		padding-top: 1rem;
 		padding-bottom: 1rem;
@@ -2543,9 +2548,14 @@ select {
 		padding-bottom: 3rem;
 	}
 
-	.lg\:px-3 {
-		padding-left: 0.75rem;
-		padding-right: 0.75rem;
+	.lg\:px-4 {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+
+	.lg\:px-6 {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
 	}
 
 	.lg\:text-lg {
@@ -2556,5 +2566,16 @@ select {
 	.lg\:text-5xl {
 		font-size: 3rem;
 		line-height: 1;
+	}
+}
+@media (min-width: 1280px) {
+
+	.xl\:right-0 {
+		right: 0px;
+	}
+
+	.xl\:px-0 {
+		padding-left: 0px;
+		padding-right: 0px;
 	}
 }

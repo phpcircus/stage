@@ -1,6 +1,6 @@
 <div class="w-full">
     <header class="font-semibold text-gray-900">
-        <div class="relative hidden lg:py-4 lg:flex lg:justify-between lg:mx-auto lg:max-w-7xl lg:mb-4">
+        <div class="relative hidden lg:py-4 lg:px-6 xl-px-0 lg:flex lg:justify-between lg:mx-auto lg:max-w-7xl lg:mb-4">
             <a href="{{ route('home') }}">
                 <img src="/img/phpstage.png" class="h-16 mb-8 mr-0 lg:mb-0 lg:mr-24" />
             </a>
