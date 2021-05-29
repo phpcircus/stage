@@ -8,6 +8,11 @@ use Livewire\WithPagination;
 
 class Table extends Component
 {
+    /** @var array */
+    protected $listeners = [
+        'post-updated' => '$refresh',
+    ];
+
     use WithPagination;
 
     /**

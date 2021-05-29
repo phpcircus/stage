@@ -843,10 +843,6 @@ select {
 	margin-top: -0.5rem;
 	margin-bottom: -0.5rem;
 }
-.mx-1 {
-	margin-left: 0.25rem;
-	margin-right: 0.25rem;
-}
 .ml-3 {
 	margin-left: 0.75rem;
 }
@@ -1419,6 +1415,10 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(219, 234, 254, var(--tw-bg-opacity));
 }
+.bg-indigo-800 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(55, 48, 163, var(--tw-bg-opacity));
+}
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
 }
@@ -1621,13 +1621,13 @@ select {
 	font-size: 3.75rem;
 	line-height: 1;
 }
-.text-4xl {
-	font-size: 2.25rem;
-	line-height: 2.5rem;
-}
 .text-3xl {
 	font-size: 1.875rem;
 	line-height: 2.25rem;
+}
+.text-4xl {
+	font-size: 2.25rem;
+	line-height: 2.5rem;
 }
 .font-medium {
 	font-weight: 500;
@@ -1888,6 +1888,10 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(99, 102, 241, var(--tw-bg-opacity));
 }
+.hover\:bg-indigo-700:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(67, 56, 202, var(--tw-bg-opacity));
+}
 .hover\:text-gray-500:hover {
 	--tw-text-opacity: 1;
 	color: rgba(107, 114, 128, var(--tw-text-opacity));
@@ -1941,6 +1945,10 @@ select {
 .focus\:border-gray-300:focus {
 	--tw-border-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-border-opacity));
+}
+.focus\:border-indigo-900:focus {
+	--tw-border-opacity: 1;
+	border-color: rgba(49, 46, 129, var(--tw-border-opacity));
 }
 .focus\:bg-indigo-600:focus {
 	--tw-bg-opacity: 1;
@@ -2006,6 +2014,10 @@ select {
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(191, 219, 254, var(--tw-ring-opacity));
 }
+.focus\:ring-indigo-300:focus {
+	--tw-ring-opacity: 1;
+	--tw-ring-color: rgba(165, 180, 252, var(--tw-ring-opacity));
+}
 .focus\:ring-opacity-50:focus {
 	--tw-ring-opacity: 0.5;
 }
@@ -2028,6 +2040,10 @@ select {
 .active\:bg-indigo-700:active {
 	--tw-bg-opacity: 1;
 	background-color: rgba(67, 56, 202, var(--tw-bg-opacity));
+}
+.active\:bg-indigo-900:active {
+	--tw-bg-opacity: 1;
+	background-color: rgba(49, 46, 129, var(--tw-bg-opacity));
 }
 .active\:text-gray-700:active {
 	--tw-text-opacity: 1;
@@ -2418,11 +2434,6 @@ select {
 		line-height: 1;
 	}
 
-	.md\:text-7xl {
-		font-size: 4.5rem;
-		line-height: 1;
-	}
-
 	.md\:text-4xl {
 		font-size: 2.25rem;
 		line-height: 2.5rem;
@@ -2550,16 +2561,6 @@ select {
 		padding-bottom: 3rem;
 	}
 
-	.lg\:text-lg {
-		font-size: 1.125rem;
-		line-height: 1.75rem;
-	}
-
-	.lg\:text-5xl {
-		font-size: 3rem;
-		line-height: 1;
-	}
-
 	.lg\:text-8xl {
 		font-size: 6rem;
 		line-height: 1;
@@ -2567,6 +2568,16 @@ select {
 
 	.lg\:text-7xl {
 		font-size: 4.5rem;
+		line-height: 1;
+	}
+
+	.lg\:text-lg {
+		font-size: 1.125rem;
+		line-height: 1.75rem;
+	}
+
+	.lg\:text-5xl {
+		font-size: 3rem;
 		line-height: 1;
 	}
 }
