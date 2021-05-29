@@ -1,4 +1,4 @@
-<div class="absolute top-[20px] right-[60px] lg:right-0 ml-auto">
+<div class="absolute top-[12px] lg:top-[20px] right-[60px] lg:right-0 ml-auto">
     <x-jet-dropdown align="right" width="48">
         <x-slot name="trigger">
             @auth

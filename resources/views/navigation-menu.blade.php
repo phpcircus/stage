@@ -15,7 +15,7 @@
         <div class="relative flex flex-col justify-between px-12 py-4 mx-auto lg:hidden">
             <div class="flex justify-between">
                 <a href="{{ route('home') }}">
-                    <img src="/img/phpstage.png" class="h-16 mb-8 mr-0" />
+                    <img src="/img/phpstage.png" class="h-12 mb-8 mr-0" />
                 </a>
 
                 <!-- Settings Dropdown -->
