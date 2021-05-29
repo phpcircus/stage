@@ -112,6 +112,7 @@ class Form extends Modal
         }
 
         $this->notify(['success', 'Success', 'Post saved!', 2500]);
+        $this->emit('post-updated');
         $this->show = false;
     }
 
@@ -121,7 +122,7 @@ class Form extends Modal
     protected function handlePrimaryImage(): string
     {
         if ($this->primaryImage) {
-            return '/'.$this->primaryImage->storePublicly('images');
+            return '/' . $this->primaryImage->storePublicly('images');
         } elseif ($this->primaryImageUrl) {
             return $this->primaryImageUrl;
         } else {
