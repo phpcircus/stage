@@ -6,5 +6,5 @@
     x-on:trix-change="value = $event.target.value" {{ $attributes->whereDoesntStartWith('wire:model') }} wire:ignore>
     <input id="x" type="hidden" tabindex="0">
     <trix-editor x-ref="trix" input="x" style="min-height: 350px;"
-        class="block w-full transition duration-150 ease-in-out form-textarea sm:text-sm sm:leading-5"></trix-editor>
+        class="block w-full transition duration-150 ease-in-out trix-content form-textarea sm:text-sm sm:leading-5"></trix-editor>
 </div>
