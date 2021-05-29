@@ -10,7 +10,7 @@
                 {{ $post->title }}
             </h1>
             <div class="flex justify-center w-full py-4 mx-auto mb-4">
-                <img src="{{ $post->primary_image }}" class="object-cover rounded-md shadow-md max-w-96" />
+                <img src="{{ $post->primary_image }}" class="object-cover h-auto rounded-md shadow-md max-h-96" />
             </div>
             <p class="trix-content">{!! $post->body !!}</p>
         </div>
