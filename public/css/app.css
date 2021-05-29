@@ -2407,11 +2407,6 @@ select {
 		border-left-width: 1px;
 	}
 
-	.md\:px-6 {
-		padding-left: 1.5rem;
-		padding-right: 1.5rem;
-	}
-
 	.md\:px-12 {
 		padding-left: 3rem;
 		padding-right: 3rem;
@@ -2431,10 +2426,6 @@ select {
 
 	.lg\:top-\[20px\] {
 		top: 20px;
-	}
-
-	.lg\:right-0 {
-		right: 0px;
 	}
 
 	.lg\:right-\[40px\] {
@@ -2543,19 +2534,14 @@ select {
 		padding-bottom: 1rem;
 	}
 
-	.lg\:py-12 {
-		padding-top: 3rem;
-		padding-bottom: 3rem;
-	}
-
-	.lg\:px-4 {
-		padding-left: 1rem;
-		padding-right: 1rem;
-	}
-
 	.lg\:px-6 {
 		padding-left: 1.5rem;
 		padding-right: 1.5rem;
+	}
+
+	.lg\:py-12 {
+		padding-top: 3rem;
+		padding-bottom: 3rem;
 	}
 
 	.lg\:text-lg {
