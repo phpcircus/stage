@@ -21,7 +21,11 @@ class PostsOverview extends Component
     public function render()
     {
         $featured = Post::active()->orderBy('published_at', 'desc')->first();
-        $posts = Post::active()->where('id', '!=', $featured->id)->orderBy('published_at', 'desc')->paginate(8);
+        if ($featured) {
+            $posts = Post::active()->where('id', '!=', $featured->id)->orderBy('published_at', 'desc')->paginate(8);
+        } else {
+            $posts = null;
+        }
 
         return view('livewire.posts-overview', [
             'featured' => $featured,

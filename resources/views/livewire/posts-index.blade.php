@@ -1,5 +1,5 @@
 <ul class="font-sans divide-y divide-gray-200">
-    @foreach($posts as $post)
+    @forelse($posts as $post)
         <li>
             <a href="{{ route('posts.show', $post->slug) }}" class="block">
                 <div class="pt-2 mb-4">
@@ -19,6 +19,10 @@
                 </div>
             </a>
         </li>
-    @endforeach
+    @empty
+        <li>
+            <h1 class="w-full text-4xl text-gray-700 lg:col-span-6 font-protogrotesk">No Posts Found. 🙁 Check back later.</h1>
+        </li>
+    @endforelse
     {{ $posts->links() }}
 </ul>
