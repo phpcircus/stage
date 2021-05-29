@@ -1612,6 +1612,10 @@ select {
 	font-size: 1.875rem;
 	line-height: 2.25rem;
 }
+.text-5xl {
+	font-size: 3rem;
+	line-height: 1;
+}
 .font-medium {
 	font-weight: 500;
 }
@@ -2414,6 +2418,10 @@ select {
 
 	.lg\:col-span-4 {
 		grid-column: span 4 / span 4;
+	}
+
+	.lg\:col-span-6 {
+		grid-column: span 6 / span 6;
 	}
 
 	.lg\:-mx-8 {
