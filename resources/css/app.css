@@ -4,4 +4,20 @@
 
 @layer base {
   [x-cloak] { display: none; }
+
+  .trix-content h1 {
+    @apply text-gray-700 text-3xl uppercase mt-4 !important;
+  }
+
+  .trix-content a {
+    @apply text-indigo-600 font-semibold hover:text-indigo-400 !important;
+  }
+
+  .trix-content ul {
+    @apply list-outside list-disc ml-6 !important;
+  }
+
+  .trix-content ul li {
+    @apply text-indigo-600 !important;
+  }
 }

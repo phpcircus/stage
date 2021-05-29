@@ -1,4 +1,4 @@
-<div x-data="" x-init="
+<div x-data="{}" x-init="
     document.querySelectorAll('pre').forEach((block) => {
         hljs.highlightBlock(block);
     });
@@ -10,9 +10,9 @@
                 {{ $post->title }}
             </h1>
             <div class="flex justify-center w-full py-4 mx-auto mb-4">
-                <img src="{{ $post->primary_image }}" class="object-cover h-auto rounded-md shadow-md max-h-96" />
+                <img alt="primary_post_image" src="{{ $post->primary_image }}" class="object-cover h-auto rounded-md shadow-md max-h-96">
             </div>
-            <p class="trix-content">{!! $post->body !!}</p>
+            <div class="trix-content">{!! $post->body !!}</div>
         </div>
     </div>
 </div>
