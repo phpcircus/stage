@@ -1,6 +1,6 @@
 <x-app-layout>
-    <div class="py-12">
-        <header id="up" class="relative w-3/4 h-24 mx-auto bg-fixed bg-center bg-no-repeat bg-cover md:h-56">
+    <div class="px-6 py-12 mx-auto lg:px-0 max-w-7xl">
+        <header id="up" class="relative h-24 mx-auto bg-fixed bg-center bg-no-repeat bg-cover md:h-56">
             <!-- Overlay Background + Center Control -->
             <div class="flex justify-start h-20 md:h-40">
                 <div>
@@ -13,7 +13,7 @@
                 </div>
             </div>
         </header>
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mx-auto sm:px-6 lg:px-8">
             <div class="flex flex-col px-4 lg:px-0">
                 <div class="flex flex-col lg:flex-row">
                     <div class="flex flex-col w-full mb-4 space-y-2 lg:w-1/3 lg:mb-0">
