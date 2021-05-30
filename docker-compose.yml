@@ -53,6 +53,14 @@ services:
             - '11211:11211'
         networks:
             - sail
+    meilisearch:
+        image: 'getmeili/meilisearch:latest'
+        ports:
+            - '${FORWARD_MEILISEARCH_PORT:-7700}:7700'
+        volumes:
+            - 'sailmeilisearch:/data.ms'
+        networks:
+            - sail
 networks:
     sail:
         driver: bridge
@@ -62,4 +70,6 @@ volumes:
     sailredis:
         driver: local
     sailmemcached:
+        driver: local
+    sailmeilisearch:
         driver: local

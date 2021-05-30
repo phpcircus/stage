@@ -28,9 +28,6 @@ class Form extends Modal
     /** @var string */
     public $primaryImageUrl;
 
-    /** @var bool */
-    public $active;
-
     /** @var string */
     public $published_at;
 
@@ -39,14 +36,8 @@ class Form extends Modal
         'title' => ['string', 'max:200'],
         'summary' => ['string', 'max:1000'],
         'body' => ['string'],
-        'active' => ['boolean'],
         'published_at' => ['nullable', 'date'],
         'primaryImage' => ['nullable', 'image', 'max:2000'],
-    ];
-
-    /** @var array */
-    protected $casts = [
-        'active' => 'boolean',
     ];
 
     /**
@@ -77,7 +68,6 @@ class Form extends Modal
         $this->title = $post->title;
         $this->summary = $post->summary;
         $this->body = $post->body;
-        $this->active = $post->active;
         $this->published_at = $post->published_at ? $post->published_at->format('m/d/Y') : '';
         $this->primaryImageUrl = $post->primary_image;
     }
@@ -90,14 +80,14 @@ class Form extends Modal
         $this->validate();
 
         $primaryImage = $this->handlePrimaryImage();
+        $published_at = $this->published_at ? $this->published_at : null;
 
         if (! $this->model->uuid) {
             request()->user()->posts()->create([
                 'title' => $this->title,
                 'summary' => $this->summary,
                 'body' => $this->body,
-                'published_at' => $this->published_at,
-                'active' => $this->active,
+                'published_at' => $published_at,
                 'primary_image' => $primaryImage,
             ]);
         } else {
@@ -105,8 +95,7 @@ class Form extends Modal
                 'title' => $this->title,
                 'summary' => $this->summary,
                 'body' => $this->body,
-                'published_at' => $this->published_at,
-                'active' => $this->active,
+                'published_at' => $published_at,
                 'primary_image' => $primaryImage,
             ]);
         }

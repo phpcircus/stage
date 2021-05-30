@@ -37,7 +37,7 @@
                                 {{ $post->title }}
                             </td>
                             <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                {{ $post->published_at->format('m/d/Y h:i a') }}
+                                {{ $post->published_at ? $post->published_at->format('m/d/Y h:i a') : '' }}
                             </td>
                             <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                                 <span x-data="" x-on:click.prevent="$wire.emitTo('admin.posts.form', 'show', 'App\\\Models\\\Post', {{$post->id}})" class="text-indigo-600 cursor-pointer hover:text-indigo-900">Edit</span>

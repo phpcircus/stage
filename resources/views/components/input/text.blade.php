@@ -12,6 +12,6 @@
 
     <input type="text"
         {{ $attributes->merge([
-                'class' => 'border rounded-md flex-1 form-input border-cool-gray-300 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5' . ($leadingAddOn ? ' rounded-none rounded-r-md' : '')
+                'class' => 'border rounded-md flex-1 form-input border-gray-300 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5' . ($leadingAddOn ? ' rounded-none rounded-r-md' : '')
             ]) }} tabindex="0" />
 </div>

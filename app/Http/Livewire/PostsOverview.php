@@ -20,9 +20,9 @@ class PostsOverview extends Component
      */
     public function render()
     {
-        $featured = Post::active()->orderBy('published_at', 'desc')->first();
+        $featured = Post::published()->orderBy('published_at', 'desc')->first();
         if ($featured) {
-            $posts = Post::active()->where('id', '!=', $featured->id)->orderBy('published_at', 'desc')->paginate(8);
+            $posts = Post::published()->where('id', '!=', $featured->id)->orderBy('published_at', 'desc')->paginate(8);
         } else {
             $posts = null;
         }
