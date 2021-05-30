@@ -7,12 +7,14 @@ use App\Models\Traits\HasUuid;
 use App\Models\Traits\Slug\SlugOptions;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
     use HasFactory;
     use HasSlug;
     use HasUuid;
+    use Searchable;
 
     /** @var array */
     protected $casts = [
@@ -40,6 +42,16 @@ class Post extends Model
     }
 
     /**
+     * Determine if the model should be searchable.
+     *
+     * @return bool
+     */
+    public function shouldBeSearchable()
+    {
+        return $this->published_at !== null && $this->published_at <= now();
+    }
+
+    /**
      * A Post belongs to a User.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -60,10 +72,11 @@ class Post extends Model
     }
 
     /**
-     * Scope the current query to Posts that are active.
+     * Scope the current query to the Posts that are
+     * published on or before the current date.
      */
-    public function scopeActive(Builder $builder): Builder
+    public function scopePublished(Builder $builder): Builder
     {
-        return $builder->where('active', 1);
+        return $builder->whereNotNull('published_at')->where('published_at', '<=', now());
     }
 }

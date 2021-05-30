@@ -15,9 +15,6 @@
                     <x-input.group label="Body" for="body" :error="$errors->first('body')">
                         <x-input.rich-text wire:model.defer="body" id="body" />
                     </x-input.group>
-                    <x-input.group for="active" label="Active?" :error="$errors->first('active')">
-                        <x-input.checkbox wire:model="active" value="{{ $model->active }}" />
-                    </x-input.group>
                     <x-input.group label="Featured Image" for="image" :error="$errors->first('primaryImage')">
                         <x-input.file-upload wire:model="primaryImage" id="image">
                             <span class="overflow-hidden rounded-full">
