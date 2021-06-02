@@ -23,9 +23,16 @@ class DatabaseSeeder extends Seeder
             $admin = User::where('email', config('auth.admin.email'))->first();
         }
 
-        Post::factory(12)->has(Category::factory()->count(rand(1, 3)))
-        ->create([
+        Post::factory(12)->create([
             'user_id' => $admin->id,
         ]);
+
+        Category::factory(5)->create();
+
+        $posts = Post::latest()->take(3)->get();
+
+        foreach ($posts as $post) {
+            $post->categories()->attach([1, 2, 3]);
+        }
     }
 }

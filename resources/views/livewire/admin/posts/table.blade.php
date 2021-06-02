@@ -2,9 +2,11 @@
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
             <div id="posts-main-action-button" class="flex justify-end w-full mb-4">
-                <x-button.primary class="ml-auto" x-data="" x-on:click="window.livewire.emitTo('admin.posts.form', 'show', 'App\\\Models\\\Post')">
-                    New Post
-                </x-button.primary>
+                <a href="{{ route('admin.posts.new') }}">
+                    <x-button.primary class="ml-auto">
+                        New Post
+                    </x-button.primary>
+                </a>
             </div>
             <div class="mb-4 overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
                 <table id="posts-table" class="min-w-full divide-y divide-gray-200">
@@ -39,8 +41,10 @@
                             <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                 {{ $post->published_at ? $post->published_at->format('m/d/Y h:i a') : '' }}
                             </td>
-                            <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                <span x-data="" x-on:click.prevent="$wire.emitTo('admin.posts.form', 'show', 'App\\\Models\\\Post', {{$post->id}})" class="text-indigo-600 cursor-pointer hover:text-indigo-900">Edit</span>
+                            <td class="px-6 py-4 text-right">
+                                <a href="{{ route('admin.posts.edit', $post->slug) }}" class="w-full">
+                                    <span class="text-sm font-medium text-indigo-600 whitespace-nowrap">Edit</span>
+                                </a>
                             </td>
                         </tr>
                         @empty

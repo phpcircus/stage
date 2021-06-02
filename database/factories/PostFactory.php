@@ -31,7 +31,6 @@ class PostFactory extends Factory
             'title' => $title,
             'summary' => $this->faker->paragraph(3),
             'body' => $this->faker->paragraph(12),
-            'active' => 1,
             'published_at' => now()->subDays(rand(0, 5)),
             'uuid' => $uuid,
             'slug' => Str::slug($title) . '-' . $uuid->toString(),

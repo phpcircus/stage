@@ -10,10 +10,12 @@
     <div class="flex flex-col col-span-2">
         <div class="flex mb-2 space-x-2">
             @foreach($post->categories as $category)
-                <span
-                    class="inline-block py-0.5 px-2 mr-1 rounded bg-white text-gray-600 border border-gray-600 text-xs font-medium tracking-widest tag-wordpress">
-                    {{ $category->name }}
-                </span>
+                <a href="{{ route('posts', [ 'category' => $category->name ]) }}">
+                    <span
+                        class="inline-block py-0.5 px-2 mr-1 rounded bg-white text-gray-600 border border-gray-600 text-xs font-medium tracking-widest tag-wordpress">
+                        {{ $category->name }}
+                    </span>
+                </a>
             @endforeach
         </div>
         <p class="mb-4 text-xs italic text-gray-500">Published {{ $post->published_at->diffForHumans() }}</p>
