@@ -19,10 +19,10 @@
             }
         }
     }
-}" x-init="loadOptions()" class="flex space-x-4 space-y-6">
-
+}" x-init="loadOptions()" id="option-list" class="flex flex-wrap space-x-4 space-y-6">
+    <!--Options -->
     <template x-for="option in options">
-        <div x-on:click="toggleOption(option.id)" class="flex">
+        <div x-on:click="toggleOption(option.id)" class="flex" x-bind:id="option.name">
             <div class="w-6 h-6 mr-2 border-2 border-indigo-700" :class="{ 'bg-indigo-600': optionSelected(option.id) }">
                 <x-heroicon-o-check class="h-5 font-semibold text-white" x-cloak x-show="optionSelected(option.id)" />
             </div>
