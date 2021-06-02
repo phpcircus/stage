@@ -48,7 +48,7 @@ class Post extends Model
      */
     public function shouldBeSearchable()
     {
-        return $this->published_at !== null && $this->published_at <= now();
+        return null !== $this->published_at && $this->published_at <= now();
     }
 
     /**
