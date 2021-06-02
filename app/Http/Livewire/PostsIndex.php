@@ -76,38 +76,27 @@ class PostsIndex extends Component
     {
         $category = $this->category ? $this->category : request()->input('category');
 
-        if ($category && $category != 'all') {
+        if ($category && 'all' != $category) {
             $this->category = $category;
         } else {
             $this->category = '';
         }
+        $posts = Post::with('categories');
 
+        if ($this->category) {
+            $posts = $posts->whereHas('categories', function ($query) {
+                return $query->where('name', '=', $this->category);
+            });
+        }
         if ($this->search) {
-            $posts = Post::with('categories')->published()->orderBy('published_at', 'desc')
-                ->where('title', 'like', '%' . $this->search . '%')
-                ->orWhere('summary', 'like', '%' . $this->search . '%')
-                ->orWhere('body', 'like', '%' . $this->search . '%');
-
-            if ($this->category) {
-                $posts = $posts->whereHas('categories', function ($query) {
-                    return $query->where('name', $this->category);
-                })->paginate(10);
-            } else {
-                $posts = $posts->paginate(10);
-            }
-        } else {
-            $posts = Post::with('categories')->published()->orderBy('published_at', 'desc');
-
-            if ($this->category) {
-                $posts = $posts->whereHas('categories', function ($query) {
-                    return $query->where('name', $this->category);
-                })->paginate(10);
-            } else {
-                $posts = $posts->paginate(10);
-            }
+            $posts = $posts->where(function ($query) {
+                return $query->where('title', 'LIKE', '%'.$this->search.'%')
+                        ->orWhere('summary', 'LIKE', '%'.$this->search.'%')
+                        ->orWhere('body', 'LIKE', '%'.$this->search.'%');
+            });
         }
 
-        return $posts;
+        return $posts->published()->orderBy('published_at', 'desc')->paginate(10);
     }
 
     /**
