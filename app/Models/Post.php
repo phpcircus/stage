@@ -52,6 +52,18 @@ class Post extends Model
     }
 
     /**
+     * Modify the query used to retrieve models when making all of the models searchable.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    protected function makeAllSearchableUsing($query)
+    {
+        return $query->with('categories');
+    }
+
+    /**
      * A Post belongs to a User.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -68,7 +80,7 @@ class Post extends Model
      */
     public function categories()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class, 'category_post', 'post_id', 'category_id');
     }
 
     /**

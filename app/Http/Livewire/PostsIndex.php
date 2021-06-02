@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Category;
 use App\Models\Post;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -13,9 +14,13 @@ class PostsIndex extends Component
     /** @var string */
     public $search = '';
 
+    /** @var \App\Models\Category */
+    public $category;
+
     /** @var array */
     protected $queryString = [
         'search' => ['except' => ''],
+        'category' => ['except' => ''],
     ];
 
     /** @var string */
@@ -28,14 +33,11 @@ class PostsIndex extends Component
      */
     public function render()
     {
-        if ($this->search) {
-            $posts = Post::search($this->search)->paginate(10);
-        } else {
-            $posts = Post::published()->orderBy('published_at', 'desc')->paginate(10);
-        }
+        $posts = $this->search();
 
         return view('livewire.posts-index', [
             'posts' => $posts,
+            'categories' => Category::get(),
         ]);
     }
 
@@ -63,5 +65,57 @@ class PostsIndex extends Component
     {
         $this->setPage($this->page + 1);
         $this->dispatchBrowserEvent('paginationChanged');
+    }
+
+    /**
+     * Search for Posts.
+     *
+     * @return mixed
+     */
+    public function search()
+    {
+        $category = $this->category ? $this->category : request()->input('category');
+
+        if ($category && $category != 'all') {
+            $this->category = $category;
+        } else {
+            $this->category = '';
+        }
+
+        if ($this->search) {
+            $posts = Post::with('categories')->published()->orderBy('published_at', 'desc')
+                ->where('title', 'like', '%' . $this->search . '%')
+                ->orWhere('summary', 'like', '%' . $this->search . '%')
+                ->orWhere('body', 'like', '%' . $this->search . '%');
+
+            if ($this->category) {
+                $posts = $posts->whereHas('categories', function ($query) {
+                    return $query->where('name', $this->category);
+                })->paginate(10);
+            } else {
+                $posts = $posts->paginate(10);
+            }
+        } else {
+            $posts = Post::with('categories')->published()->orderBy('published_at', 'desc');
+
+            if ($this->category) {
+                $posts = $posts->whereHas('categories', function ($query) {
+                    return $query->where('name', $this->category);
+                })->paginate(10);
+            } else {
+                $posts = $posts->paginate(10);
+            }
+        }
+
+        return $posts;
+    }
+
+    /**
+     * Reset the search and category properties.
+     */
+    public function resetSearch(): void
+    {
+        $this->search = '';
+        $this->category = '';
     }
 }

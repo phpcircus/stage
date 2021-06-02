@@ -2,20 +2,25 @@
     <div class="flex w-full xl:w-1/2">
         <div class="flex flex-col w-full md:items-center md:flex-row">
             <div class="w-full mb-2 mr-4 md:w-2/3 md:mb-0">
-                <x-input.text wire:keydown.enter="$refresh" wire:model.defer="search" id="search">
+                <x-input.text wire:keydown.enter="search" wire:model.defer="search" id="search">
                     <x-slot name="leadingAddOn">
-                        <x-heroicon-o-search class="w-4 h-auto" />
+                        <x-input.select wire:model.defer="category" id="category" class="border-none focus:ring-0">
+                            <option wire:click="$set('category', '')" value="">All Categories</option>
+                            @foreach($categories as $category)
+                                <option wire:click="$set('category', {{$category->name}})">{{ $category->name }}</option>
+                            @endforeach
+                        </x-input.select>
                     </x-slot>
                 </x-input.text>
             </div>
             <div class="flex items-center w-full space-x-2 md:w-1/3">
                 <div class="w-1/2">
-                    <x-button.secondary wire:click="$refresh">
+                    <x-button.secondary wire:click="search">
                         Search
                     </x-button.secondary>
                 </div>
                 <div class="w-1/2">
-                    <x-button.link wire:click="$set('search', '')">
+                    <x-button.link wire:click="resetSearch">
                         Clear
                     </x-button.link>
                 </div>
@@ -31,6 +36,16 @@
                             <p class="text-2xl font-medium text-gray-800 whitespace-normal overflow-wrap">
                                 {{ $post->title }}
                             </p>
+                        </div>
+                        <div class="flex justify-start mb-2">
+                            @foreach($post->categories as $category)
+                                <a href="{{ route('posts', [ 'category' => $category->name ]) }}">
+                                    <span
+                                        class="inline-block py-0.5 px-2 mr-2 rounded bg-white text-gray-600 border border-gray-600 text-xs font-medium tracking-widest tag-wordpress">
+                                        {{ $category->name }}
+                                    </span>
+                                </a>
+                            @endforeach
                         </div>
                         <div class="flex flex-col items-center justify-between md:flex-row">
                             <div class="flex flex-col justify-between w-full mt-2 md:flex-row">
