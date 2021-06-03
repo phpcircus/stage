@@ -1,5 +1,5 @@
 <div>
-    <div class="mt-6 sm:mt-5">
+    <div class="flex flex-col mt-6 space-y-4 sm:mt-5">
         <x-input.group label="Title" for="title" :error="$errors->first('title')">
             <x-input.text wire:model="title" id="title" />
         </x-input.group>
@@ -9,9 +9,25 @@
         <x-input.group label="Body" for="body" :error="$errors->first('body')">
             <x-input.rich-text wire:model.defer="body" id="body" />
         </x-input.group>
-        <x-input.group label="Categories" for="categories" :error="$errors->first('categories')">
-            <x-input.multiselect wire:model.defer="selectedCategories" id="categories" :options="$categories" />
-        </x-input.group>
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-gray-200 sm:border-t sm:py-5">
+            <label for="categories" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+                Categories
+            </label>
+            <div class="mt-1 sm:mt-0 sm:col-span-2">
+                <div class="flex flex-wrap">
+                    @foreach($categories as $key => $category)
+                        <span wire:click="selectCategory({{ $key }})"
+                            class="px-2 py-1 mb-2 mr-2 font-semibold border-2 border-indigo-700 cursor-pointer rounded-lg {{ $categories[$key]['selected'] ? 'bg-indigo-600 text-white' : 'bg-transparent text-indigo-600' }}">
+                            {{ $category['name'] }}
+                        </span>
+                    @endforeach
+                </div>
+                <div class="flex items-center mt-4">
+                    <span class="mr-4 text-sm text-gray-600">New Category</span>
+                    <x-input.text wire:keydown.enter="addCategory" wire:model.defer="newCategory" id="new-category" />
+                </div>
+            </div>
+        </div>
         <x-input.group label="Featured Image" for="image" :error="$errors->first('primaryImage')">
             <x-input.file-upload wire:model="primaryImage" id="image">
                 <span class="overflow-hidden rounded-full">
