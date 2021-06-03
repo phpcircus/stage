@@ -117,6 +117,8 @@ class Form extends Modal
             $this->selectCategory($category->id);
 
             array_push($this->selectedCategories, $category->id);
+
+            $this->newCategory = '';
         }
     }
 
