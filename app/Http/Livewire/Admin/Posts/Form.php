@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin\Posts;
 use App\Http\Livewire\Components\Modal;
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Support\Collection;
 use Livewire\WithFileUploads;
 
 class Form extends Modal
@@ -41,6 +42,9 @@ class Form extends Modal
     /** @var array */
     public $selectedCategories = [];
 
+    /** @var string */
+    public $newCategory = '';
+
     /** @var array */
     protected $rules = [
         'title' => ['string', 'max:200'],
@@ -73,21 +77,75 @@ class Form extends Modal
 
         if ($this->updatingPost) {
             $this->setFields();
-            $this->categories = Category::get()->map(function ($category) {
-                return [
+        }
+
+        $this->categories = $this->initializeCategories();
+
+        if ($this->updatingPost) {
+            foreach ($this->categories as $category) {
+                if ($category['selected']) {
+                    array_push($this->selectedCategories, $category['id']);
+                }
+            }
+        }
+    }
+
+    /**
+     * Initialize the Categories.
+     */
+    public function initializeCategories(): Collection
+    {
+        return Category::get()->mapWithKeys(function ($category) {
+            return [
+                $category->id => [
                     'id' => $category->id,
                     'name' => $category->name,
                     'selected' => $this->post->categories->contains($category),
-                ];
-            });
-        } else {
-            $this->categories = Category::get()->map(function ($category) {
+                ],
+            ];
+        });
+    }
+
+    /**
+     * Add a new Category.
+     */
+    public function addCategory(): void
+    {
+        if ($this->newCategory) {
+            $category = Category::create(['name' => ucfirst($this->newCategory)]);
+            $this->categories = $this->initializeCategories();
+            $this->selectCategory($category->id);
+
+            array_push($this->selectedCategories, $category->id);
+        }
+    }
+
+    /**
+     * Select a category.
+     */
+    public function selectCategory($id): void
+    {
+        $this->categories = $this->categories->transform(function ($item, $key) use ($id) {
+            if ($key == $id) {
                 return [
-                    'id' => $category->id,
-                    'name' => $category->name,
-                    'selected' => false,
+                    'id' => $item['id'],
+                    'name' => $item['name'],
+                    'selected' => in_array($id, $this->selectedCategories) ? false : true,
                 ];
-            });
+            } else {
+                return [
+                    'id' => $item['id'],
+                    'name' => $item['name'],
+                    'selected' => $item['selected'],
+                ];
+            }
+        });
+
+        $index = array_search($id, $this->selectedCategories);
+        if ($index !== false) {
+            unset($this->selectedCategories[$index]);
+        } else {
+            array_push($this->selectedCategories, $id);
         }
     }
 
