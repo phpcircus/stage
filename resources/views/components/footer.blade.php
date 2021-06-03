@@ -23,17 +23,17 @@
                 </div>
                 <div class="flex flex-col">
                     <span class="mt-4 mb-2 font-bold text-gray-700 uppercase md:mt-0">Social Links</span>
-                    <span class="my-2">
+                    <span class="flex items-center justify-start my-2">
                         <a href="https://github.com/devcircus" target="_blank" class="flex font-semibold text-indigo-700 text-md hover:text-indigo-500 group">
                             <x-bxl-github class="w-4 mr-2 text-indigo-500 group-hover:text-indigo-300" /> Github
                         </a>
                     </span>
-                    <span class="my-2">
+                    <span class="flex items-center justify-start my-2">
                         <a href="https://twitter.com/devcircus" target="_blank" class="flex font-semibold text-indigo-700 text-md hover:text-indigo-500 group">
                             <x-bxl-twitter class="w-4 mr-2 text-indigo-500 group-hover:text-indigo-300" /> Twitter
                         </a>
                     </span>
-                    <span class="my-2">
+                    <span class="flex items-center justify-start my-2">
                         <a href="https://teamkimberlyn.com" target="_blank" class="flex items-center font-semibold text-indigo-700 text-md hover:text-indigo-500 group">
                             <x-bxs-heart class="w-4 mr-2 text-indigo-500 group-hover:text-indigo-300" /> Team Kimberlyn
                         </a>
