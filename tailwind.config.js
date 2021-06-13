@@ -19,7 +19,15 @@ module.exports = {
             },
             animation: {
                 'spin-stop': 'spin 1s ease-in-out 1',
-            }
+            },
+            scale: {
+               '10': '.10',
+               '25': '.25',
+            },
+            screens: {
+                'xxs': '280px',
+                'xs': '320px',
+            },
         },
     },
 
