@@ -4,7 +4,7 @@
             <!-- Overlay Background + Center Control -->
             <div class="flex justify-start h-20 md:h-40">
                 <div>
-                    <img src="/img/my_projects.png" class="w-auto h-16 ml-8 transition duration-1000 ease-in-out transform scale-125 lg:ml-0" />
+                    <img id="page-title" src="/img/my_projects.png" class="transition-transform duration-500 ease-out transform scale-100 h-18" />
                 </div>
             </div>
         </header>
@@ -12,4 +12,15 @@
 
         </div>
     </div>
+    @push('scripts')
+        <script>
+            var elem = document.getElementById('page-title');
+            elem.classList.remove('scale-100');
+            elem.classList.add('scale-105');
+            setTimeout(function(){
+                elem.classList.remove('scale-105');
+                elem.classList.add('scale-100');
+             }, 500);
+        </script>
+    @endpush
 </x-app-layout>

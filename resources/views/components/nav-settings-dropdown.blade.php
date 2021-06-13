@@ -1,7 +1,7 @@
-<div class="absolute top-[12px] lg:top-[20px] right-[60px] lg:right-[40px] xl:right-0 ml-auto">
-    <x-jet-dropdown align="right" width="48">
-        <x-slot name="trigger">
-            @auth
+<div class="absolute top-[12px] lg:top-[20px] right-[40px] xl:right-0 ml-auto">
+    @auth
+        <x-jet-dropdown align="right" width="48">
+            <x-slot name="trigger">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                     <button
                         class="flex text-sm transition border-2 border-red-500 rounded-full hover:border-red-500/25 focus:outline-none focus:border-gray-300">
@@ -23,16 +23,9 @@
                         </button>
                     </span>
                 @endif
-            @else
-                <span class="inline-flex rounded-md">
-                    <x-heroicon-o-user-circle
-                        class="w-12 h-12 text-gray-600 transition border-2 border-transparent rounded-full cursor-pointer hover:text-gray-400 hover:border-red-500/25 focus:outline-none focus:border-gray-300" />
-                </span>
-            @endauth
-        </x-slot>
+            </x-slot>
 
-        <x-slot name="content">
-            @auth
+            <x-slot name="content">
                 <!-- Account Management -->
                 <div class="block px-4 py-2 text-xs text-gray-400">
                     {{ __('Manage Account') }}
@@ -51,9 +44,7 @@
                 </x-jet-dropdown-link>
 
                 <div class="border-t border-gray-100"></div>
-            @endauth
 
-            @auth
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -63,11 +54,12 @@
                         {{ __('Log Out') }}
                     </x-jet-dropdown-link>
                 </form>
-            @else
-                <x-jet-dropdown-link href="{{ route('login') }}">
-                    {{ __('Log In') }}
-                </x-jet-dropdown-link>
-            @endauth
-        </x-slot>
-    </x-jet-dropdown>
+            </x-slot>
+        </x-jet-dropdown>
+    @else
+        <span class="hidden rounded-md xs:inline-flex">
+            <img src="/img/clay_cartoon.jpg" alt="Clayton Stone cartoon picture"
+            class="object-cover w-12 h-12 border-4 border-gray-800 rounded-full md:w-24 md:h-24">
+        </span>
+    @endauth
 </div>
