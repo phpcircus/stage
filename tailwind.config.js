@@ -17,6 +17,9 @@ module.exports = {
                 badhandwriting: ['bad_handwriting', ...defaultTheme.fontFamily.sans],
                 protogrotesk: ['Proto Grotesk Web', ...defaultTheme.fontFamily.sans],
             },
+            animation: {
+                'spin-stop': 'spin 1s ease-in-out 1',
+            }
         },
     },
 
