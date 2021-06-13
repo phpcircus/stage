@@ -8,9 +8,16 @@ use Livewire\WithPagination;
 
 class Table extends Component
 {
+    /** @var bool */
+    public $showDeleteConfirmation = false;
+
+    /** @var \App\Models\Post|null */
+    public $workingPost;
+
     /** @var array */
     protected $listeners = [
         'post-updated' => '$refresh',
+        'cancelModal',
     ];
 
     use WithPagination;
@@ -25,5 +32,36 @@ class Table extends Component
         return view('livewire.admin.posts.table', [
             'posts' => Post::latest()->paginate(10),
         ]);
+    }
+
+    /**
+     * Show the delete confirmation modal.
+     */
+    public function showDeleteConfirmation($id): void
+    {
+        if ($post = Post::where('uuid', $id)->first()) {
+            $this->workingPost = $post;
+            $this->showDeleteConfirmation = true;
+        }
+    }
+
+    /**
+     * Delete the post.
+     */
+    public function deletePost(): void
+    {
+        $this->workingPost->delete();
+        $this->showDeleteConfirmation = false;
+        $this->notify(['success', 'Success', 'Post successfully deleted!', 3000]);
+        $this->emitSelf('post-updated');
+    }
+
+    /**
+     * Cancel the modal.
+     */
+    public function cancelModal(): void
+    {
+        $this->workingPost = null;
+        $this->showDeleteConfirmation = false;
     }
 }

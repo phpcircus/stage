@@ -24,8 +24,8 @@
                                 class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                 Published
                             </th>
-                            <th scope="col" class="relative px-6 py-3">
-                                <span class="sr-only">Edit</span>
+                            <th scope="col" colspan="2" class="relative px-6 py-3">
+                                <span class="sr-only">Actions</span>
                             </th>
                         </tr>
                     </thead>
@@ -46,6 +46,9 @@
                                     <span class="text-sm font-medium text-indigo-600 whitespace-nowrap">Edit</span>
                                 </a>
                             </td>
+                            <td class="px-6 py-4 text-right">
+                                <x-heroicon-o-trash wire:click="showDeleteConfirmation('{{ $post->uuid }}')" class="w-5 text-red-500 cursor-pointer" />
+                            </td>
                         </tr>
                         @empty
                         <tr>
@@ -60,4 +63,21 @@
             {{ $posts->links() }}
         </div>
     </div>
+
+    <x-jet-dialog-modal wire:model="showDeleteConfirmation" component="admin.posts.table">
+        <x-slot name="title">
+            Delete Post
+        </x-slot>
+        <x-slot name="content">
+            Are you sure you want to delete this post?
+        </x-slot>
+        <x-slot name="footer">
+            <x-button.primary wire:click="deletePost()">
+                Delete Post
+            </x-button.primary>
+            <x-button.secondary wire:click="cancelModal()">
+                Cancel
+            </x-button.secondary>
+        </x-slot>
+    </x-jet-dialog-modal>
 </div>
