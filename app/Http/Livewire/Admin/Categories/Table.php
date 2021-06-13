@@ -16,6 +16,12 @@ class Table extends Component
     /** @var bool */
     public $showDeleteConfirmation = false;
 
+    /** @var array */
+    public $listeners = [
+        'category-updated' => '$refresh',
+        'cancelModal',
+    ];
+
     /**
      * Render the component.
      *
