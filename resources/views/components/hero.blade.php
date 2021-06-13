@@ -2,16 +2,7 @@
     <!-- Overlay Background + Center Control -->
     <div class="flex justify-start h-56 md:h-80">
         <div>
-            <div class="text-left transform -rotate-3 font-badhandwriting">
-                <h1 class="text-3xl font-semibold text-red-500 md:text-4xl lg:text-8xl">
-                    <span class="text-gray-800">I'm</span>
-                    Clay
-                </h1>
-                <h2 class="text-3xl font-semibold leading-tight text-red-500 md:text-4xl lg:text-7xl">
-                    <span class="text-gray-800">a Web Developer</span> who loves <div class="text-gray-800">Laravel, Livewire, Alpinejs</div> and
-                    <span class="text-gray-800">Tailwindcss</span>
-                </h2>
-            </div>
+            <img src="/img/home_hero.png" class="w-auto h-32 ml-8 transition duration-1000 ease-in-out transform scale-125 lg:ml-0 lg:h-48" />
         </div>
     </div>
 </header>
