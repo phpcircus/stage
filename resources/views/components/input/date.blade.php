@@ -15,5 +15,6 @@
         tabindex="0"
         x-ref="input"
         x-bind:value="value"
+        autocomplete="off"
         type="text" />
 </div>

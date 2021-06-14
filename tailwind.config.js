@@ -28,12 +28,20 @@ module.exports = {
                 'xxs': '280px',
                 'xs': '320px',
             },
+            inset: {
+                '70': '70px',
+                '-50': '-50px',
+                '10': '10px',
+            },
         },
     },
 
     variants: {
         extend: {
             opacity: ['disabled'],
+            flex: ['group-hover'],
+            animation: ['group-hover'],
+            translate: ['group-hover'],
         },
     },
 
