@@ -17,6 +17,8 @@
         <link rel="preload" as="image" href="/img/my_posts.png">
         <link rel="preload" as="image" href="/img/home_hero.png">
         <link rel="preload" as="image" href="/img/clay_kim.jpg">
+        <link rel="preload" as="image" href="/img/open.jpg">
+        <link rel="preload" as="image" href="/img/closed.jpg">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">

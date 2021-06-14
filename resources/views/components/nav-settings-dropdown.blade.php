@@ -53,9 +53,16 @@
             </x-slot>
         </x-jet-dropdown>
     @else
-        <span class="hidden rounded-md xs:inline-flex">
-            <img src="/img/clay_cartoon.jpg" alt="Clayton Stone cartoon picture"
-            class="object-cover w-12 h-12 border-4 border-gray-800 rounded-full md:w-24 md:h-24">
+        <span x-data="{ animate: false}" x-init="
+            setTimeout(function(){ $refs.image.src = '/img/open.jpg'; }, 1000);
+            setTimeout(function(){ $refs.image.src = '/img/closed.jpg'; }, 2000);
+            ">
+            <img
+                x-ref="image"
+                src="/img/closed.jpg"
+                alt="Clayton Stone cartoon picture"
+                class="object-cover w-12 h-12 border-4 border-gray-300 rounded-full shadow-inner md:w-28 md:h-28"
+            >
         </span>
     @endauth
 </div>
