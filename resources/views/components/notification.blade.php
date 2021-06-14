@@ -1,24 +1,15 @@
-<div x-data="{ fromSession: false, show: false, type: 'info', message: '', description: '', time: 3500 }" x-init="fromSession = '{{ session()->has('notify.message') }}';
-    if(fromSession) {
-        type = '{{ session()->get('notify.type') ?? 'info' }}';
-        message = '{{ session()->get('notify.title') ?? 'Notice' }}';
-        description = '{{ session()->get('notify.message') ?? 'Information' }}';
-        time = '2500';
-        show = true;
-        setTimeout(() => show = false, time);
-    }
-" x-on:notify.window="
-    type = $event.detail[0];
-    message = $event.detail[1];
-    description = $event.detail[2];
-    time = $event.detail[3];
-    show = true;
-    console.log($event);
-    setTimeout(() => show = false, time);
-" x-show="show" x-cloak x-description="Notification panel, show/hide based on alert state."
-    x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-90"
-    x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300"
-    x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90"
+<div x-data="notification()"
+    x-init="init()"
+    x-on:notify.window="setNotificationDetailsFromEvent($event)"
+    x-show="show"
+    x-cloak
+    x-description="Notification panel, show/hide based on alert state."
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0 transform scale-90"
+    x-transition:enter-end="opacity-100 transform scale-100"
+    x-transition:leave="transition ease-in duration-300"
+    x-transition:leave-start="opacity-100 transform scale-100"
+    x-transition:leave-end="opacity-0 transform scale-90"
     class="fixed z-50 w-full max-w-sm bg-white rounded-lg shadow-lg pointer-events-auto top-90 right-30">
     <div class="overflow-hidden rounded-lg shadow-xs">
         <div class="p-4">
@@ -50,7 +41,7 @@
                     </p>
                 </div>
                 <div class="flex flex-shrink-0 ml-4">
-                    <button x-on:click="show = false"
+                    <button x-on:click="hideNotification()"
                         class="inline-flex text-gray-400 transition duration-150 ease-in-out focus:outline-none focus:text-gray-500">
                         <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd"
@@ -62,4 +53,41 @@
             </div>
         </div>
     </div>
+
+    @push('scripts')
+        <script>
+            function notification() {
+                return {
+                    fromSession: false,
+                    show: false,
+                    type: 'info',
+                    message: '',
+                    description: '',
+                    time: 3500,
+                    init() {
+                        this.fromSession = '{{ session()->has('notify.message') }}';
+                        if(this.fromSession) {
+                            this.type = '{{ session()->get('notify.type') ?? 'info' }}';
+                            this.message = '{{ session()->get('notify.title') ?? 'Notice' }}';
+                            this.description = '{{ session()->get('notify.message') ?? 'Information' }}';
+                            this.time = '2500';
+                            this.show = true;
+                            setTimeout(() => this.show = false, this.time);
+                        }
+                    },
+                    hideNotification() {
+                        this.show = false;
+                    },
+                    setNotificationDetailsFromEvent(event) {
+                        this.type = event.detail[0];
+                        this.message = event.detail[1];
+                        this.description = event.detail[2];
+                        this.time = event.detail[3];
+                        this.show = true;
+                        setTimeout(() => this.show = false, this.time);
+                    },
+                }
+            }
+        </script>
+    @endpush
 </div>
