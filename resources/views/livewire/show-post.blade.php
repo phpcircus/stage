@@ -1,8 +1,4 @@
-<div x-data="{}" x-init="
-    document.querySelectorAll('pre').forEach((block) => {
-        hljs.highlightBlock(block);
-    });
-" class="py-12">
+<div x-data="highlight()" x-init="init()" class="py-12">
     <div class="px-6 mx-auto max-w-7xl lg:px-8">
         <div class="flex flex-col">
             <span class="mb-4 text-sm italic text-gray-600">Published {{ $post->published_at->format('m/d/Y') }}</span>
@@ -15,4 +11,18 @@
             <div class="trix-content">{!! $post->body !!}</div>
         </div>
     </div>
+
+    @push('scripts')
+        <script>
+            function highlight() {
+                return {
+                    init() {
+                        document.querySelectorAll('pre').forEach((block) => {
+                            hljs.highlightBlock(block);
+                        });
+                    }
+                }
+            }
+        </script>
+    @endpush
 </div>
