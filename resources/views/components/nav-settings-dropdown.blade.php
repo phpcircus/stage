@@ -26,30 +26,26 @@
             </x-slot>
 
             <x-slot name="content">
-                <!-- Account Management -->
-                <div class="block px-4 py-2 text-xs text-gray-400">
-                    {{ __('Manage Account') }}
-                </div>
-
-                <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                <x-jet-dropdown-link class="hover:bg-red-400 hover:text-white" href="{{ route('profile.show') }}">
                     {{ __('Profile') }}
                 </x-jet-dropdown-link>
+                <div class="mt-2 border-t border-gray-200"></div>
 
-                <x-jet-dropdown-link href="{{ route('admin.posts') }}">
+                <x-jet-dropdown-link class="hover:bg-red-400 hover:text-white" href="{{ route('admin.posts') }}">
                     {{ __('Posts') }}
                 </x-jet-dropdown-link>
 
-                <x-jet-dropdown-link href="{{ route('admin.categories') }}">
+                <x-jet-dropdown-link class="hover:bg-red-400 hover:text-white" href="{{ route('admin.categories') }}">
                     {{ __('Categories') }}
                 </x-jet-dropdown-link>
+                <div class="mt-2 border-t border-gray-200"></div>
 
-                <div class="border-t border-gray-100"></div>
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();
+                    <x-jet-dropdown-link class="hover:bg-red-400 hover:text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
                                     this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-jet-dropdown-link>
