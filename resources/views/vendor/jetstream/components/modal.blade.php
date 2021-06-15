@@ -36,12 +36,22 @@ $maxWidth = [
         prevFocusableIndex() { return Math.max(0, this.focusables().indexOf(document.activeElement)) -1 },
     }"
     x-init="$watch('show', value => {
+        var hasCancel = {{ json_encode($attributes->has('cancel')) }};
+        var hasComponent = {{ json_encode($attributes->has('component')) }};
+
         if (value) {
             document.body.classList.add('overflow-y-hidden');
         } else {
             document.body.classList.remove('overflow-y-hidden');
-            if({{ $attributes->has('component')}}) {
-                $wire.emitTo('{{ $attributes->get('component') }}', 'cancelModal');
+            if(hasComponent) {
+                var cancel;
+                if(hasCancel) {
+                    cancel = {{ json_encode($attributes->get('cancel')) }};
+                }else {
+                    cancel = 'cancelModal';
+                }
+
+                $wire.emitTo({{ json_encode($attributes->get('component')) }}, cancel);
             }
         }
     })"
