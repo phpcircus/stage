@@ -6,7 +6,7 @@
             </a>
 
             <!-- Main Navigation -->
-            <x-nav-main />
+            <livewire:navigation-main />
 
             <!-- Settings Dropdown -->
             <div>
@@ -27,7 +27,7 @@
             </div>
 
             <!-- Main Navigation -->
-            <x-nav-main />
+            <livewire:navigation-main />
 
         </div>
     </header>

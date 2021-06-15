@@ -40,9 +40,9 @@
                         </div>
                         <div class="flex flex-wrap justify-start mb-2">
                             @foreach($post->categories as $category)
-                                <a href="{{ route('posts', [ 'category' => $category->name ]) }}">
+                                <a href="{{ route('posts', [ 'category' => $category->name ]) }}" class="group">
                                     <span
-                                        class="inline-block py-0.5 px-2 mr-2 mb-2 rounded bg-white text-gray-600 border border-gray-600 text-xs font-medium tracking-widest tag-wordpress">
+                                        class="group-hover:bg-red-400 group-hover:text-white inline-block py-0.5 px-2 mr-2 mb-2 rounded bg-white text-gray-600 border border-gray-600 text-xs font-medium tracking-widest tag-wordpress">
                                         {{ $category->name }}
                                     </span>
                                 </a>

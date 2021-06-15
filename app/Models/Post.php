@@ -91,4 +91,12 @@ class Post extends Model
     {
         return $builder->whereNotNull('published_at')->where('published_at', '<=', now());
     }
+
+    /**
+     * Are there new posts from the last week?
+     */
+    public function hasNewPosts(): bool
+    {
+        return $this->where('published_at', '>=', now()->subDays(7)->startOfDay())->count() > 0;
+    }
 }
