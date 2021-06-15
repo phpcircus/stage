@@ -11,14 +11,14 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
         <link rel="manifest" href="/site.webmanifest">
 
-        <!-- Image preloads -->
-        <link rel="preload" as="image" href="/img/about_me.png">
-        <link rel="preload" as="image" href="/img/my_projects.png">
-        <link rel="preload" as="image" href="/img/my_posts.png">
-        <link rel="preload" as="image" href="/img/home_hero.png">
-        <link rel="preload" as="image" href="/img/clay_kim.jpg">
-        <link rel="preload" as="image" href="/img/open.jpg">
-        <link rel="preload" as="image" href="/img/closed.jpg">
+        <!-- Image prefetches -->
+        <link rel="prefetch" as="image" href="/img/about_me.png">
+        <link rel="prefetch" as="image" href="/img/my_projects.png">
+        <link rel="prefetch" as="image" href="/img/my_posts.png">
+        <link rel="prefetch" as="image" href="/img/home_hero.png">
+        <link rel="prefetch" as="image" href="/img/clay_kim.jpg">
+        <link rel="prefetch" as="image" href="/img/open.jpg">
+        <link rel="prefetch" as="image" href="/img/closed.jpg">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
