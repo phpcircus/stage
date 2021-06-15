@@ -1,5 +1,4 @@
-<div x-data="date()"
-    x-init="init($refs)"
+<div x-data="date"
     x-on:change="setValueOnChange($event)" class="flex w-full rounded-md shadow-sm lg:w-1/4">
     <span
         class="inline-flex items-center px-3 text-gray-500 border border-r-0 border-gray-300 rounded-l-md bg-gray-50 sm:text-sm">
@@ -13,25 +12,25 @@
             'class' => 'flex-1 block w-full p-2 transition duration-150 ease-in-out border border-l-0 border-gray-300 rounded-none rounded-r-md form-input sm:text-sm sm:leading-5'
         ]) }}
         tabindex="0"
-        x-ref="input"
         x-bind:value="value"
         autocomplete="off"
         type="text" />
 
     @push('scripts')
         <script>
-            function date() {
-                return {
+            document.addEventListener('alpine:initializing', () => {
+                Alpine.data('date', () => ({
                     value: @entangle($attributes->wire('model')),
                     picker: undefined,
-                    init(refs) {
-                        return new Pikaday({ field: refs.input, format: 'MM/DD/YYYY', onOpen() { this.setDate(refs.input.value) } });
+                    init() {
+                        const elem = document.querySelector('.date-field');
+                        return new Pikaday({ field: elem, format: 'MM/DD/YYYY', onOpen() { this.setDate(elem.value) } });
                     },
                     setValueOnChange(event) {
                         this.value = event.target.value;
                     },
-                }
-            }
+                }));
+            });
         </script>
     @endpush
 </div>
