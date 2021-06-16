@@ -42,7 +42,7 @@
             </x-input.file-upload>
         </x-input.group>
         <x-input.group for="published_at" label="Published Date" :error="$errors->first('published_at')">
-            <x-input.date class="date-field" wire:model="published_at" id="published_at" placeholder="MM/DD/YYYY" />
+            <x-input.date wire:model="published_at" id="published_at" placeholder="MM/DD/YYYY" />
         </x-input.group>
     </div>
     <div class="pt-5 mt-8 border-t border-gray-200">

@@ -9,9 +9,10 @@
     </span>
 
     <input {{ $attributes->whereDoesntStartWith('wire:model')->merge([
-            'class' => 'flex-1 block w-full p-2 transition duration-150 ease-in-out border border-l-0 border-gray-300 rounded-none rounded-r-md form-input sm:text-sm sm:leading-5'
-        ]) }}
+            "class" => "flex-1 block w-full p-2 transition duration-150 ease-in-out border border-l-0 border-gray-300 rounded-none rounded-r-md form-input sm:text-sm sm:leading-5",
+]) }}
         tabindex="0"
+        x-ref="field"
         x-bind:value="value"
         autocomplete="off"
         type="text" />
@@ -23,7 +24,7 @@
                     value: @entangle($attributes->wire('model')),
                     picker: undefined,
                     init() {
-                        const elem = document.querySelector('.date-field');
+                        const elem = this.$refs.field;
                         return new Pikaday({ field: elem, format: 'MM/DD/YYYY', onOpen() { this.setDate(elem.value) } });
                     },
                     setValueOnChange(event) {

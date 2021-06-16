@@ -1,5 +1,4 @@
-<div x-data="notification()"
-    x-init="init()"
+<div x-data="notification"
     x-on:notify.window="setNotificationDetailsFromEvent($event)"
     x-show="show"
     x-cloak
@@ -56,8 +55,8 @@
 
     @push('scripts')
         <script>
-            function notification() {
-                return {
+            document.addEventListener('alpine:initializing', function () {
+                Alpine.data('notification', () => ({
                     fromSession: false,
                     show: false,
                     type: 'info',
@@ -86,8 +85,8 @@
                         this.show = true;
                         setTimeout(() => this.show = false, this.time);
                     },
-                }
-            }
+                }));
+            });
         </script>
     @endpush
 </div>

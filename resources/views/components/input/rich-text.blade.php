@@ -14,6 +14,11 @@
                     init() {
                         this.setValue();
                         this.$watch('value', () => this.isFocused() && this.setValue());
+                        document.querySelectorAll('pre').forEach((el) => {
+                            this.$nextTick(() => {
+                                hljs.highlightElement(el);
+                            });
+                        });
                     },
                     setValueOnChange(event) {
                         this.value = event.target.value;
