@@ -53,10 +53,7 @@
             </x-slot>
         </x-jet-dropdown>
     @else
-        <span x-data="{ animate: false}" x-init="
-            setTimeout(function(){ $refs.image.src = '/img/open.jpg'; }, 1000);
-            setTimeout(function(){ $refs.image.src = '/img/closed.jpg'; }, 2000);
-            ">
+        <span x-data="dropdown">
             <img
                 x-ref="image"
                 src="/img/closed.jpg"
@@ -65,4 +62,19 @@
             >
         </span>
     @endauth
+
+    @push('scripts')
+        <script>
+            document.addEventListener('alpine:initializing', function () {
+                Alpine.data('dropdown', () => ({
+                    animate: false,
+                    init() {
+                        var elem = this.$refs.image;
+                        setTimeout(function(){ elem.src = '/img/open.jpg'; }, 1000);
+                        setTimeout(function(){ elem.src = '/img/closed.jpg'; }, 2000);
+                    }
+                }));
+            });
+        </script>
+    @endpush
 </div>
