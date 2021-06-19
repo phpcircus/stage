@@ -25,10 +25,8 @@
             document.addEventListener('alpine:initializing', function () {
                 Alpine.data('seen', () => ({
                     seen: localStorage.getItem('seen'),
-                    hasNew: null,
                     newest: null,
                     init () {
-                        this.hasNew = @json($hasNew);
                         this.newest = @json($newest);
                         localStorage.setItem('newest', this.newest);
                     },
