@@ -1,4 +1,4 @@
-<div>
+<div class="z-[100]">
     @auth
         <div class="absolute top-[12px] lg:top-[20px] right-[40px] xl:right-0 ml-auto">
             <x-jet-dropdown align="right" width="48">

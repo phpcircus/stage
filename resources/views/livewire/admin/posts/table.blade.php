@@ -14,10 +14,6 @@
                         <tr>
                             <th scope="col"
                                 class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                Date
-                            </th>
-                            <th scope="col"
-                                class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                 Title
                             </th>
                             <th scope="col"
@@ -32,14 +28,11 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                         @forelse($posts as $post)
                         <tr id="post_{{ $post->id }}">
-                            <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                {{ $post->created_at->format('m/d/Y h:i a') }}
-                            </td>
                             <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                                 {{ $post->title }}
                             </td>
                             <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                {{ $post->published_at ? $post->published_at->format('m/d/Y h:i a') : '' }}
+                                {{ $post->published_at ? $post->published_at->format('m/d/Y') : '' }}
                             </td>
                             <td class="px-6 py-4 text-right">
                                 <a href="{{ route('admin.posts.edit', $post->slug) }}" class="w-full">

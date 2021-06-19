@@ -1,4 +1,4 @@
-<footer class="relative pt-1 bg-gray-300 border-t-2 border-b-4 border-red-700 border-t-gray-400 footer">
+<footer class="relative z-0 pt-1 bg-gray-300 border-t-2 border-b-4 border-red-700 border-t-gray-400 footer">
     <div class="container px-6 mx-auto">
 
         <div class="sm:flex sm:mt-8">
