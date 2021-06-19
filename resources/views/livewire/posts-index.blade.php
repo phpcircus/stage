@@ -38,11 +38,11 @@
                                 {{ $post->title }}
                             </p>
                         </div>
-                        <div class="flex flex-wrap justify-start mb-2">
+                        <div class="flex flex-wrap justify-start mt-2 mb-2">
                             @foreach($post->categories as $category)
                                 <a href="{{ route('posts', [ 'category' => $category->name ]) }}" class="group">
                                     <span
-                                        class="group-hover:bg-red-400 group-hover:text-white inline-block py-0.5 px-2 mr-2 mb-2 rounded bg-white text-gray-600 border border-gray-600 text-xs font-medium tracking-widest tag-wordpress">
+                                        class="group-hover:bg-blue-400 group-hover:text-white group-hover:border-transparent inline-block pb-1 pt-1.5 px-2 mr-2 mb-2 rounded bg-white text-blue-400 border border-blue-400 text-xs font-semibold tracking-widest font-protogrotesk leading-4">
                                         {{ $category->name }}
                                     </span>
                                 </a>

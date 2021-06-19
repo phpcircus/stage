@@ -8,7 +8,7 @@
             <div class="flex justify-center w-full py-4 mx-auto mb-4">
                 <img alt="primary_post_image" src="{{ $post->primary_image }}" class="object-cover h-auto rounded-md shadow-md max-h-96">
             </div>
-            <div class="trix-content">{!! $post->body !!}</div>
+            <div class="!leading-relaxed trix-content first-letter:font-sans first-letter:text-2xl first-letter:text-gray-700 first-letter:bold">{!! $post->body !!}</div>
         </div>
     </div>
 

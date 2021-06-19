@@ -1,18 +1,19 @@
 @props([
     'post',
 ])
+
 <section class="col-span-6 p-8 overflow-hidden font-sans text-gray-600 shadow lg:grid lg:grid-cols-3 lg:gap-4 bg-white/25">
     <!-- Post Image -->
-    <div class="flex items-center justify-center col-span-1 mb-2 bg-blue-100 rounded-lg lg:mb-0">
+    <div class="flex items-center justify-center col-span-1 mb-4 bg-blue-100 rounded-lg lg:mb-0">
         <img src="{{ $post->primary_image }}" class="object-cover w-full h-auto rounded-lg shadow-md" />
     </div>
     <!-- Post Categories and timestamp -->
     <div class="flex flex-col col-span-2">
-        <div class="flex mb-2 space-x-2">
+        <div class="flex flex-wrap mb-2 space-x-2">
             @foreach($post->categories as $category)
                 <a href="{{ route('posts', [ 'category' => $category->name ]) }}" class="group">
                     <span
-                        class="group-hover:bg-red-400 group-hover:text-white inline-block py-0.5 px-2 mr-1 rounded bg-white text-gray-600 border border-gray-600 text-xs font-medium tracking-widest tag-wordpress">
+                        class="group-hover:bg-blue-400 group-hover:text-white group-hover:border-transparent inline-block pb-1 pt-1.5 px-2 mb-2 rounded bg-white text-blue-400 border border-blue-400 text-xs font-semibold tracking-widest font-protogrotesk leading-4">
                         {{ $category->name }}
                     </span>
                 </a>

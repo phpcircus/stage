@@ -20,4 +20,11 @@
   .trix-content ul li {
     @apply text-indigo-600 !important;
   }
+
+  blockquote {
+    @apply flex justify-start align-middle ml-0 !important;
+    @apply before:text-red-300 before:text-8xl before:content-['"'] before:font-protogrotesk;
+    @apply border-transparent border-0 !important;
+    @apply w-full lg:w-1/2 italic text-xl text-gray-500 font-protogrotesk leading-6;
+  }
 }

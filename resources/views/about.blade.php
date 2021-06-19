@@ -25,7 +25,7 @@
                     x-transition:enter-start="filter grayscale transform scale-0"
                     x-transition:enter-end="filter grayscale-0 transform scale-100" />
                 </div>
-                <p class="mt-8 font-sans text-xl text-gray-600">
+                <p class="mt-8 font-sans text-xl leading-relaxed text-gray-600 first-letter:font-badhandwriting first-letter:text-2xl first-letter:text-gray-700 first-letter:italic">
                     I've started this blog to track my experiences and to have a place to log what I'm learning. So this is more of a tool for me than anything else. However, maybe I'll write something that can be useful to others. Either way, I'm excited about what is to come.
                 </p>
             </div>
