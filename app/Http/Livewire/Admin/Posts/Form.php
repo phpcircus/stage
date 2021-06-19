@@ -100,7 +100,8 @@ class Form extends Modal
                 $category->id => [
                     'id' => $category->id,
                     'name' => $category->name,
-                    'selected' => $this->post->categories->contains($category),
+                    'selected' => $this->post->categories->contains($category)
+                        || in_array($category->id, $this->selectedCategories),
                 ],
             ];
         });
@@ -116,7 +117,7 @@ class Form extends Modal
             $this->categories = $this->initializeCategories();
             $this->selectCategory($category->id);
 
-            array_push($this->selectedCategories, $category->id);
+            // array_push($this->selectedCategories, $category->id);
 
             $this->newCategory = '';
         }
