@@ -35,7 +35,7 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body x-data x-cloak class="font-sans antialiased selection:bg-red-300"
+    <body x-data x-cloak class="font-sans antialiased bg-gray-200 selection:bg-red-300 dark:bg-gray-700"
         x-bind:class="$store.stage.darkMode ? 'dark' : ''">
         <x-jet-banner />
 
@@ -48,7 +48,7 @@
             </div>
 
             <!-- Page Content -->
-            <main class="mt-40 lg:mt-24">
+            <main class="mt-32 lg:mt-24">
                 {{ $slot }}
             </main>
 
