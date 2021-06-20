@@ -21,8 +21,12 @@
     @apply text-indigo-600 !important;
   }
 
+  .trix-content pre.hljs {
+    @apply rounded-lg p-2 bg-gray-100 !important;
+  }
+
   blockquote {
-    @apply flex justify-start align-middle ml-0 !important;
+    @apply text-gray-700 dark:text-gray-400 flex justify-start align-middle ml-0 !important;
     @apply before:text-red-300 before:text-8xl before:content-['"'] before:font-protogrotesk;
     @apply border-transparent border-0 !important;
     @apply w-full lg:w-1/2 italic text-xl text-gray-500 font-protogrotesk leading-6;

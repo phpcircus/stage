@@ -20,6 +20,7 @@
         "tailwindcss": "^2.2.0"
     },
     "dependencies": {
+        "@ryangjchandler/fern": "^0.1.0",
         "alpinejs": "^3.0.8"
     }
 }

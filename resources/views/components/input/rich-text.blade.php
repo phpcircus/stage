@@ -2,7 +2,7 @@
     x-on:trix-change="setValueOnChange($event)" {{ $attributes->whereDoesntStartWith('wire:model') }} wire:ignore>
     <input id="x" type="hidden" tabindex="0">
     <trix-editor id="trix" x-ref="trix" input="x" style="min-height: 350px;"
-        class="block w-full transition duration-150 ease-in-out trix-content form-textarea sm:text-sm sm:leading-5"></trix-editor>
+        class="block w-full transition duration-150 ease-in-out bg-white rounded-lg dark:bg-gray-100 trix-content form-textarea sm:text-sm sm:leading-5"></trix-editor>
 
     @push('scripts')
         <script>
