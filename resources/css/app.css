@@ -6,7 +6,7 @@
   [x-cloak] { display: none; }
 
   .trix-content h1 {
-    @apply text-gray-700 text-3xl uppercase mt-4 !important;
+    @apply text-gray-700 dark:text-gray-300 text-3xl uppercase mt-4 !important;
   }
 
   .trix-content a {
