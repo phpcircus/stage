@@ -1,4 +1,4 @@
-<div class="flex flex-col space-y-4">
+<div class="flex flex-col p-6 space-y-4 bg-white rounded-lg dark:bg-gray-800">
     <div class="flex w-full xl:w-1/2">
         <div class="flex flex-col w-full md:items-center md:flex-row">
             <div class="flex flex-col w-full mb-2 mr-4 space-y-2 md:mb-0">
@@ -17,10 +17,10 @@
                         </x-input.text>
                     </div>
                     <div class="flex w-full space-x-4 md:w-1/3 md:ml-2">
-                        <x-button.secondary wire:click="search">
+                        <x-button.secondary wire:click="search" x-cloak class="text-gray-800 bg-gray-200 border-gray-300 shadow hover:shadow-none hover:border-transparent hover:text-gray-400 dark:border-gray-300 dark:text-gray-300 dark:bg-gray-800 dark:hover:border-gray-400 dark:hover:text-gray-400">
                             Search
                         </x-button.secondary>
-                        <x-button.link wire:click="resetSearch" class="ml-auto">
+                        <x-button.link wire:click="resetSearch" class="ml-auto hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-400">
                             Clear
                         </x-button.link>
                     </div>
@@ -28,21 +28,24 @@
             </div>
         </div>
     </div>
-    <ul class="mb-2 font-sans divide-y divide-gray-200">
+    <ul class="pt-0 mb-2 font-sans divide-y-2 lg:pt-6 divide-gray-400/90 dark:divide-gray-400">
         @forelse($posts as $post)
-            <li>
+            <li class="pt-4 mb-4 first:pt-0">
                 <a href="{{ route('posts.show', $post->slug) }}" class="block">
                     <div class="pt-2 mb-4">
                         <div class="flex flex-col items-start justify-between mb-4 md:mb-0 md:items-center md:flex-row">
-                            <p class="text-2xl font-medium text-gray-800 whitespace-normal overflow-wrap">
+                            <p class="text-2xl font-medium text-gray-800 whitespace-normal overflow-wrap dark:text-gray-300">
                                 {{ $post->title }}
                             </p>
                         </div>
                         <div class="flex flex-wrap justify-start mt-2 mb-2">
                             @foreach($post->categories as $category)
                                 <a href="{{ route('posts', [ 'category' => $category->name ]) }}" class="group">
-                                    <span
-                                        class="group-hover:bg-blue-400 group-hover:text-white group-hover:border-transparent inline-block pb-1 pt-1.5 px-2 mr-2 mb-2 rounded bg-white text-blue-400 border border-blue-400 text-xs font-semibold tracking-widest font-protogrotesk leading-4">
+                                    <span class="inline-block pb-1 pt-1.5 px-2 mr-2 mb-2 rounded text-xs font-semibold
+                                        tracking-widest font-protogrotesk leading-4 bg-white text-gray-500 border
+                                        border-gray-400 group-hover:bg-gray-300 group-hover:border-transparent
+                                        dark:bg-white dark:text-gray-700 dark:border-gray-400 dark:group-hover:bg-gray-700
+                                        dark:group-hover:text-white dark:group-hover:border-transparent">
                                         {{ $category->name }}
                                     </span>
                                 </a>
@@ -50,7 +53,7 @@
                         </div>
                         <div class="flex flex-col items-center justify-between md:flex-row">
                             <div class="flex flex-col justify-between w-full mt-2 md:flex-row">
-                                <p class="w-4/5 mb-4 text-lg text-gray-500 whitespace-normal md:mb-0">
+                                <p class="w-4/5 mb-4 text-lg text-gray-600 whitespace-normal md:mb-0 dark:text-gray-400">
                                     {{ $post->summary }}
                                 </p>
                                 <p class="text-sm text-gray-500">Published <time>{{ $post->published_at->diffForHumans() }}</time></p>

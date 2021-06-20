@@ -1,23 +1,23 @@
-<div id="posts-table" class="flex flex-col">
+<div x-data id="posts-table" class="flex flex-col">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
             <div id="posts-main-action-button" class="flex justify-end w-full mb-4">
                 <a href="{{ route('admin.posts.new') }}">
-                    <x-button.primary class="ml-auto">
+                    <x-button.primary x-cloak class="ml-auto font-semibold dark:border-transparent dark:bg-gray-300 dark:text-indigo-600 dark:hover:text-gray-300 dark:hover:bg-indigo-600">
                         New Post
                     </x-button.primary>
                 </a>
             </div>
-            <div class="mb-4 overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+            <div class="mb-4 overflow-hidden border-b border-gray-200 shadow dark:border-gray-400 sm:rounded-lg">
                 <table id="posts-table" class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
+                    <thead class="bg-gray-50 dark:bg-gray-800">
                         <tr>
                             <th scope="col"
-                                class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase dark:text-gray-300">
                                 Title
                             </th>
                             <th scope="col"
-                                class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase dark:text-gray-300">
                                 Published
                             </th>
                             <th scope="col" colspan="2" class="relative px-6 py-3">
@@ -25,18 +25,18 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
+                    <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-400">
                         @forelse($posts as $post)
                         <tr id="post_{{ $post->id }}">
-                            <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                 {{ $post->title }}
                             </td>
-                            <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                 {{ $post->published_at ? $post->published_at->format('m/d/Y') : '' }}
                             </td>
                             <td class="px-6 py-4 text-right">
                                 <a href="{{ route('admin.posts.edit', $post->slug) }}" class="w-full">
-                                    <span class="text-sm font-medium text-indigo-600 whitespace-nowrap">Edit</span>
+                                    <span class="text-sm font-medium text-indigo-600 dark:text-indigo-300 whitespace-nowrap">Edit</span>
                                 </a>
                             </td>
                             <td class="px-6 py-4 text-right">

@@ -35,10 +35,11 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased selection:bg-red-300">
+    <body x-data class="font-sans antialiased selection:bg-red-300"
+        x-bind:class="$store.stage.darkMode ? 'dark' : ''">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div x-data class="min-h-screen bg-gray-200 dark:bg-gray-700">
             <x-navigation-menu-container />
 
             <!--Notification pop-up -->
@@ -47,7 +48,7 @@
             </div>
 
             <!-- Page Content -->
-            <main class="mt-48 lg:mt-24">
+            <main class="mt-40 lg:mt-24">
                 {{ $slot }}
             </main>
 

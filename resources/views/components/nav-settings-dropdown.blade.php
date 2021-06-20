@@ -61,7 +61,7 @@
                     x-ref="image"
                     src="/img/closed.jpg"
                     alt="Clayton Stone cartoon picture"
-                    class="object-cover w-12 h-12 border-4 border-gray-300 rounded-full shadow-inner md:w-24 md:h-24"
+                    class="object-cover w-12 h-12 border-4 border-gray-300 rounded-full shadow-inner md:w-24 md:h-24 dark:border-gray-500"
                 >
             </span>
         </div>

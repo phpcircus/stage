@@ -9,7 +9,7 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
-
+    darkMode: 'class',
     theme: {
         extend: {
             fontFamily: {
@@ -51,6 +51,7 @@ module.exports = {
             animation: ['group-hover'],
             translate: ['group-hover'],
             grayscale: ['hover', 'focus'],
+            space: ['first'],
         },
     },
 
