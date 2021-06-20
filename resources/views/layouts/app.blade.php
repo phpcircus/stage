@@ -35,7 +35,7 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body x-data class="font-sans antialiased selection:bg-red-300"
+    <body x-data x-cloak class="font-sans antialiased selection:bg-red-300"
         x-bind:class="$store.stage.darkMode ? 'dark' : ''">
         <x-jet-banner />
 
