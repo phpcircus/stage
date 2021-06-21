@@ -19,8 +19,4 @@
         class="text-gray-900 dark:text-white uppercase border-b-4 {{ request()->routeIs('*projects*') ? 'border-red-500' : 'border-red-500/25'  }} text-xs lg:text-lg transform hover:scale-125 inline-flex px-2 lg:px-3 py-1 mr-1 transition-colors duration-200 lg:mr-6 focus:outline-none">
         Projects
     </a>
-    <span x-cloak class="cursor-pointer" x-on:click="$store.stage.toggleTheme()">
-        <x-heroicon-o-moon x-cloak x-show="$store.stage.darkMode" class="w-5 ml-2 text-white"></x-heroicon-o-moon>
-        <x-heroicon-o-sun x-cloak x-show="! $store.stage.darkMode" class="w-5 ml-2 text-gray-900"></x-heroicon-o-sun>
-    </span>
 </nav>
