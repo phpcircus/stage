@@ -34,18 +34,15 @@
                 <a href="{{ route('posts.show', $post->slug) }}" class="block">
                     <div class="pt-2 mb-4">
                         <div class="flex flex-col items-start justify-between mb-4 md:mb-0 md:items-center md:flex-row">
-                            <p class="text-2xl font-medium text-gray-800 whitespace-normal overflow-wrap dark:text-gray-300">
+                            <p class="text-2xl font-bold text-gray-800 whitespace-normal overflow-wrap dark:text-gray-300">
                                 {{ $post->title }}
                             </p>
                         </div>
                         <div class="flex flex-wrap justify-start mt-2 mb-2">
                             @foreach($post->categories as $category)
                                 <a href="{{ route('posts', [ 'category' => $category->name ]) }}" class="group">
-                                    <span class="inline-block pb-1 pt-1.5 px-2 mr-2 mb-2 rounded text-xs font-semibold
-                                        tracking-widest font-protogrotesk leading-4 bg-white text-gray-500 border
-                                        border-gray-400 group-hover:bg-gray-300 group-hover:border-transparent
-                                        dark:bg-white dark:text-gray-700 dark:border-gray-400 dark:group-hover:bg-gray-700
-                                        dark:group-hover:text-white dark:group-hover:border-transparent">
+                                    <span class="inline-block pb-1 pt-1.5 mr-3 mb-2 text-xl font-medium font-script leading-4 text-gray-700
+                                        hover:text-red-500 dark:text-gray-500 dark:hover:text-red-400/[.75]">
                                         {{ $category->name }}
                                     </span>
                                 </a>
