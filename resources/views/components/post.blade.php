@@ -20,10 +20,8 @@
             @foreach($post->categories as $category)
                 <a href="{{ route('posts', [ 'category' => $category->name ]) }}" class="group">
                     <span
-                        class="inline-block pb-1 pt-1.5 px-2 mb-2 rounded text-xs font-semibold tracking-widest font-protogrotesk
-                            leading-4 bg-white text-gray-500 border border-gray-300 group-hover:bg-gray-300
-                            group-hover:border-transparent dark:bg-white dark:text-gray-700 dark:border-gray-400
-                            dark:group-hover:bg-gray-700 dark:group-hover:text-white dark:group-hover:border-transparent">
+                        class="inline-block pb-1 pt-1.5 mb-2 text-xl font-medium
+                        font-script leading-4 text-gray-700 hover:text-red-500 dark:text-gray-500 dark:hover:text-red-400/[.75]">
                         {{ $category->name }}
                     </span>
                 </a>
@@ -32,7 +30,7 @@
         <p class="text-xs italic text-gray-500">Published {{ $post->published_at->diffForHumans() }}</p>
         <div class="my-2">
             <a href="{{ route('posts.show', $post->slug) }}"
-                class="inline-block text-2xl font-medium text-gray-900 hover:underline title-font dark:text-gray-300">
+                class="inline-block text-2xl font-bold text-gray-800 hover:underline title-font dark:text-gray-300">
                 {{ $post->title }}
             </a>
         </div>

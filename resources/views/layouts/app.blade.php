@@ -29,13 +29,15 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
         <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@1.3.1/dist/trix.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/default.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
         @livewireStyles
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body x-data x-cloak class="font-sans antialiased bg-gray-200 selection:bg-red-300 dark:bg-gray-700"
+    <body x-data x-cloak class="font-sans antialiased bg-gray-200 selection:bg-red-300 selection:text-white dark:bg-gray-700"
         x-bind:class="$store.stage.darkMode ? 'dark' : ''">
         <x-jet-banner />
 
