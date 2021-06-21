@@ -12,8 +12,8 @@
             <!-- Settings Dropdown -->
             <div class="flex items-center ml-auto">
                 <div x-cloak class="mr-4 cursor-pointer" x-on:click="$store.stage.toggleTheme()">
-                    <x-heroicon-o-moon x-cloak x-show="$store.stage.darkMode" class="w-5 text-white"></x-heroicon-o-moon>
-                    <x-heroicon-o-sun x-cloak x-show="! $store.stage.darkMode" class="w-5 text-gray-900"></x-heroicon-o-sun>
+                    <x-heroicon-o-moon x-cloak x-show="$store.stage.darkMode" class="w-8 text-white"></x-heroicon-o-moon>
+                    <x-heroicon-o-sun x-cloak x-show="! $store.stage.darkMode" class="w-8 text-gray-900"></x-heroicon-o-sun>
                 </div>
                 <x-nav-settings-dropdown />
             </div>
@@ -29,8 +29,8 @@
                 <!-- Settings Dropdown -->
                 <div class="flex items-center ml-auto">
                     <div x-cloak class="mr-4 cursor-pointer" x-on:click="$store.stage.toggleTheme()">
-                        <x-heroicon-o-moon x-cloak x-show="$store.stage.darkMode" class="w-5 text-white"></x-heroicon-o-moon>
-                        <x-heroicon-o-sun x-cloak x-show="! $store.stage.darkMode" class="w-5 text-gray-900"></x-heroicon-o-sun>
+                        <x-heroicon-o-moon x-cloak x-show="$store.stage.darkMode" class="w-6 text-white"></x-heroicon-o-moon>
+                        <x-heroicon-o-sun x-cloak x-show="! $store.stage.darkMode" class="w-6 text-gray-900"></x-heroicon-o-sun>
                     </div>
                     <x-nav-settings-dropdown />
                 </div>
