@@ -9,6 +9,10 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
+    safelist: [
+        'trix-toolbar-1',
+        'trix-button',
+    ],
     darkMode: 'class',
     theme: {
         extend: {

@@ -2,7 +2,7 @@
     x-on:trix-change="setValueOnChange($event)" {{ $attributes->whereDoesntStartWith('wire:model') }} wire:ignore>
     <input id="x" type="hidden" tabindex="0">
     <trix-editor id="trix" x-ref="trix" input="x" style="min-height: 350px;"
-        class="block w-full transition duration-150 ease-in-out bg-white rounded-lg dark:bg-gray-100 trix-content form-textarea sm:text-sm sm:leading-5"></trix-editor>
+        class="block w-full transition duration-150 ease-in-out bg-[#FEFFFE] rounded-lg trix-content form-textarea sm:text-sm sm:leading-5 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:ring-indigo-300"></trix-editor>
 
     @push('scripts')
         <script>
@@ -19,6 +19,11 @@
                         document.querySelectorAll('pre').forEach((el) => {
                             this.$nextTick(() => {
                                 hljs.highlightElement(el);
+                            });
+                        });
+                        document.addEventListener("trix-initialize", (event) => {
+                            document.querySelectorAll('trix-toolbar .trix-button').forEach((el) => {
+                                el.style.backgroundColor = '#FEFFFE';
                             });
                         });
                     },
