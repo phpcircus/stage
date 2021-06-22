@@ -3,7 +3,7 @@
         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
             <div id="posts-main-action-button" class="flex justify-end w-full mb-4">
                 <a href="{{ route('admin.posts.new') }}">
-                    <x-button.primary x-cloak class="ml-auto font-semibold dark:border-transparent dark:bg-gray-300 dark:text-indigo-600 dark:hover:text-gray-300 dark:hover:bg-indigo-600">
+                    <x-button.primary x-cloak>
                         New Post
                     </x-button.primary>
                 </a>

@@ -1,7 +1,7 @@
 <div>
     <div class="flex flex-col mt-6 space-y-4 sm:mt-5">
         <x-input.group label="Title" for="title" :error="$errors->first('title')">
-            <x-input.text wire:model="title" id="title" />
+            <x-input.text wire:model="title" id="title" autocomplete="off" />
         </x-input.group>
         <x-input.group label="Summary" for="summary" :error="$errors->first('summary')">
             <x-input.textarea wire:model="summary" id="summary" />
@@ -15,15 +15,19 @@
             </label>
             <div class="mt-1 sm:mt-0 sm:col-span-2">
                 <div class="flex flex-wrap">
-                    @foreach($categories as $key => $category)
+                    @forelse($categories as $key => $category)
                         <span wire:click="selectCategory({{ $key }})"
                             class="px-2 py-1 mb-2 mr-2 font-semibold border-2 border-indigo-700 dark:border-indigo-400 cursor-pointer rounded-lg {{ $categories[$key]['selected'] ? 'bg-indigo-600 text-white dark:bg-indigo-400' : 'bg-transparent text-indigo-600 dark:text-indigo-400' }}">
                             {{ $category['name'] }}
                         </span>
-                    @endforeach
+                    @empty
+                    <span class="px-2 py-1 mb-2 mr-2 text-lg font-semibold text-gray-700">
+                        No categories found
+                    </span>
+                    @endforelse
                 </div>
                 <div class="flex items-center mt-4">
-                    <span class="mr-4 text-sm text-gray-600 dark:text-gray-400">New Category</span>
+                    <span class="mr-4 text-xs text-gray-600 uppercase dark:text-gray-400">Add Category</span>
                     <x-input.text wire:keydown.enter="addCategory" wire:model.defer="newCategory" id="new-category" />
                 </div>
             </div>
@@ -42,7 +46,7 @@
             </x-input.file-upload>
         </x-input.group>
         <x-input.group for="published_at" label="Published Date" :error="$errors->first('published_at')">
-            <x-input.date wire:model="published_at" id="published_at" placeholder="MM/DD/YYYY" />
+            <x-input.date wire:model="published_at" id="published_at" placeholder="MM/DD/YYYY" class="bg-origin-border" />
         </x-input.group>
     </div>
     <div class="pt-5 mt-8 border-t border-gray-200">

@@ -9,8 +9,9 @@
     </span>
 
     <input {{ $attributes->whereDoesntStartWith('wire:model')->merge([
-            "class" => "flex-1 block w-full p-2 transition duration-150 ease-in-out border border-l-0 border-gray-300 rounded-none rounded-r-md form-input sm:text-sm sm:leading-5",
-]) }}
+        "class" => "flex-1 block w-full p-2 transition duration-150 ease-in-out border border-l-0 border-gray-300 rounded-none rounded-r-md form-input
+            sm:text-sm sm:leading-5 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:ring-indigo-300",
+    ]) }}
         tabindex="0"
         x-ref="field"
         x-bind:value="value"
