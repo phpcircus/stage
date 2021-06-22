@@ -21,6 +21,8 @@ module.exports = {
                 badhandwriting: ['bad_handwriting', ...defaultTheme.fontFamily.sans],
                 protogrotesk: ['Proto Grotesk Web', ...defaultTheme.fontFamily.sans],
                 script: ['Shadows Into Light', 'cursive', ...defaultTheme.fontFamily.sans],
+                coda: ['Coda', ...defaultTheme.fontFamily.sans],
+                oxygen: ['Oxygen', ...defaultTheme.fontFamily.sans],
             },
             animation: {
                 'spin-stop': 'spin 1s ease-in-out 1',
@@ -74,6 +76,7 @@ module.exports = {
             translate: ['group-hover'],
             grayscale: ['hover', 'focus'],
             space: ['first'],
+            margin: ['first'],
         },
     },
 

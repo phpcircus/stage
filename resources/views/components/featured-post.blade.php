@@ -2,21 +2,26 @@
     'post',
 ])
 
-<section class="col-span-6 p-8 mb-2 overflow-hidden font-sans text-gray-600 bg-gray-100 rounded-lg shadow lg:grid lg:grid-cols-3 lg:gap-4 dark:bg-gray-800 dark:text-gray-200">
+<section class="col-span-6 p-8 mb-2 overflow-hidden text-gray-600 bg-gray-100 rounded-lg shadow font-sans lg:grid lg:grid-cols-3 lg:gap-4 dark:bg-gray-800 dark:text-gray-200">
     <!-- Post Image -->
     <div class="flex items-center justify-center col-span-1 mb-4 bg-blue-100 rounded-lg lg:mb-0">
         <img src="{{ $post->primary_image }}" class="object-cover w-full h-auto rounded-lg shadow-md" />
     </div>
     <!-- Post Categories and timestamp -->
     <div class="flex flex-col col-span-2">
-        <div class="flex flex-wrap mb-2 space-x-3">
+        <div class="flex flex-wrap mb-2 space-x-2">
             @foreach($post->categories as $category)
-                <a href="{{ route('posts', [ 'category' => $category->name ]) }}" class="group">
-                    <span class="inline-block pb-1 pt-1.5 mb-2 text-xl font-medium
-                        font-script leading-4 text-gray-700 hover:text-red-500 dark:text-gray-500 dark:hover:text-red-400/[.75]">
-                        {{ $category->name }}
-                    </span>
-                </a>
+                <div class="flex">
+                    <a href="{{ route('posts', [ 'category' => $category->name ]) }}">
+                        <span class="inline-block pb-1 pt-1.5 mb-2 text-sm font-coda leading-4 text-gray-700 border-b-2 border-transparent
+                            hover:text-red-500 dark:text-gray-500 dark:hover:text-red-400/[.75]">
+                            {{ $category->name }}
+                        </span>
+                    </a>
+                    @if(! $loop->last)
+                        <span class="text-red-400 dark:text-red-400/[.75] ml-2">/</span>
+                    @endif
+                </div>
             @endforeach
         </div>
         <p class="mb-4 text-xs italic text-gray-500">Published {{ $post->published_at->diffForHumans() }}</p>

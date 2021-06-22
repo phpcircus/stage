@@ -18,13 +18,17 @@
         </div>
         <div class="flex flex-wrap mb-2 space-x-2">
             @foreach($post->categories as $category)
-                <a href="{{ route('posts', [ 'category' => $category->name ]) }}" class="group">
-                    <span
-                        class="inline-block pb-1 pt-1.5 mb-2 text-xl font-medium
-                        font-script leading-4 text-gray-700 hover:text-red-500 dark:text-gray-500 dark:hover:text-red-400/[.75]">
-                        {{ $category->name }}
-                    </span>
-                </a>
+                <div class="flex">
+                    <a href="{{ route('posts', [ 'category' => $category->name ]) }}">
+                        <span class="inline-block pb-1 pt-1.5 mb-2 text-sm font-coda leading-4 text-gray-700 border-b-2 border-transparent
+                            hover:text-red-500 dark:text-gray-500 dark:hover:text-red-400/[.75]">
+                            {{ $category->name }}
+                        </span>
+                    </a>
+                    @if(! $loop->last)
+                        <span class="text-red-400 dark:text-red-400/[.75] ml-2">/</span>
+                    @endif
+                </div>
             @endforeach
         </div>
         <p class="text-xs italic text-gray-500">Published {{ $post->published_at->diffForHumans() }}</p>

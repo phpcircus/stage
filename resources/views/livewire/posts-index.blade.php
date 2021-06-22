@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <ul class="pt-0 mb-2 font-sans divide-y-2 lg:pt-6 divide-gray-400/90 dark:divide-gray-400">
+    <ul class="pt-0 mb-2 divide-y-2 font-sans lg:pt-6 divide-gray-400/90 dark:divide-gray-400">
         @forelse($posts as $post)
             <li class="pt-4 mb-4 first:pt-0">
                 <a href="{{ route('posts.show', $post->slug) }}" class="block">
@@ -38,14 +38,19 @@
                                 {{ $post->title }}
                             </p>
                         </div>
-                        <div class="flex flex-wrap justify-start mt-2 mb-2">
+                        <div class="flex flex-wrap mb-2 space-x-2">
                             @foreach($post->categories as $category)
-                                <a href="{{ route('posts', [ 'category' => $category->name ]) }}" class="group">
-                                    <span class="inline-block pb-1 pt-1.5 mr-3 mb-2 text-xl font-medium font-script leading-4 text-gray-700
-                                        hover:text-red-500 dark:text-gray-500 dark:hover:text-red-400/[.75]">
-                                        {{ $category->name }}
-                                    </span>
-                                </a>
+                                <div class="flex {{ $loop->first ? '!-ml-0' : '' }}">
+                                    <a href="{{ route('posts', [ 'category' => $category->name ]) }}">
+                                        <span class="inline-block pb-1 pt-1.5 mb-2 text-sm font-coda leading-4 text-gray-700 border-b-2 border-transparent
+                                            hover:text-red-500 dark:text-gray-500 dark:hover:text-red-400/[.75]">
+                                            {{ $category->name }}
+                                        </span>
+                                    </a>
+                                    @if(! $loop->last)
+                                        <span class="text-red-400 dark:text-red-400/[.75] ml-2">/</span>
+                                    @endif
+                                </div>
                             @endforeach
                         </div>
                         <div class="flex flex-col items-center justify-between md:flex-row">
