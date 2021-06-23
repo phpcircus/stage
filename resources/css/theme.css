@@ -1,0 +1,25 @@
+:root {
+    ---color-text-base: 31, 41, 55;
+    ---color-text-inverted: 255, 255, 255;
+    ---color-text-muted: 107, 114, 128;
+    ---color-text-base-secondary: 75, 85, 99;
+    ---color-text-inverted-secondary: 229, 231, 235;
+    ---color-text-muted-secondary: 209, 213, 219;
+    ---color-fill: 242, 244, 247;
+    ---color-button-accent: 79, 70, 229;
+    ---color-button-accent-hover: 98, 103, 241;
+    ---color-button-muted: 242, 244, 247;
+}
+
+.dark {
+    ---color-text-base: 209, 213, 219;
+    ---color-text-inverted: 17, 24, 39;
+    ---color-text-muted: 107, 114, 128;
+    ---color-text-base-secondary: 229, 231, 235;
+    ---color-text-inverted-secondary: 229, 231, 235;
+    ---color-text-muted-secondary: 156, 163, 175;
+    ---color-fill: 31, 41, 55;
+    ---color-button-accent: 129, 140, 248;
+    ---color-button-accent-hover: 165, 180, 252;
+    ---color-button-muted: 31, 41, 55;
+}

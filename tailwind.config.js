@@ -1,6 +1,15 @@
 const tailwindcss = require('tailwindcss');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
+function withOpacity(variableName) {
+    return ({ opacityValue }) => {
+        if (opacityValue !== undefined) {
+            return `rgba(var(${variableName}), ${opacityValue})`;
+        }
+        return `rgb(var(${variableName}))`;
+    }
+}
+
 module.exports = {
     mode: 'jit',
     purge: [
@@ -63,6 +72,29 @@ module.exports = {
                     '100%': {
                         transform: "translate(0px, 0px) scaleY(1) scaleX(1)",
                     },
+                },
+            },
+            textColor: {
+                skin: {
+                    base: withOpacity('---color-text-base'),
+                    inverted: withOpacity('---color-text-inverted'),
+                    muted: withOpacity('---color-text-muted'),
+                    'base-secondary': withOpacity('---color-text-base-secondary'),
+                    'inverted-secondary': withOpacity('---color-text-inverted-secondary'),
+                    'muted-secondary': withOpacity('---color-text-muted-secondary'),
+                },
+            },
+            backgroundColor: {
+                skin: {
+                    fill: withOpacity('---color-fill'),
+                    'button-accent': withOpacity('---color-button-accent'),
+                    'button-accent-hover': withOpacity('---color-button-accent-hover'),
+                    muted: withOpacity('---color-muted'),
+                },
+            },
+            gradientColorStops: {
+                skin: {
+                    hue: withOpacity('---color-fill'),
                 },
             },
         },
