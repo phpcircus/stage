@@ -22,9 +22,9 @@
 
         <!-- Fonts -->
         @googlefonts("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap")
-        @googlefonts("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
-        @googlefonts("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
-        @googlefonts("https://fonts.googleapis.com/css2?family=Coda:wght@400;800&display=swap");
+        @googlefonts("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap")
+        @googlefonts("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap")
+        @googlefonts("https://fonts.googleapis.com/css2?family=Coda:wght@400;800&display=swap")
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -38,12 +38,12 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body x-data x-cloak class="font-sans antialiased bg-gray-200 selection:bg-red-300 selection:text-white dark:bg-gray-700"
+    <body x-data x-cloak class="font-sans antialiased bg-skin-fill-core selection:bg-red-300 selection:text-white"
         x-bind:class="$store.stage.darkMode ? 'dark' : ''">
         <x-jet-banner />
 
-        <div x-data class="min-h-screen bg-gray-200 dark:bg-gray-700">
-            <x-navigation-menu-container />
+        <div x-data class="min-h-screen bg-skin-fill-core">
+            <livewire:nav-menu-main />
 
             <!--Notification pop-up -->
             <div class="flex justify-end w-full x-cloak">
@@ -51,7 +51,7 @@
             </div>
 
             <!-- Page Content -->
-            <main class="mt-24">
+            <main class="mt-8">
                 {{ $slot }}
             </main>
 

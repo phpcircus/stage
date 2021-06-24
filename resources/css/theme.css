@@ -1,25 +1,27 @@
 :root {
-    ---color-text-base: 31, 41, 55;
-    ---color-text-inverted: 255, 255, 255;
+    ---color-text-base: 75, 85, 99;
+    ---color-text-quiet: 55, 65, 81;
     ---color-text-muted: 107, 114, 128;
-    ---color-text-base-secondary: 75, 85, 99;
-    ---color-text-inverted-secondary: 229, 231, 235;
-    ---color-text-muted-secondary: 209, 213, 219;
-    ---color-fill: 242, 244, 247;
-    ---color-button-accent: 79, 70, 229;
-    ---color-button-accent-hover: 98, 103, 241;
-    ---color-button-muted: 242, 244, 247;
+    ---color-text-loud: 31, 41, 55;
+    ---color-text-extreme: 255, 255, 255;
+    ---color-text-base-inverted: 17, 24, 39;
+    ---color-text-loud-inverted: 255, 255, 255;
+    ---color-fill-core: 229, 231, 235;
+    ---color-fill-mantle: 243, 244, 246;
+    ---color-fill-crust: 255, 255, 255;
+    ---color-fill-extreme: 0, 0, 0;
 }
 
 .dark {
     ---color-text-base: 209, 213, 219;
-    ---color-text-inverted: 17, 24, 39;
+    ---color-text-quiet: 156, 163, 175;
     ---color-text-muted: 107, 114, 128;
-    ---color-text-base-secondary: 229, 231, 235;
-    ---color-text-inverted-secondary: 229, 231, 235;
-    ---color-text-muted-secondary: 156, 163, 175;
-    ---color-fill: 31, 41, 55;
-    ---color-button-accent: 129, 140, 248;
-    ---color-button-accent-hover: 165, 180, 252;
-    ---color-button-muted: 31, 41, 55;
+    ---color-text-loud: 229, 231, 235;
+    ---color-text-extreme: 0, 0, 0;
+    ---color-text-base-inverted: 55, 65, 81;
+    ---color-text-loud-inverted: 0, 0, 0;
+    ---color-fill-core: 55, 65, 81;
+    ---color-fill-mantle: 31, 41, 55;
+    ---color-fill-crust: 17, 24, 39;
+    ---color-fill-extreme: 255, 255, 255;
 }
