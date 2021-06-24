@@ -30,3 +30,11 @@
     font-weight: bold;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Blade Runner';
+    src: url('../fonts/blade_runner.woff2') format('woff2'),
+         url('../fonts/blade_runner.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

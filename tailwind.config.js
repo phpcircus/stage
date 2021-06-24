@@ -32,6 +32,7 @@ module.exports = {
                 script: ['Shadows Into Light', 'cursive', ...defaultTheme.fontFamily.sans],
                 coda: ['Coda', ...defaultTheme.fontFamily.sans],
                 oxygen: ['Oxygen', ...defaultTheme.fontFamily.sans],
+                blade: ['Blade Runner', ...defaultTheme.fontFamily.sans],
             },
             animation: {
                 'spin-stop': 'spin 1s ease-in-out 1',
@@ -77,24 +78,28 @@ module.exports = {
             textColor: {
                 skin: {
                     base: withOpacity('---color-text-base'),
-                    inverted: withOpacity('---color-text-inverted'),
+                    quiet: withOpacity('---color-text-quiet'),
                     muted: withOpacity('---color-text-muted'),
-                    'base-secondary': withOpacity('---color-text-base-secondary'),
-                    'inverted-secondary': withOpacity('---color-text-inverted-secondary'),
-                    'muted-secondary': withOpacity('---color-text-muted-secondary'),
+                    loud: withOpacity('---color-text-loud'),
+                    extreme: withOpacity('---color-text-extreme'),
+                    'loud-inverted': withOpacity('---color-text-loud-inverted'),
+                    'base-inverted': withOpacity('---color-text-base-inverted'),
                 },
             },
             backgroundColor: {
                 skin: {
-                    fill: withOpacity('---color-fill'),
-                    'button-accent': withOpacity('---color-button-accent'),
-                    'button-accent-hover': withOpacity('---color-button-accent-hover'),
-                    muted: withOpacity('---color-muted'),
+                    'fill-core': withOpacity('---color-fill-core'),
+                    'fill-mantle': withOpacity('---color-fill-mantle'),
+                    'fill-crust': withOpacity('---color-fill-crust'),
+                    'fill-extreme': withOpacity('---color-fill-extreme'),
                 },
             },
             gradientColorStops: {
                 skin: {
-                    hue: withOpacity('---color-fill'),
+                    'stop-core': withOpacity('---color-fill-core'),
+                    'stop-crust': withOpacity('---color-fill-crust'),
+                    'stop-mantle': withOpacity('---color-fill-mantle'),
+                    'stop-extreme': withOpacity('---color-fill-extreme'),
                 },
             },
         },
