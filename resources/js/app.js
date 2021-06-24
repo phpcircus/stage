@@ -12,6 +12,7 @@ Alpine.plugin(intersect);
 Alpine.plugin(persist);
 
 Alpine.persistedStore('stage', {
+    mobileMenuOpen: false,
     darkMode: true,
     theme: 'dark',
     seen: null,

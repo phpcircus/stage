@@ -21,7 +21,7 @@
         <link rel="prefetch" as="image" href="/img/closed.jpg">
 
         <!-- Fonts -->
-        @googlefonts("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap")
+        @googlefonts("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap")
         @googlefonts("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap")
         @googlefonts("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap")
         @googlefonts("https://fonts.googleapis.com/css2?family=Coda:wght@400;800&display=swap")
@@ -39,7 +39,7 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body x-data x-cloak class="font-sans antialiased bg-skin-fill-core selection:bg-red-300 selection:text-white"
-        x-bind:class="$store.stage.darkMode ? 'dark' : ''">
+        x-bind:class="{ 'dark': $store.stage.darkMode, 'overflow-y-hidden': $store.stage.mobileMenuOpen }">
         <x-jet-banner />
 
         <div x-data class="min-h-screen bg-skin-fill-core">
