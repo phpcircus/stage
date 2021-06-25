@@ -8,50 +8,42 @@
                     </x-button.primary>
                 </a>
             </div>
-            <div class="mb-4 overflow-hidden border-b border-gray-200 shadow dark:border-gray-400 sm:rounded-lg">
-                <table id="posts-table" class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50 dark:bg-gray-800">
-                        <tr>
-                            <th scope="col"
-                                class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase dark:text-gray-300">
-                                Title
-                            </th>
-                            <th scope="col"
-                                class="hidden px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase sm:table-cell dark:text-gray-300">
-                                Published
-                            </th>
-                            <th scope="col" colspan="2" class="relative px-6 py-3">
-                                <span class="sr-only">Actions</span>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-400">
-                        @forelse($posts as $post)
-                        <tr id="post_{{ $post->id }}">
-                            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap" x-html="{{ json_encode(Str::limit($post->title, 20)) }}"></td>
-                            <td class="hidden px-6 py-4 text-sm text-gray-500 sm:table-cell dark:text-gray-300 whitespace-nowrap">
-                                {{ $post->published_at ? $post->published_at->format('m/d/Y') : '' }}
-                            </td>
-                            <td class="px-6 py-4 text-right">
-                                <a href="{{ route('admin.posts.edit', $post->slug) }}" class="w-full">
-                                    <span class="text-sm font-medium text-indigo-600 dark:text-indigo-300 whitespace-nowrap">Edit</span>
-                                </a>
-                            </td>
-                            <td class="px-6 py-4 text-right">
-                                <x-heroicon-o-trash wire:click="showDeleteConfirmation('{{ $post->uuid }}')" class="w-5 text-red-500 cursor-pointer" />
-                            </td>
-                        </tr>
-                        @empty
-                        <tr>
-                            <td colspan="4" class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                No Posts Found
-                            </td>
-                        </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+            <div class="overflow-hidden">
+                <ul>
+                    @forelse($posts as $post)
+                        <li class="relative px-4 py-5 mb-4 border-t border-gray-300 rounded-lg dark:border-gray-600 bg-skin-fill-mantle">
+                            <div class="flex justify-between space-x-3">
+                                <div class="flex-1 min-w-0">
+                                    <div>
+                                        <p class="text-sm font-medium truncate text-skin-loud">
+                                            <a href="{{ route('admin.posts.edit', $post->slug) }}">
+                                                {{ $post->title }}
+                                            </a>
+                                        </p>
+                                        <time datetime="2021-01-27T16:35" class="flex-shrink-0 text-sm text-skin-muted whitespace-nowrap">
+                                            {{ $post->published_at ? $post->published_at->format('m/d/Y') : '' }}
+                                        </time>
+                                    </div>
+                                </div>
+                                <div class="ml-auto">
+                                    <x-heroicon-o-trash wire:click="showDeleteConfirmation('{{ $post->uuid }}')" class="w-5 text-red-500 cursor-pointer" />
+                                </div>
+                            </div>
+                            <div class="mt-1">
+                                <p class="text-sm text-skin-base line-clamp-2">
+                                    {{ $post->summary }}
+                                </p>
+                            </div>
+                        </li>
+                    </a>
+                    @empty
+                        <li class="relative px-4 py-5 rounded-lg bg-skin-fill-mantle">
+                            <p class="text-sm font-medium truncate text-skin-loud">No Posts Found</p>
+                        </li>
+                    @endforelse
+                </ul>
+                {{ $posts->links() }}
             </div>
-            {{ $posts->links() }}
         </div>
     </div>
 

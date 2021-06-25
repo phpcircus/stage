@@ -87,7 +87,7 @@
                     <a href="https://github.com/devcircus" target="_blank" class="inline-flex my-2">
                         <span class="inline-flex items-center justify-start group">
                             <x-bxl-github class="w-4 mr-2 text-skin-muted group-hover:text-skin-base-inverted" />
-                            <span class="font-sans font-bold text-skin-quiet hover:text-skin-muted">
+                            <span class="font-sans font-bold text-skin-quiet group-hover:text-skin-muted">
                                 Github
                             </span>
                         </span>
@@ -95,7 +95,7 @@
                     <a href="https://twitter.com/devcircus" target="_blank" class="inline-flex my-2">
                         <span class="inline-flex items-center justify-start group">
                             <x-bxl-twitter class="w-4 mr-2 text-skin-muted group-hover:text-skin-base-inverted" />
-                            <span class="font-sans font-bold text-skin-quiet hover:text-skin-muted">
+                            <span class="font-sans font-bold text-skin-quiet group-hover:text-skin-muted">
                                 Twitter
                             </span>
                         </span>
@@ -103,7 +103,7 @@
                     <a href="https://teamkimberlyn.com" target="_blank" class="inline-flex my-2">
                         <span class="inline-flex items-center justify-start group">
                             <x-bxs-heart class="w-4 mr-2 text-skin-muted group-hover:text-skin-base-inverted" />
-                            <span class="font-sans font-bold text-skin-quiet hover:text-skin-muted">
+                            <span class="font-sans font-bold text-skin-quiet group-hover:text-skin-muted">
                                 Team Kimberlyn
                             </span>
                         </span>

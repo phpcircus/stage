@@ -59,4 +59,14 @@
             </x-button.primary>
         </div>
     </div>
+
+    @push('scripts')
+        <script>
+            document.addEventListener("trix-initialize", (event) => {
+                document.querySelectorAll('trix-toolbar .trix-button').forEach((el) => {
+                    el.style.backgroundColor = '#FEFFFE';
+                });
+            });
+        </script>
+    @endpush
 </div>

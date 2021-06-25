@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div x-data class="p-6 mx-auto md:px-0 max-w-7xl" >
+    <div x-data class="px-4 py-6 mx-auto sm:px-6 lg:px-8 max-w-7xl" >
         <x-page-hero class="h-36 md:h-64" height="h-32 md:h-56">
             <div class="md:flex md:items-center md:justify-evenly">
                 <img x-cloak x-show="! $store.stage.darkMode" id="page-title" src="/img/home_hero_new.png" class="h-36 md:h-56" />
@@ -15,7 +15,7 @@
                 </div>
             </div>
         </x-page-header>
-        <div class="mx-auto mt-2 md:mt-8 sm:px-6 lg:px-8">
+        <div class="mx-auto mt-2 md:mt-8">
             <livewire:posts-overview class="flex flex-col space-x-4 overflow-hidden shadow" />
         </div>
     </div>
