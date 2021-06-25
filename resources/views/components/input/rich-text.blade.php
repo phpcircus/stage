@@ -21,11 +21,6 @@
                                 hljs.highlightElement(el);
                             });
                         });
-                        document.addEventListener("trix-initialize", (event) => {
-                            document.querySelectorAll('trix-toolbar .trix-button').forEach((el) => {
-                                el.style.backgroundColor = '#FEFFFE';
-                            });
-                        });
                     },
                     setValueOnChange(event) {
                         this.value = event.target.value;

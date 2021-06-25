@@ -28,7 +28,7 @@ module.exports = {
             'xxs': '280px',
             'xs': '320px',
             'ws': '540px',
-            'sm': '640px',
+            'sm': '703px',
             'md': '768px',
             'lg': '1024px',
             'xl': '1280px',
@@ -123,5 +123,5 @@ module.exports = {
         },
     },
 
-    plugins: [require('./resources/js/tailwindForms.js')],
+    plugins: [require('./resources/js/tailwindForms.js'), require('@tailwindcss/line-clamp')],
 };

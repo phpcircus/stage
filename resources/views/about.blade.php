@@ -1,9 +1,9 @@
 <x-app-layout>
-    <div class="py-4 mx-auto max-w-7xl">
+    <div class="px-4 py-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <x-page-hero>
             <h1 id="page-title" class="text-4xl sm:text-5xl text-skin-loud font-soloist">About Me</h1>
         </x-page-header>
-        <div class="p-6 mx-auto lg:p-8">
+        <div class="py-6 mx-auto lg:py-8">
             <div class="flex flex-col p-4 rounded-lg lg:p-6 bg-skin-fill-mantle">
                 <div x-data="{ show: false }" x-init="setTimeout(function(){ show = true; }, 500)" class="flex flex-col lg:flex-row">
                     <div class="flex flex-col w-full mb-4 space-y-2 lg:w-1/3 lg:mb-0">
@@ -34,7 +34,7 @@
                     x-transition:enter-start="filter grayscale transform scale-0"
                     x-transition:enter-end="filter grayscale-0 transform scale-100" />
                 </div>
-                <p class="mt-8 font-sans text-xl leading-relaxed text-gray-600 first-letter:font-badhandwriting first-letter:text-2xl first-letter:italic first-letter:text-skin-muted">
+                <p class="mt-8 font-sans text-xl leading-relaxed text-skin-base first-letter:font-badhandwriting first-letter:text-2xl first-letter:italic first-letter:text-skin-muted">
                     I've started this blog to track my experiences and to have a place to log what I'm learning. So this is more of a tool for me than anything else. However, maybe I'll write something that can be useful to others. Either way, I'm excited about what is to come.
                 </p>
             </div>

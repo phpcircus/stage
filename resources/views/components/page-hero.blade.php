@@ -6,7 +6,7 @@
             animate = true;
         }, 250);
     "
-    {{ $attributes->merge(['class' => 'mb-16 mx-auto md:mb-20 md:px-12 xl:px-0'])}}
+    {{ $attributes->merge(['class' => 'mb-16 mx-auto md:mb-20'])}}
 >
     <div class="relative">
         <div x-show="showPlaceholder" class="{{ $height }}">&nbsp;</div>

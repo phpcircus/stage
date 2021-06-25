@@ -2,7 +2,7 @@
     'post',
 ])
 
-<section class="col-span-6 p-8 mb-2 overflow-hidden font-sans text-gray-600 bg-gray-100 rounded-lg shadow lg:grid lg:grid-cols-3 lg:gap-4 dark:bg-gray-800 dark:text-gray-200">
+<section class="col-span-6 p-8 mb-2 overflow-hidden font-sans rounded-lg shadow lg:grid lg:grid-cols-3 lg:gap-4 bg-skin-fill-mantle">
     <!-- Post Image -->
     <div class="flex items-center justify-center col-span-1 mb-4 bg-blue-100 rounded-lg lg:mb-0">
         <img src="{{ $post->primary_image }}" class="object-cover w-full h-auto rounded-lg shadow-md" />
@@ -31,8 +31,8 @@
                 {{ $post->title }}
             </a>
         </div>
-        <p class="mb-4 leading-relaxed">{{ $post->summary }}</p>
-        <a href="{{ route('posts.show', $post->slug) }}"
+        <p class="mb-4 leading-relaxed text-skin-base">{{ $post->summary }}</p>
+        <a x-on:click="$store.stage.setSeenToNewest()" href="{{ route('posts.show', $post->slug) }}"
             class="inline-flex items-center self-end text-skin-base hover:underline">Read More
         </a>
     </div>

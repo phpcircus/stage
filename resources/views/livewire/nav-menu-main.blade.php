@@ -1,7 +1,7 @@
 <nav x-data="{ open: false }" x-init="$store.stage.newest = '{{ $newest }}'; $store.stage.mobileMenuOpen = false;" x-on:keydown.escape.stop="open = false; $store.stage.mobileMenuOpen = false;" class="relative h-20 shadow bg-gradient-to-r from-skin-stop-crust via-skin-stop-crust to-skin-stop-core">
     <div class="h-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="flex justify-between h-full">
-            <div class="flex items-center w-full">
+        <div class="flex justify-between w-full h-full">
+            <div class="flex items-center">
                 <div class="flex items-center flex-shrink-0 mr-2 md:mr-8">
                     <span class="text-3xl text-transparent uppercase bg-clip-text bg-gradient-to-l from-gray-800 to-gray-400 font-soloist">PhpStage</span>
                 </div>
@@ -28,26 +28,24 @@
                         Projects
                     </a>
                 </div>
-                <div x-data x-cloak class="ml-auto mr-4 cursor-pointer" x-on:click="$store.stage.toggleTheme()">
+            </div>
+            <div class="hidden sm:ml-4 sm:flex sm:items-center">
+                <div x-data x-cloak class="mr-4 cursor-pointer" x-on:click="$store.stage.toggleTheme()">
                     <x-heroicon-o-moon x-cloak x-show="$store.stage.darkMode" class="w-6 text-gray-200"></x-heroicon-o-moon>
                     <x-heroicon-o-sun x-cloak x-show="! $store.stage.darkMode" class="w-6 text-gray-900"></x-heroicon-o-sun>
                 </div>
-            </div>
-            <div class="hidden sm:ml-6 sm:flex sm:items-center">
                 <!-- Profile dropdown -->
                 @auth
                     <div x-data="{ userMenuOpen: false }" x-on:keydown.escape.stop="userMenuOpen = false;" x-on:click.away="userMenuOpen = false"
                         class="relative ml-3">
-                        <div>
-                            <button type="button"
-                                class="flex text-sm bg-white rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                                id="user-menu-button" x-ref="button" x-on:click="userMenuOpen = !userMenuOpen">
-                                <span class="sr-only">Open user menu</span>
-                                <img class="w-8 h-8 rounded-full"
-                                    src="{{ auth()->user()->profile_photo_url }}"
-                                    alt="profile photo">
-                            </button>
-                        </div>
+                        <button type="button"
+                            class="flex text-sm bg-white rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                            id="user-menu-button" x-ref="button" x-on:click="userMenuOpen = !userMenuOpen">
+                            <span class="sr-only">Open user menu</span>
+                            <img class="w-8 h-8 rounded-full"
+                                src="{{ auth()->user()->profile_photo_url }}"
+                                alt="profile photo">
+                        </button>
 
                         <div x-show="userMenuOpen" x-transition:enter="transition ease-out duration-200"
                             x-transition:enter-start="transform opacity-0 scale-95"
