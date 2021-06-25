@@ -1,4 +1,4 @@
-@props(['height'])
+@props(['height' => 'h-12'])
 
 <header id="up" x-data="{ animate: false, showPlaceholder: true }" x-init="
         setTimeout( () => {
@@ -6,7 +6,7 @@
             animate = true;
         }, 250);
     "
-    {{ $attributes->merge(['class' => 'mb-8 lg:mb-8 mx-auto md:px-12 xl:px-0'])}}
+    {{ $attributes->merge(['class' => 'mb-16 mx-auto md:mb-20 md:px-12 xl:px-0'])}}
 >
     <div class="relative">
         <div x-show="showPlaceholder" class="{{ $height }}">&nbsp;</div>
@@ -17,7 +17,7 @@
             x-transition:leave="transition ease-in duration-750"
             x-transition:leave-start="opacity-100 transform scale-100"
             x-transition:leave-end="opacity-0 transform scale-50"
-            class="-rotate-6">
+            class="-rotate-3">
             {{ $slot }}
         </div>
     </div>

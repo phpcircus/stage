@@ -1,7 +1,7 @@
 <div x-data id="posts-table" class="flex flex-col">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-            <div id="posts-main-action-button" class="flex justify-end w-full mb-4">
+            <div id="posts-main-action-button" class="flex justify-start w-full mb-4 lg:justify-end">
                 <a href="{{ route('admin.posts.new') }}">
                     <x-button.primary x-cloak>
                         New Post
@@ -17,7 +17,7 @@
                                 Title
                             </th>
                             <th scope="col"
-                                class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase dark:text-gray-300">
+                                class="hidden px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase sm:table-cell dark:text-gray-300">
                                 Published
                             </th>
                             <th scope="col" colspan="2" class="relative px-6 py-3">
@@ -28,10 +28,8 @@
                     <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-400">
                         @forelse($posts as $post)
                         <tr id="post_{{ $post->id }}">
-                            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                {{ $post->title }}
-                            </td>
-                            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap" x-html="{{ json_encode(Str::limit($post->title, 20)) }}"></td>
+                            <td class="hidden px-6 py-4 text-sm text-gray-500 sm:table-cell dark:text-gray-300 whitespace-nowrap">
                                 {{ $post->published_at ? $post->published_at->format('m/d/Y') : '' }}
                             </td>
                             <td class="px-6 py-4 text-right">

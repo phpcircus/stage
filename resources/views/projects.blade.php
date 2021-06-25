@@ -1,9 +1,9 @@
 <x-app-layout>
-    <div class="px-6 py-12 mx-auto lg:px-0 max-w-7xl">
-        <x-page-hero class="h-32" height="h-24">
-            <img id="page-title" src="/img/my_projects.png" class="h-24" />
+    <div class="p-4 mx-auto lg:px-0 max-w-7xl">
+        <x-page-hero>
+            <h1 class="text-4xl sm:text-5xl text-skin-loud font-soloist">My Projects</h1>
         </x-page-header>
-        <div class="mx-auto sm:px-6 lg:px-8">
+        <div class="p-6 mx-auto space-y-4 rounded-lg bg-skin-fill-mantle">
 
         </div>
     </div>

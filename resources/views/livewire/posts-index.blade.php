@@ -1,4 +1,4 @@
-<div class="flex flex-col p-6 space-y-4 bg-white rounded-lg dark:bg-gray-800">
+<div class="flex flex-col p-4 space-y-4 rounded-lg lg:p-6 bg-skin-fill-mantle">
     <div class="flex w-full xl:w-1/2">
         <div class="flex flex-col w-full md:items-center md:flex-row">
             <div class="flex flex-col w-full mb-2 mr-4 space-y-2 md:mb-0">
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <ul class="pt-0 mb-2 divide-y-2 font-sans lg:pt-6 divide-gray-400/90 dark:divide-gray-400">
+    <ul class="pt-0 mb-2 font-sans divide-y-2 lg:pt-6 divide-gray-400/90 dark:divide-gray-400">
         @forelse($posts as $post)
             <li class="pt-4 mb-4 first:pt-0">
                 <a href="{{ route('posts.show', $post->slug) }}" class="block">

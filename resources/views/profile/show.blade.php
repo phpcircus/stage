@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="mt-32">
+    <div class="-mt-12">
         <x-slot name="header">
             <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-300">
                 {{ __('Profile') }}
