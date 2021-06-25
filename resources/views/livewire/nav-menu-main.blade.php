@@ -1,12 +1,11 @@
 <nav x-data="{ open: false }" x-init="$store.stage.newest = '{{ $newest }}'; $store.stage.mobileMenuOpen = false;" x-on:keydown.escape.stop="open = false; $store.stage.mobileMenuOpen = false;" class="relative h-20 shadow bg-gradient-to-r from-skin-stop-crust via-skin-stop-crust to-skin-stop-core">
     <div class="h-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="flex justify-between h-full">
-            <div class="flex">
+            <div class="flex items-center w-full">
                 <div class="flex items-center flex-shrink-0 mr-2 md:mr-8">
-                    <span class="text-2xl text-skin-loud font-blade">PHPSTAGE</span>
+                    <span class="text-3xl text-transparent uppercase bg-clip-text bg-gradient-to-l from-gray-800 to-gray-400 font-soloist">PhpStage</span>
                 </div>
-                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                    <!-- Current: "border-red-500 text-skin-loud", Default: "border-transparent text-gray-500 hover:border-red-400/[.25] hover:text-gray-700" -->
+                <div class="hidden sm:h-full sm:ml-6 sm:flex sm:space-x-8">
                     <a href="{{ route('home') }}"
                         class="inline-flex items-center px-1 pt-1 text-base font-semibold uppercase border-b-2 {{ request()->routeIs('*home*') ? 'text-skin-loud border-red-500' : 'text-skin-muted hover:text-skin-loud border-transparent hover:border-red-500/[.35]'  }}">
                         Home
@@ -29,12 +28,12 @@
                         Projects
                     </a>
                 </div>
+                <div x-data x-cloak class="ml-auto mr-4 cursor-pointer" x-on:click="$store.stage.toggleTheme()">
+                    <x-heroicon-o-moon x-cloak x-show="$store.stage.darkMode" class="w-6 text-gray-200"></x-heroicon-o-moon>
+                    <x-heroicon-o-sun x-cloak x-show="! $store.stage.darkMode" class="w-6 text-gray-900"></x-heroicon-o-sun>
+                </div>
             </div>
             <div class="hidden sm:ml-6 sm:flex sm:items-center">
-                <div x-data x-cloak class="mr-4 cursor-pointer" x-on:click="$store.stage.toggleTheme()">
-                    <x-heroicon-o-moon x-cloak x-show="$store.stage.darkMode" class="w-8 text-white"></x-heroicon-o-moon>
-                    <x-heroicon-o-sun x-cloak x-show="! $store.stage.darkMode" class="w-8 text-gray-900"></x-heroicon-o-sun>
-                </div>
                 <!-- Profile dropdown -->
                 @auth
                     <div x-data="{ userMenuOpen: false }" x-on:keydown.escape.stop="userMenuOpen = false;" x-on:click.away="userMenuOpen = false"
@@ -80,7 +79,7 @@
             <div class="flex items-center -mr-2 sm:hidden">
                 <!-- Mobile menu button -->
                 <button type="button"
-                    class="group inline-flex items-center justify-center p-2 rounded-md z-[100] hover:text-gray-500 hover:bg-gray-100 focus:outline-none"
+                    class="group inline-flex items-center justify-center p-2 rounded-md z-[100] hover:bg-gray-100 focus:outline-none"
                     aria-controls="mobile-menu" x-on:click="open = !open; $store.stage.mobileMenuOpen = !$store.stage.mobileMenuOpen;" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <x-heroicon-o-menu class="block w-6 h-6 text-skin-loud group-hover:text-gray-800" x-bind:class="{ 'hidden': open, 'block': !(open) }" />
@@ -101,7 +100,7 @@
                     <div class="block cursor-pointer group" role="menuitem" id="user-menu-item-3">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <button type="submit" class="text-3xl font-bold uppercase group-{{ request()->routeIs('*home*') ? 'text-white border-white' : 'text-white hover:text-white border-transparent hover:border-white-500/[.75]'  }}" onclick="event.preventDefault(); this.closest('form').submit();">
+                            <button type="submit" class="text-3xl font-bold uppercase {{ request()->routeIs('*home*') ? 'text-white border-white' : 'text-white hover:text-white border-transparent hover:border-white-500/[.75]'  }}" onclick="event.preventDefault(); this.closest('form').submit();">
                                 Sign out
                             </button>
                         </form>

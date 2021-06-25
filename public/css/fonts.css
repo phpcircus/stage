@@ -32,9 +32,10 @@
 }
 
 @font-face {
-    font-family: 'Blade Runner';
-    src: url('../fonts/blade_runner.woff2') format('woff2'),
-         url('../fonts/blade_runner.woff') format('woff');
+    font-family: 'soloist';
+    src: url('../fonts/soloist.woff2') format('woff2'),
+         url('../fonts/soloist.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+
 }

@@ -51,7 +51,7 @@
             </div>
 
             <!-- Page Content -->
-            <main class="mt-8">
+            <main class="mt-6">
                 {{ $slot }}
             </main>
 

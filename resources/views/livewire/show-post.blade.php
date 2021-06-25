@@ -1,5 +1,5 @@
-<div x-data="highlight" class="py-12">
-    <div class="px-6 mx-auto max-w-7xl lg:px-8">
+<div x-data="highlight" class="px-4 py-12 sm:px-8">
+    <div class="p-6 mx-auto rounded-lg max-w-7xl lg:p-8 bg-skin-fill-mantle">
         <div class="flex flex-col">
             <span class="mb-6 text-sm italic text-gray-600 dark:text-gray-300">
                 Published {{ $post->published_at->format('m/d/Y') }}

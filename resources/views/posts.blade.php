@@ -1,9 +1,9 @@
 <x-app-layout>
-    <div class="px-2 py-12 mx-auto lg:px-0 max-w-7xl">
-        <x-page-hero class="h-32" height="h-24">
-            <img id="page-title" src="/img/my_posts.png" class="h-24" />
+    <div class="py-4 mx-auto max-w-7xl">
+        <x-page-hero>
+            <h1 class="text-4xl sm:text-5xl text-skin-loud font-soloist">My Posts</h1>
         </x-page-header>
-        <div class="px-6 mx-auto lg:px-8">
+        <div class="p-6 mx-auto space-y-4 rounded-lg lg:p-8">
             <livewire:posts-index />
         </div>
     </div>

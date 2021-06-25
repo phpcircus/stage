@@ -24,6 +24,16 @@ module.exports = {
     ],
     darkMode: 'class',
     theme: {
+        screens: {
+            'xxs': '280px',
+            'xs': '320px',
+            'ws': '540px',
+            'sm': '640px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px',
+            '2xl': '1536px',
+        },
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
@@ -32,7 +42,7 @@ module.exports = {
                 script: ['Shadows Into Light', 'cursive', ...defaultTheme.fontFamily.sans],
                 coda: ['Coda', ...defaultTheme.fontFamily.sans],
                 oxygen: ['Oxygen', ...defaultTheme.fontFamily.sans],
-                blade: ['Blade Runner', ...defaultTheme.fontFamily.sans],
+                soloist: ['soloist', ...defaultTheme.fontFamily.sans],
             },
             animation: {
                 'spin-stop': 'spin 1s ease-in-out 1',
@@ -41,10 +51,6 @@ module.exports = {
             scale: {
                '10': '.10',
                '25': '.25',
-            },
-            screens: {
-                'xxs': '280px',
-                'xs': '320px',
             },
             inset: {
                 '-4': '-4px',
