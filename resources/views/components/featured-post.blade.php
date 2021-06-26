@@ -2,18 +2,18 @@
     'post',
 ])
 
-<section class="col-span-6 p-8 mb-2 overflow-hidden font-sans rounded-lg shadow lg:grid lg:grid-cols-3 lg:gap-4 bg-skin-fill-mantle">
+<section class="col-span-6 p-4 mb-2 overflow-hidden font-sans rounded-lg shadow lg:p-8 lg:grid lg:grid-cols-3 lg:gap-4 bg-skin-fill-mantle">
     <!-- Post Image -->
-    <div class="flex items-center justify-center col-span-1 mb-4 bg-blue-100 rounded-lg lg:mb-0">
-        <img src="{{ $post->primary_image }}" class="object-cover w-full h-auto rounded-lg shadow-md" />
+    <div class="flex items-center justify-center col-span-1 mb-4 overflow-hidden bg-blue-100 rounded-lg lg:mb-0 max-h-96">
+        <img src="{{ $post->primary_image }}" class="object-cover object-center w-full rounded-lg shadow-md h-96" />
     </div>
     <!-- Post Categories and timestamp -->
     <div class="flex flex-col col-span-2">
         <div class="flex flex-wrap mb-2 space-x-2">
             @foreach($post->categories as $category)
-                <div class="flex">
+                <div class="flex items-center mb-2">
                     <a href="{{ route('posts', [ 'category' => $category->name ]) }}">
-                        <span class="inline-block pb-1 pt-1.5 mb-2 text-sm font-coda leading-4 text-skin-quiet border-b-2 border-transparent
+                        <span class="inline-block text-xs ws:text-sm font-coda leading-4 text-skin-quiet border-b-2 border-transparent
                             hover:text-red-500 dark:hover:text-red-400/[.75]">
                             {{ $category->name }}
                         </span>
