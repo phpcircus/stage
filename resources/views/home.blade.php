@@ -1,11 +1,11 @@
 <x-app-layout>
     <div x-data class="px-4 py-6 mx-auto sm:px-6 lg:px-8 max-w-7xl" >
-        <x-page-hero class="h-36 md:h-64" height="h-32 md:h-56">
-            <div class="md:flex md:items-center md:justify-evenly">
+        <x-page-hero class="h-36 md:h-60" height="h-32 md:h-56">
+            <div class="relative z-10 md:flex md:items-center md:justify-evenly">
                 <img x-cloak x-show="! $store.stage.darkMode" id="page-title" src="/img/home_hero_new.png" class="h-36 md:h-56" />
                 <img x-cloak x-show="$store.stage.darkMode" id="page-title" src="/img/home_hero_new_dark_mode.png" class="h-36 md:h-56" />
 
-                <div x-data="dropdown" class="absolute right-[40px] top-[110px] ws:top-[40px] md:right-[20px] md:top-[10px] md:relative md:ml-4">
+                <div x-data="cartoon" class="absolute right-[40px] top-[110px] ws:top-[40px] md:right-[20px] md:top-[10px] md:relative md:ml-4">
                     <img
                         x-ref="image"
                         src="/img/closed.jpg"
@@ -15,7 +15,7 @@
                 </div>
             </div>
         </x-page-header>
-        <div class="mx-auto mt-2 md:mt-8">
+        <div class="pb-6 mx-auto space-y-4 rounded-lg lg:pb-8">
             <livewire:posts-overview class="flex flex-col space-x-4 overflow-hidden shadow" />
         </div>
     </div>
@@ -23,7 +23,7 @@
     @push('scripts')
         <script>
             document.addEventListener('alpine:initializing', function () {
-                Alpine.data('dropdown', () => ({
+                Alpine.data('cartoon', () => ({
                     animate: false,
                     init() {
                         var elem = this.$refs.image;

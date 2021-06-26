@@ -1,4 +1,4 @@
-<div class="z-[100]">
+<div class="">
     @auth
         <x-jet-dropdown align="right" width="48">
             <x-slot name="trigger">

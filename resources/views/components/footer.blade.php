@@ -1,4 +1,4 @@
-<footer x-data class="relative z-0 pt-1 border-t-2 border-b-4 border-gray-800 bg-gradient-to-br from-skin-stop-mantle to-skin-stop-core border-t-gray-400 dark:border-gray-400 dark:border-t-gray-600">
+<footer x-data class="relative pt-1 border-t-2 border-b-4 border-gray-800 bg-gradient-to-br from-skin-stop-mantle to-skin-stop-core border-t-gray-400 dark:border-gray-400 dark:border-t-gray-600">
     <div class="container px-6 mx-auto">
         <div class="sm:flex sm:mt-8">
             <div class="flex flex-col justify-between mt-8 sm:mt-0 sm:w-full sm:px-8 md:flex-row">
