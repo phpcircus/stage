@@ -18,9 +18,9 @@
         </div>
         <div class="flex flex-wrap mb-2 space-x-2">
             @foreach($post->categories as $category)
-                <div class="flex">
+                <div class="flex items-center mb-2">
                     <a href="{{ route('posts', [ 'category' => $category->name ]) }}">
-                        <span class="inline-block pb-1 pt-1.5 mb-2 text-sm font-coda leading-4 text-skin-quiet border-b-2 border-transparent
+                        <span class="inline-block text-xs ws:text-sm font-coda leading-4 text-skin-quiet border-b-2 border-transparent
                             hover:text-red-500 dark:hover:text-red-400/[.75]">
                             {{ $category->name }}
                         </span>
