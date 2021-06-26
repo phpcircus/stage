@@ -1,10 +1,10 @@
 <nav x-data="{ open: false }" x-init="$store.stage.newest = '{{ $newest }}'; $store.stage.mobileMenuOpen = false;" x-on:keydown.escape.stop="open = false; $store.stage.mobileMenuOpen = false;"
      class="fixed top-0 left-0 w-full z-[20] h-20 border-b-2 dark:border-gray-800 border-gray-300 shadow dark:shadow-md bg-skin-fill-mantle">
     <div class="h-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="flex justify-between w-full h-full">
+        <div class="flex items-center justify-between w-full h-full">
             <div class="flex items-center">
                 <div class="flex items-center flex-shrink-0 mr-2 md:mr-8">
-                    <span class="text-3xl text-transparent uppercase shadow-inner bg-clip-text bg-gradient-to-l from-gray-600 to-gray-400 font-soloist">PhpStage</span>
+                    <span class="text-3xl text-transparent uppercase bg-clip-text bg-gradient-to-l from-gray-600 to-gray-400 font-soloist">PhpStage</span>
                 </div>
                 <div class="hidden sm:h-full sm:ml-6 sm:flex sm:space-x-8">
                     <a href="{{ route('home') }}"
@@ -16,8 +16,8 @@
                         class="relative inline-flex items-center px-1 pt-1 text-base font-semibold uppercase border-b-4 {{ request()->routeIs('*posts*') ? 'text-skin-loud border-red-500/75' : 'text-skin-muted hover:text-skin-loud border-transparent hover:border-red-500/[.35]'  }}">
                         Posts
                         <div x-cloak x-show="$store.stage.hasntSeenNewest()">
-                            <span class="absolute -right-[10px] top-[25px] inline-flex w-3 h-3 bg-red-400 rounded-full opacity-75 animate-ping"></span>
-                            <span class="absolute -right-[10px] top-[25px] inline-flex w-3 h-3 bg-red-500 rounded-full opacity-50"></span>
+                            <span class="absolute -right-[10px] top-0 inline-flex w-3 h-3 bg-red-400 rounded-full opacity-75 animate-ping"></span>
+                            <span class="absolute -right-[10px] top-0 inline-flex w-3 h-3 bg-red-500 rounded-full opacity-50"></span>
                         </div>
                     </a>
                     <a href="{{ route('about') }}"
@@ -31,10 +31,6 @@
                 </div>
             </div>
             <div class="hidden sm:ml-4 sm:flex sm:items-center">
-                <div x-data x-cloak class="mr-4 cursor-pointer" x-on:click="$store.stage.toggleTheme()">
-                    <x-heroicon-o-moon x-cloak x-show="$store.stage.darkMode" class="w-6 text-gray-200"></x-heroicon-o-moon>
-                    <x-heroicon-o-sun x-cloak x-show="! $store.stage.darkMode" class="w-6 text-gray-900"></x-heroicon-o-sun>
-                </div>
                 <!-- Profile dropdown -->
                 @auth
                     <div x-data="{ userMenuOpen: false }" x-on:keydown.escape.stop="userMenuOpen = false;" x-on:click.away="userMenuOpen = false" class="relative ml-3">
@@ -74,6 +70,10 @@
                     </div>
                 @endauth
             </div>
+            <div x-data x-cloak class="ml-auto mr-4 cursor-pointer" x-on:click="$store.stage.toggleTheme()">
+                <x-heroicon-o-moon x-cloak x-show="$store.stage.darkMode" class="w-6 text-gray-200"></x-heroicon-o-moon>
+                <x-heroicon-o-sun x-cloak x-show="! $store.stage.darkMode" class="w-6 text-gray-900"></x-heroicon-o-sun>
+            </div>
             <div class="flex items-center -mr-2 sm:hidden">
                 <!-- Mobile menu button -->
                 <button type="button"
@@ -86,9 +86,17 @@
             </div>
             <div x-description="Mobile menu, show/hide based on menu state." class="absolute top-0 left-0 w-full h-screen overflow-y-hidden bg-gray-800 sm:hidden"
                  id="mobile-menu" x-show="open" style="display: none;">
-                <div class="flex flex-col items-center justify-center w-full h-full pt-8">
+                <div x-data class="flex flex-col items-center justify-center w-full h-full pt-8">
                     <a href="/" class="block mb-8 text-3xl font-bold uppercase border-b-2 {{ request()->routeIs('*home*') ? 'text-white border-white' : 'text-white hover:text-white border-transparent hover:border-white/[.75]'  }}">Home</a>
-                    <a href="{{ route('posts') }}" class="block mb-8 text-3xl font-bold uppercase border-b-2 {{ request()->routeIs('*posts*') ? 'text-white border-white' : 'text-white hover:text-white border-transparent hover:border-white/[.75]'  }}">Posts</a>
+                    <a href="{{ route('posts') }}"
+                        class="relative block mb-8 text-3xl font-bold uppercase border-b-2 {{ request()->routeIs('*posts*') ? 'text-white border-white' : 'text-white hover:text-white border-transparent hover:border-white/[.75]'  }}"
+                        x-on:click="$store.stage.setSeenToNewest()">
+                        Posts
+                        <div x-cloak x-show="$store.stage.hasntSeenNewest()">
+                            <span class="absolute top-0 left-[100px] inline-flex w-3 h-3 bg-red-400 rounded-full opacity-75 animate-ping"></span>
+                            <span class="absolute top-0 left-[100px] inline-flex w-3 h-3 bg-red-500 rounded-full opacity-50"></span>
+                        </div>
+                    </a>
                     <a href="{{ route('about') }}" class="block mb-8 text-3xl font-bold uppercase border-b-2 {{ request()->routeIs('*about*') ? 'text-white border-white' : 'text-white hover:text-white border-transparent hover:border-white/[.75]'  }}">About</a>
                     <a href="{{ route('projects') }}" class="block mb-8 text-3xl font-bold uppercase border-b-2 {{ request()->routeIs('*projects*') ? 'text-white border-white' : 'text-white hover:text-white border-transparent hover:border-white/[.75]'  }}">Projects</a>
                     @auth
