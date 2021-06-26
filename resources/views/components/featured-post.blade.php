@@ -2,7 +2,7 @@
     'post',
 ])
 
-<section class="col-span-6 p-4 mb-2 overflow-hidden font-sans rounded-lg shadow lg:p-8 lg:grid lg:grid-cols-3 lg:gap-4 bg-skin-fill-mantle">
+<section class="col-span-6 p-4 mb-2 overflow-hidden font-sans rounded-lg shadow-md lg:p-8 lg:grid lg:grid-cols-3 lg:gap-4 bg-skin-fill-mantle">
     <!-- Post Image -->
     <div class="flex items-center justify-center col-span-1 mb-4 overflow-hidden bg-blue-100 rounded-lg lg:mb-0 max-h-96">
         <img src="{{ $post->primary_image }}" class="object-cover object-center w-full rounded-lg shadow-md ws:object-top lg:object-center h-96" />

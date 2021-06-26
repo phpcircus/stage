@@ -6,7 +6,7 @@
             animate = true;
         }, 250);
     "
-    {{ $attributes->merge(['class' => 'mb-8 mx-auto md:mb-16 lg:mb-20 xl:mb-24'])}}
+    {{ $attributes->merge(['class' => 'mb-8 mx-auto md:mb-16 lg:mb-20'])}}
 >
     <div x-show="showPlaceholder" class="{{ $height }}">&nbsp;</div>
     <div x-cloak x-show="animate"

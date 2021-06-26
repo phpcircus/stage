@@ -1,4 +1,4 @@
-<div class="flex flex-col p-4 space-y-4 rounded-lg lg:p-6 bg-skin-fill-mantle">
+<div class="flex flex-col p-4 space-y-4 rounded-lg shadow-md lg:p-6 bg-skin-fill-mantle">
     <div class="flex w-full xl:w-1/2">
         <div class="flex flex-col w-full md:items-center md:flex-row">
             <div class="flex flex-col w-full mb-2 mr-4 space-y-2 md:mb-0">
