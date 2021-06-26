@@ -4,7 +4,7 @@
             <h1 id="page-title" class="text-4xl font-bold uppercase text-skin-quiet sm:text-6xl font-lemonmilk">About Me</h1>
         </x-page-header>
         <div class="pb-6 mx-auto lg:pb-8">
-            <div class="flex flex-col p-4 rounded-lg lg:p-6 bg-skin-fill-mantle">
+            <div class="flex flex-col p-4 rounded-lg shadow-md lg:p-6 bg-skin-fill-mantle">
                 <div x-data="{ show: false }" x-init="setTimeout(function(){ show = true; }, 500)" class="flex flex-col lg:flex-row">
                     <div class="flex flex-col w-full mb-4 space-y-2 lg:w-1/3 lg:mb-0">
                         <h1 class="mb-4 text-3xl font-bold lg:text-5xl font-protogrotesk text-skin-quiet">

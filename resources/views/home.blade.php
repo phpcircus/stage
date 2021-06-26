@@ -5,7 +5,7 @@
                 <img x-cloak x-show="! $store.stage.darkMode" id="page-title" src="/img/home_hero_new.png" class="h-36 md:h-56" />
                 <img x-cloak x-show="$store.stage.darkMode" id="page-title" src="/img/home_hero_new_dark_mode.png" class="h-36 md:h-56" />
 
-                <div x-data="cartoon" class="absolute right-[40px] top-[110px] ws:top-[40px] md:right-[20px] md:top-[10px] md:relative md:ml-4">
+                <div x-data="cartoon" class="absolute md:relative right-[40px] top-[110px] ws:top-[40px] md:right-[20px] md:top-[10px] lg:top-[40px] md:ml-4">
                     <img
                         x-ref="image"
                         src="/img/closed.jpg"

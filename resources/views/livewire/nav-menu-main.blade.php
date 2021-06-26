@@ -1,10 +1,15 @@
-<nav x-data="{ open: false }" x-init="$store.stage.newest = '{{ $newest }}'; $store.stage.mobileMenuOpen = false;" x-on:keydown.escape.stop="open = false; $store.stage.mobileMenuOpen = false;"
-     class="fixed top-0 left-0 w-full z-[20] h-20 border-b-2 dark:border-gray-800 border-gray-300 shadow dark:shadow-md bg-skin-fill-mantle">
+<nav x-data x-on:keydown.escape="$store.stage.mobileMenuOpen = false" x-init="
+    $store.stage.newest = '{{ $newest }}';
+    $store.stage.mobileMenuOpen = false;
+" class="fixed top-0 left-0 w-full z-[20] h-20 border-b-2 dark:border-gray-800 border-gray-300 shadow dark:shadow-md bg-skin-fill-mantle">
     <div class="h-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="flex items-center justify-between w-full h-full">
-            <div class="flex items-center">
+            <div class="flex items-center h-full">
                 <div class="flex items-center flex-shrink-0 mr-2 md:mr-8">
-                    <span class="text-3xl text-transparent uppercase bg-clip-text bg-gradient-to-l from-gray-600 to-gray-400 font-soloist">PhpStage</span>
+                    <img x-bind:src="$store.stage.darkMode ? '/img/light_elephant.png' : '/img/dark_elephant.png'" class="h-6 mr-1"
+                        x-bind:class="$store.stage.darkMode ? 'opacity-75' : ''" />
+                    <span class="text-xl text-transparent uppercase xs:text-2xl sm:text-3xl bg-clip-text from-gray-600 to-gray-400 font-soloist"
+                        x-bind:class="$store.stage.darkMode ? 'bg-gradient-to-l' : 'bg-gradient-to-r'">PhpStage</span>
                 </div>
                 <div class="hidden sm:h-full sm:ml-6 sm:flex sm:space-x-8">
                     <a href="{{ route('home') }}"
@@ -35,7 +40,7 @@
                 @auth
                     <div x-data="{ userMenuOpen: false }" x-on:keydown.escape.stop="userMenuOpen = false;" x-on:click.away="userMenuOpen = false" class="relative ml-3">
                         <button type="button"
-                            class="flex text-sm bg-white rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                            class="flex text-sm bg-white rounded-full hover:ring-2 hover:ring-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                             id="user-menu-button" x-ref="button" x-on:click="userMenuOpen = !userMenuOpen">
                             <span class="sr-only">Open user menu</span>
                             <img class="w-8 h-8 rounded-full"
@@ -78,14 +83,15 @@
                 <!-- Mobile menu button -->
                 <button type="button"
                     class="inline-flex z-[30] items-center justify-center p-2 rounded-md group hover:bg-gray-100 focus:outline-none"
-                    aria-controls="mobile-menu" x-on:click="open = !open; $store.stage.mobileMenuOpen = !$store.stage.mobileMenuOpen;" aria-expanded="false">
+                    aria-controls="mobile-menu" x-on:click="$store.stage.mobileMenuOpen = !$store.stage.mobileMenuOpen" aria-expanded="false"
+                    x-on:keydown.escape="$store.stage.mobileMenuOpen = false">
                     <span class="sr-only">Open main menu</span>
-                    <x-heroicon-o-menu class="block w-6 h-6 text-skin-loud group-hover:text-gray-800" x-bind:class="{ 'hidden': open, 'block': !(open) }" />
-                    <x-heroicon-o-x class="block w-6 h-6 text-white group-hover:text-gray-800" x-bind:class="{ 'block': open, 'hidden': !(open) }" />
+                    <x-heroicon-o-menu class="block w-6 h-6 text-skin-loud group-hover:text-gray-800" x-bind:class="{ 'hidden': $store.stage.mobileMenuOpen, 'block': !($store.stage.mobileMenuOpen) }" />
+                    <x-heroicon-o-x class="block w-6 h-6 text-white group-hover:text-gray-800" x-bind:class="{ 'block': $store.stage.mobileMenuOpen, 'hidden': !($store.stage.mobileMenuOpen) }" />
                 </button>
             </div>
             <div x-description="Mobile menu, show/hide based on menu state." class="absolute top-0 left-0 w-full h-screen overflow-y-hidden bg-gray-800 sm:hidden"
-                 id="mobile-menu" x-show="open" style="display: none;">
+                 id="mobile-menu" x-show="$store.stage.mobileMenuOpen" style="display: none;">
                 <div x-data class="flex flex-col items-center justify-center w-full h-full pt-8">
                     <a href="/" class="block mb-8 text-3xl font-bold uppercase border-b-2 {{ request()->routeIs('*home*') ? 'text-white border-white' : 'text-white hover:text-white border-transparent hover:border-white/[.75]'  }}">Home</a>
                     <a href="{{ route('posts') }}"

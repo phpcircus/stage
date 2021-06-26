@@ -11,7 +11,7 @@
     }
 @endphp
 
-<section class="{{ $columnSpan }} p-8 overflow-hidden font-sans rounded-lg mb-2 bg-gray-100 dark:bg-gray-800">
+<section class="{{ $columnSpan }} p-8 overflow-hidden font-sans rounded-lg mb-2 bg-skin-fill-mantle shadow-md">
     <div class="flex flex-col items-start w-full">
         <div class="flex items-center justify-center w-full mb-4 rounded-lg">
             <img src="{{ $post->primary_image }}" class="object-cover w-auto h-auto rounded-lg shadow-md max-h-80" />
