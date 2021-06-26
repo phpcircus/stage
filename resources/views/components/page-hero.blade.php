@@ -6,19 +6,17 @@
             animate = true;
         }, 250);
     "
-    {{ $attributes->merge(['class' => 'mb-16 mx-auto md:mb-20'])}}
+    {{ $attributes->merge(['class' => 'mb-8 mx-auto md:mb-16 lg:mb-20 xl:mb-24'])}}
 >
-    <div class="relative">
-        <div x-show="showPlaceholder" class="{{ $height }}">&nbsp;</div>
-        <div x-cloak x-show="animate"
-            x-transition:enter="transition ease-out duration-750"
-            x-transition:enter-start="opacity-0 transform scale-50"
-            x-transition:enter-end="opacity-100 transform scale-100"
-            x-transition:leave="transition ease-in duration-750"
-            x-transition:leave-start="opacity-100 transform scale-100"
-            x-transition:leave-end="opacity-0 transform scale-50"
-            class="-rotate-3">
-            {{ $slot }}
-        </div>
+    <div x-show="showPlaceholder" class="{{ $height }}">&nbsp;</div>
+    <div x-cloak x-show="animate"
+        x-transition:enter="transition ease-out duration-750"
+        x-transition:enter-start="opacity-0 transform scale-50"
+        x-transition:enter-end="opacity-100 transform scale-100"
+        x-transition:leave="transition ease-in duration-750"
+        x-transition:leave-start="opacity-100 transform scale-100"
+        x-transition:leave-end="opacity-0 transform scale-50"
+        class="-rotate-6">
+        {{ $slot }}
     </div>
 </header>

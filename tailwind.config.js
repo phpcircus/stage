@@ -39,10 +39,9 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
                 badhandwriting: ['bad_handwriting', ...defaultTheme.fontFamily.sans],
                 protogrotesk: ['Proto Grotesk Web', ...defaultTheme.fontFamily.sans],
-                script: ['Shadows Into Light', 'cursive', ...defaultTheme.fontFamily.sans],
-                coda: ['Coda', ...defaultTheme.fontFamily.sans],
-                oxygen: ['Oxygen', ...defaultTheme.fontFamily.sans],
                 soloist: ['soloist', ...defaultTheme.fontFamily.sans],
+                'lemonmilk': ['lemon_milk', ...defaultTheme.fontFamily.sans],
+                milestone: ['milestone', ...defaultTheme.fontFamily.sans],
             },
             animation: {
                 'spin-stop': 'spin 1s ease-in-out 1',

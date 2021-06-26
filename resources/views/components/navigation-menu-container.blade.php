@@ -1,4 +1,4 @@
-<div x-data class="fixed top-0 z-50 w-full h-20 shadow-md bg-gradient-to-r from-skin-stop-crust via-skin-stop-mantle to-skin-stop-core">
+<div x-data class="fixed top-0 w-full h-20 shadow-md bg-gradient-to-r from-skin-stop-crust via-skin-stop-mantle to-skin-stop-core">
     <header class="flex items-center h-full mx-auto lg:max-w-7xl">
         <div class="flex items-center justify-between w-full h-full">
             <div>

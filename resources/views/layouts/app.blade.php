@@ -22,9 +22,6 @@
 
         <!-- Fonts -->
         @googlefonts("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap")
-        @googlefonts("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap")
-        @googlefonts("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap")
-        @googlefonts("https://fonts.googleapis.com/css2?family=Coda:wght@400;800&display=swap")
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -42,7 +39,7 @@
         x-bind:class="{ 'dark': $store.stage.darkMode, 'overflow-y-hidden': $store.stage.mobileMenuOpen }">
         <x-jet-banner />
 
-        <div x-data class="min-h-screen bg-skin-fill-core">
+        <div x-data class="min-h-screen bg-gradient-to-br from-skin-stop-core to-skin-stop-crust">
             <livewire:nav-menu-main />
 
             <!--Notification pop-up -->
@@ -51,7 +48,7 @@
             </div>
 
             <!-- Page Content -->
-            <main class="mt-6">
+            <main class="mt-20">
                 {{ $slot }}
             </main>
 

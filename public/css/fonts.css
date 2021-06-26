@@ -37,5 +37,48 @@
          url('../fonts/soloist.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+
+@font-face {
+    font-family: 'milestone';
+    src: url('../fonts/milestonefreeversion-script-webfont.woff2') format('woff2'),
+         url('../fonts/milestonefreeversion-script-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'lemon_milk';
+    src: url('../fonts/lemonmilk-regular-webfont.woff2') format('woff2'),
+         url('../fonts/lemonmilk-regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'lemon_milk';
+    src: url('../fonts/lemonmilk-medium-webfont.woff2') format('woff2'),
+         url('../fonts/lemonmilk-medium-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'lemon_milk';
+    src: url('../fonts/lemonmilk-light-webfont.woff2') format('woff2'),
+         url('../fonts/lemonmilk-light-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'lemon_milk';
+    src: url('../fonts/lemonmilk-bold-webfont.woff2') format('woff2'),
+         url('../fonts/lemonmilk-bold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
 
 }

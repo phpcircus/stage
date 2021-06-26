@@ -9,7 +9,7 @@
     x-transition:leave="transition ease-in duration-300"
     x-transition:leave-start="opacity-100 transform scale-100"
     x-transition:leave-end="opacity-0 transform scale-90"
-    class="fixed z-50 w-full max-w-sm bg-white rounded-lg shadow-lg pointer-events-auto top-90 right-30">
+    class="fixed w-full max-w-sm bg-white rounded-lg shadow-lg pointer-events-auto top-90 right-30">
     <div class="overflow-hidden rounded-lg shadow-xs">
         <div class="p-4">
             <div class="flex items-start">
