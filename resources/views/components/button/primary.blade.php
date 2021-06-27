@@ -1,7 +1,10 @@
 <x-button
     {{ $attributes->merge([
-        'class' => 'font-bold text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 border-indigo-600
-            dark:text-gray-900 dark:bg-indigo-400 dark:hover:bg-indigo-300 dark:active:bg-indigo-500 dark:border-indigo-400 dark:hover:text-gray-700'
+        'class' => 'font-bold
+            text-blue-600 dark:text-blue-400 hover:text-white dark:hover:text-white
+            bg-transparent hover:bg-blue-600 dark:hover:bg-blue-400
+            border-2 border-blue-600 dark:border-blue-400 hover:border-transparent
+            shadow-attention hover:shadow-none'
     ]) }}>
     {{ $slot }}
 </x-button>
