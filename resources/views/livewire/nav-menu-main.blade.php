@@ -75,10 +75,10 @@
                     </div>
                 @endauth
             </div>
-            <div x-data x-cloak class="ml-auto mr-4 cursor-pointer" x-on:click="$store.stage.toggleTheme()">
+            {{-- <div x-data x-cloak class="ml-auto mr-4 cursor-pointer" x-on:click="$store.stage.toggleTheme()">
                 <x-heroicon-o-moon x-cloak x-show="$store.stage.darkMode" class="w-6 text-gray-200"></x-heroicon-o-moon>
                 <x-heroicon-o-sun x-cloak x-show="! $store.stage.darkMode" class="w-6 text-gray-900"></x-heroicon-o-sun>
-            </div>
+            </div> --}}
             <div class="flex items-center -mr-2 sm:hidden">
                 <!-- Mobile menu button -->
                 <button type="button"

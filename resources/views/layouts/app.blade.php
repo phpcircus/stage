@@ -39,6 +39,7 @@
         x-bind:class="{ 'dark': $store.stage.darkMode, 'overflow-y-hidden': $store.stage.mobileMenuOpen }"
         x-on:keydown.escape="$store.stage.mobileMenuOpen = false">
         <x-jet-banner />
+        <x-flyouts.toggle />
 
         <div x-data class="min-h-screen bg-gradient-to-br from-skin-stop-core to-skin-stop-crust">
             <livewire:nav-menu-main />
