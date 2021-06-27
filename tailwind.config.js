@@ -91,6 +91,12 @@ module.exports = {
                     'base-inverted': withOpacity('---color-text-base-inverted'),
                 },
             },
+            borderColor: {
+                skin: {
+                    base: withOpacity('---color-text-base'),
+                    hover: withOpacity('---color-text-muted'),
+                },
+            },
             backgroundColor: {
                 skin: {
                     'fill-core': withOpacity('---color-fill-core'),
@@ -106,6 +112,10 @@ module.exports = {
                     'stop-mantle': withOpacity('---color-fill-mantle'),
                     'stop-extreme': withOpacity('---color-fill-extreme'),
                 },
+            },
+            boxShadow: {
+                'red': '0 0 25px 10px rgba(239,68,68,0.3)',
+                'attention': '0 0 12px 5px var(---border-fill-attention)'
             },
         },
     },
