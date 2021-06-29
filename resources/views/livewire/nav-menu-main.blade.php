@@ -20,8 +20,8 @@
                         class="relative inline-flex items-center px-1 pt-1 text-base font-semibold uppercase border-b-4 {{ request()->routeIs('*posts*') ? 'text-skin-loud border-red-500/75' : 'text-skin-muted hover:text-skin-loud border-transparent hover:border-red-500/[.35]'  }}">
                         Posts
                         <div x-cloak x-show="$store.stage.hasntSeenNewest()">
-                            <span class="absolute -right-[10px] top-0 inline-flex w-3 h-3 bg-red-400 rounded-full opacity-75 animate-ping"></span>
-                            <span class="absolute -right-[10px] top-0 inline-flex w-3 h-3 bg-red-500 rounded-full opacity-50"></span>
+                            <span class="absolute -right-[10px] top-[25px] inline-flex w-3 h-3 bg-red-400 rounded-full opacity-75 animate-ping"></span>
+                            <span class="absolute -right-[10px] top-[25px] inline-flex w-3 h-3 bg-red-500 rounded-full opacity-50"></span>
                         </div>
                     </a>
                     <a href="{{ route('about') }}"
