@@ -36,8 +36,7 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body x-data x-cloak class="font-sans antialiased bg-skin-fill-core selection:bg-red-300 selection:text-white"
-        x-bind:class="{ 'dark': $store.stage.darkMode, 'overflow-y-hidden': $store.stage.mobileMenuOpen }"
-        x-on:keydown.escape="$store.stage.mobileMenuOpen = false">
+        x-bind:class="{ 'dark': $store.stage.darkMode }">
         <x-jet-banner />
         <x-flyouts.toggle />
 
