@@ -19,7 +19,7 @@
         <meta property="twitter:card" content="summary_large_image">
         <meta property="og:title" content="{{ $post->title }}">
         <meta property="og:type" content="article">
-        <meta property="og:url" content="https://phpstage.com/posts/{{ $post->slug }}>" />
+        <meta property="og:url" content="https://phpstage.com/posts/{{ $post->slug }}">
         <meta property="og:description" content="{{ $post->summary }}">
         <meta property="og:image" content="{{ URL::asset($post->primary_image) }}">
     @endsection
