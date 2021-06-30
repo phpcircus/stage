@@ -15,8 +15,10 @@
         <!-- Social Media -->
         <meta name="twitter:card" content="summary_large_image">
         <meta name="og:title" content="PHPStage.com">
+        <meta name="og:type" content="website">
+        <meta property="og:url" content=”https://phpstage.com” />
         <meta name="og:description" content="A place to track the cool new things I'm learning in the world of PHP web development.">
-        <meta name="og:image" content="https://phpstage.com/img/phpstage.png">
+        <meta name="og:image" content="https://phpstage.com/img/share_phpstage.jpg">
 
         <!-- Image prefetches -->
         <link rel="prefetch" as="image" href="/img/about_me.png">
