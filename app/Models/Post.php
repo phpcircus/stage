@@ -7,14 +7,12 @@ use App\Models\Traits\HasUuid;
 use App\Models\Traits\Slug\SlugOptions;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
     use HasFactory;
     use HasSlug;
     use HasUuid;
-    use Searchable;
 
     /** @var array */
     protected $casts = [
@@ -39,28 +37,6 @@ class Post extends Model
     public function getRouteKeyName()
     {
         return 'slug';
-    }
-
-    /**
-     * Determine if the model should be searchable.
-     *
-     * @return bool
-     */
-    public function shouldBeSearchable()
-    {
-        return null !== $this->published_at && $this->published_at <= now();
-    }
-
-    /**
-     * Modify the query used to retrieve models when making all of the models searchable.
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    protected function makeAllSearchableUsing($query)
-    {
-        return $query->with('categories');
     }
 
     /**
