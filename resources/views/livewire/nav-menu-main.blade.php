@@ -4,12 +4,14 @@
     <div class="h-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="flex items-center justify-between w-full h-full">
             <div class="flex items-center h-full">
-                <div class="flex items-center flex-shrink-0 mr-2 md:mr-8">
-                    <img x-bind:src="$store.stage.darkMode ? '/img/light_elephant.png' : '/img/dark_elephant.png'" class="h-6 mr-1"
-                        x-bind:class="$store.stage.darkMode ? 'opacity-75' : ''" />
-                    <span class="text-xl text-transparent uppercase xs:text-2xl sm:text-3xl bg-clip-text from-gray-600 to-gray-400 font-soloist"
-                        x-bind:class="$store.stage.darkMode ? 'bg-gradient-to-l' : 'bg-gradient-to-r'">PhpStage</span>
-                </div>
+                <a href="/">
+                    <div class="flex items-center flex-shrink-0 mr-2 md:mr-8">
+                        <img x-bind:src="$store.stage.darkMode ? '/img/light_elephant.png' : '/img/dark_elephant.png'" class="h-6 mr-1"
+                            x-bind:class="$store.stage.darkMode ? 'opacity-75' : ''" />
+                        <span class="text-xl text-transparent uppercase xs:text-2xl sm:text-3xl bg-clip-text from-gray-600 to-gray-400 font-soloist"
+                            x-bind:class="$store.stage.darkMode ? 'bg-gradient-to-l' : 'bg-gradient-to-r'">PhpStage</span>
+                    </div>
+                </a>
                 <div class="hidden sm:h-full sm:ml-6 sm:flex sm:space-x-8">
                     <a href="{{ route('home') }}"
                         class="inline-flex items-center px-1 pt-1 text-base font-semibold uppercase border-b-4 {{ request()->routeIs('*home*') ? 'text-skin-loud border-red-500/75' : 'text-skin-muted hover:text-skin-loud border-transparent hover:border-red-500/[.35]'  }}">

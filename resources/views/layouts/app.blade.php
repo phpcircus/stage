@@ -8,17 +8,20 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>
             <text y=%22.9em%22 font-size=%2290%22>🐘</text>
         </svg>">
-            <!-- SEO -->
-        <title>{{ config('app.name', 'Laravel') }}</title>
-        <meta name="description" content="A place to track the cool new things I'm learning in the world of PHP web development.">
 
-        <!-- Social Media -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="og:title" content="PHPStage.com">
-        <meta name="og:type" content="website">
-        <meta property="og:url" content=”https://phpstage.com” />
-        <meta name="og:description" content="A place to track the cool new things I'm learning in the world of PHP web development.">
-        <meta name="og:image" content="https://phpstage.com/img/share_phpstage.jpg">
+        @section('seo')
+            <!-- SEO -->
+            <title>{{ config('app.name', 'Laravel') }}</title>
+            <meta name="description" content="A place to track the cool new things I'm learning in the world of PHP web development.">
+
+            <!-- Social Media -->
+            <meta property="twitter:card" content="summary_large_image">
+            <meta property="og:title" content="PHPStage.com">
+            <meta property="og:type" content="website">
+            <meta property="og:url" content=”https://phpstage.com” />
+            <meta property="og:description" content="A place to track the cool new things I'm learning in the world of PHP web development.">
+            <meta property="og:image" content="https://phpstage.com/img/share_phpstage.jpg">
+        @show
 
         <!-- Image prefetches -->
         <link rel="prefetch" as="image" href="/img/about_me.png">
