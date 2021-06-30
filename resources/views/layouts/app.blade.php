@@ -5,11 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>
+            <text y=%22.9em%22 font-size=%2290%22>🐘</text>
+        </svg>">
+            <!-- SEO -->
         <title>{{ config('app.name', 'Laravel') }}</title>
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
+        <meta name="description" content="A place to track the cool new things I'm learning in the world of PHP web development.">
+
+        <!-- Social Media -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="og:title" content="PHPStage.com">
+        <meta name="og:description" content="A place to track the cool new things I'm learning in the world of PHP web development.">
+        <meta name="og:image" content="https://phpstage.com/img/phpstage.png">
 
         <!-- Image prefetches -->
         <link rel="prefetch" as="image" href="/img/about_me.png">
@@ -21,7 +28,7 @@
         <link rel="prefetch" as="image" href="/img/closed.jpg">
 
         <!-- Fonts -->
-        @googlefonts("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap")
+        {{-- @googlefonts("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap") --}}
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
