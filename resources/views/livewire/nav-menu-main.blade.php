@@ -1,6 +1,6 @@
 <nav x-data="{ mobileMenuOpen: false }" x-init="$store.stage.newest = '{{ $newest }}'; mobileMenuOpen = false;"
     x-effect="mobileMenuOpen ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')"
-    class="fixed top-0 left-0 w-full z-[20] h-20 border-b-2 dark:border-gray-800 border-gray-300 shadow dark:shadow-md bg-skin-fill-mantle">
+    class="fixed top-0 left-0 z-20 w-full h-20 border-b-2 border-gray-300 shadow dark:border-gray-800 dark:shadow-md bg-skin-fill-mantle">
     <div class="h-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="flex items-center justify-between w-full h-full">
             <div class="flex items-center h-full">
@@ -79,7 +79,7 @@
             <div class="flex items-center -mr-2 sm:hidden">
                 <!-- Mobile menu button -->
                 <button type="button"
-                    class="inline-flex z-[30] items-center justify-center p-2 rounded-md group hover:bg-gray-100 focus:outline-none"
+                    class="z-30 inline-flex items-center justify-center p-2 rounded-md group hover:bg-gray-100 focus:outline-none"
                     aria-controls="mobile-menu" x-on:click="mobileMenuOpen = !mobileMenuOpen" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <x-heroicon-o-menu class="block w-6 h-6 text-skin-loud group-hover:text-gray-800" x-bind:class="{ 'hidden': mobileMenuOpen, 'block': !(mobileMenuOpen) }" />

@@ -96,7 +96,7 @@
             class="container relative max-w-6xl max-h-full p-8 overflow-hidden shadow-lg bg-skin-fill-core rounded-xl lg:p-12">
             <div class="absolute top-[5px] right-[5px] cursor-pointer"
                 x-on:click="show = false; src = ''; description = '';">
-                <x-heroicon-o-plus class="text-skin-base h-8 w-8 rotate-45 z-[60]"></x-heroicon-o-plus>
+                <x-heroicon-o-plus class="w-8 h-8 rotate-45 text-skin-base z-60"></x-heroicon-o-plus>
             </div>
             <img x-bind:src="src" class="max-w-full">
         </div>

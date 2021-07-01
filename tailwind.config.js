@@ -51,6 +51,9 @@ module.exports = {
                '10': '.10',
                '25': '.25',
             },
+            zIndex: {
+                '60': 60,
+            },
             inset: {
                 '-4': '-4px',
                 '70': '70px',
@@ -123,13 +126,7 @@ module.exports = {
 
     variants: {
         extend: {
-            opacity: ['disabled'],
-            flex: ['group-hover'],
-            animation: ['group-hover'],
-            translate: ['group-hover'],
-            grayscale: ['hover', 'focus'],
-            space: ['first'],
-            margin: ['first'],
+
         },
     },
 
