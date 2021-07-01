@@ -9,7 +9,7 @@
         <x-input.group label="Body" for="body" :error="$errors->first('body')">
             <x-input.rich-text wire:model.defer="body" id="body" />
         </x-input.group>
-        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-gray-200 sm:border-t sm:py-5">
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-gray-400 sm:border-t sm:py-5">
             <label for="categories" class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-300 sm:mt-px sm:pt-2">
                 Categories
             </label>
@@ -49,12 +49,12 @@
             <x-input.date wire:model="published_at" id="published_at" placeholder="MM/DD/YYYY" class="bg-origin-border" />
         </x-input.group>
     </div>
-    <div class="pt-5 mt-8 border-t border-gray-200">
+    <div class="pt-5 mt-8 border-t border-gray-400">
         <div class="flex items-center justify-end space-x-3">
-            <x-button.secondary wire:click="cancel">
+            <x-button.link wire:click="cancel" class="mr-4">
                 Cancel
-            </x-button.secondary>
-            <x-button.primary wire:click.prevent="save">
+            </x-button.link>
+            <x-button.primary wire:click.prevent="save" class="bg-indigo-400 dark:bg-indigo-500">
                 Save
             </x-button.primary>
         </div>
