@@ -43,6 +43,9 @@ module.exports = {
                 'lemonmilk': ['lemon_milk', ...defaultTheme.fontFamily.sans],
                 milestone: ['milestone', ...defaultTheme.fontFamily.sans],
             },
+            transitionProperty: {
+                'width': 'width'
+            },
             animation: {
                 'spin-stop': 'spin 1s ease-in-out 1',
                 blurred: 'blurred 7s infinite',
