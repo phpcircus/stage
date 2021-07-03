@@ -30,9 +30,9 @@
                         </span>
                     </div>
                     <img x-show="show" x-cloak src="/img/clay_kim.jpg" class="object-cover object-bottom w-64 h-64 border-4 border-red-600 rounded-full shadow-md lg:ml-8"
-                    x-transition:enter="transition ease-out duration-1000"
-                    x-transition:enter-start="filter grayscale transform scale-0"
-                    x-transition:enter-end="filter grayscale-0 transform scale-100" />
+                        x-transition:enter="transition ease-out duration-1000"
+                        x-transition:enter-start="filter grayscale transform scale-0"
+                        x-transition:enter-end="filter grayscale-0 transform scale-100" />
                 </div>
                 <p class="mt-8 font-sans text-xl leading-relaxed text-skin-base first-letter:font-badhandwriting first-letter:text-2xl first-letter:italic first-letter:text-skin-muted">
                     I've started this blog to track my experiences and to have a place to log what I'm learning. So this is more of a tool for me than anything else. However, maybe I'll write something that can be useful to others. Either way, I'm excited about what is to come.
