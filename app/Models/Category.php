@@ -11,6 +11,11 @@ class Category extends Model
     use HasSlug;
     use HasUuid;
 
+    /** @var array */
+    protected $attributes = [
+        'color' => 'blue-400',
+    ];
+
     /**
      * Get the options for generating the slug.
      */
@@ -39,5 +44,13 @@ class Category extends Model
     public function posts()
     {
         return $this->belongsToMany(Post::class, 'category_post', 'category_id', 'post_id');
+    }
+
+    /**
+     * Get the color of the category.
+     */
+    public function getColorAttribute(): string
+    {
+        return $this->attributes['color'] ?? 'blue-400';
     }
 }

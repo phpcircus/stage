@@ -16,6 +16,9 @@ class Form extends Component
     /** @var string */
     public $name;
 
+    /** @var string */
+    public $color = '';
+
     /** @var bool */
     public $updatingCategory;
 
@@ -65,6 +68,7 @@ class Form extends Component
     public function setFields(): void
     {
         $this->name = $this->category->name;
+        $this->color = $this->category->color;
     }
 
     /**
@@ -77,10 +81,12 @@ class Form extends Component
         if (! $this->category->id) {
             Category::create([
                 'name' => $this->name,
+                'color' => $this->color,
             ]);
         } else {
             $this->category->update([
                 'name' => $this->name,
+                'color' => $this->color,
             ]);
         }
 

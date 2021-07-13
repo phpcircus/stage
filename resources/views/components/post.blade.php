@@ -20,14 +20,10 @@
             @foreach($post->categories as $category)
                 <div class="flex items-center mb-2">
                     <a href="{{ route('posts', [ 'category' => $category->name ]) }}">
-                        <span class="inline-block text-xs ws:text-sm font-coda leading-4 text-skin-quiet border-b-2 border-transparent
-                            hover:text-red-500 dark:hover:text-red-400/[.75]">
+                        <span class="py-[.35rem] px-4 bg-{{ $category->color }} rounded-full leading-3 uppercase inline-block text-[length:.63rem] font-bold font-coda text-white">
                             {{ $category->name }}
                         </span>
                     </a>
-                    @if(! $loop->last)
-                        <span class="text-red-400 dark:text-red-400/[.75] ml-2">/</span>
-                    @endif
                 </div>
             @endforeach
         </div>
