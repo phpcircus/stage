@@ -12,17 +12,23 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login') }}" class="pt-4">
             @csrf
 
-            <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" required autofocus />
+            <div x-data="{ placeholder: 'johndoe@email.com' }" class="relative">
+                <x-jet-input x-on:focus="setTimeout(() => placeholder = 'Email', 200)"
+                    x-on:blur="setTimeout(() => placeholder = $el.value ? 'Email' : 'johndoe@email.com', 200)"
+                    id="email" class="block w-full mt-1 placeholder-transparent peer" placeholder="johndoe@email.com" type="email" name="email" :value="old('email')" required />
+                <x-jet-label for="email" x-text="placeholder" x-ref="emailLabel"
+                    class="absolute text-sm text-gray-600 transition-all duration-[400ms] -top-6 peer-placeholder-shown:top-[.65rem] peer-placeholder-shown:left-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:left-0 peer-focus:-top-6 peer-focus:text-gray-600 peer-focus:text-sm" />
             </div>
 
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block w-full mt-1" type="password" name="password" required autocomplete="current-password" />
+            <div x-data="{ placeholder: '************' }" class="relative mt-8">
+                <x-jet-input x-on:focus="setTimeout(() => placeholder = 'Password', 200)"
+                    x-on:blur="setTimeout(() => placeholder = $el.value ? 'Password' : '************', 200)"
+                    id="password" class="block w-full mt-1 placeholder-transparent peer" placeholder="*****************" type="password" name="password" required autocomplete="current-password" />
+                <x-jet-label for="password" x-text="placeholder" x-ref="passwordLabel"
+                    class="absolute text-sm text-gray-600 transition-all duration-[400ms] -top-6 peer-placeholder-shown:top-[.65rem] peer-placeholder-shown:left-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:left-0 peer-focus:-top-6 peer-focus:text-gray-600 peer-focus:text-sm" />
             </div>
 
             <div class="block mt-4">
@@ -32,16 +38,19 @@
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-center mt-4">
                 @if (Route::has('password.request'))
                     <a class="text-sm text-gray-600 underline hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
 
-                <x-jet-button class="ml-4">
+                <x-button.primary type="submit"
+                    class="group !px-4 !py-2 ml-8 hover:!bg-indigo-600 hover:text-white hover:!ring hover:!ring-offset-2 hover:!ring-indigo-200/50">
                     {{ __('Log in') }}
-                </x-jet-button>
+                    <x-heroicon-o-chevron-right class="h-4 ml-2 text-gray-800 group-hover:text-white group-hover:hidden"></x-heroicon-chevron-right>
+                    <x-heroicon-o-arrow-right class="hidden h-4 ml-2 text-gray-800 group-hover:text-white group-hover:inline-block"></x-heroicon-chevron-right>
+                </x-button.primary>
             </div>
         </form>
     </x-jet-authentication-card>
