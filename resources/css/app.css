@@ -19,6 +19,7 @@
       ---color-fill-mantle: 255, 255, 255;
       ---color-fill-crust: 249, 250, 251;
       ---color-fill-extreme: 0, 0, 0;
+      ---color-fill-highlight: 31, 41, 55;
       ---border-fill-attention:rgba(96,165,250,0.3);
       ---border-fill-extreme:rgba(0,0,0,0.1);
   }
@@ -35,6 +36,7 @@
       ---color-fill-mantle: 31, 41, 55;
       ---color-fill-crust: 17, 24, 39;
       ---color-fill-extreme: 255, 255, 255;
+      ---color-fill-highlight: 209, 213, 219;
       ---border-fill-attention:rgba(96,165,250,0.3);
       ---border-fill-extreme:rgba(156,163,175,0.1);
   }

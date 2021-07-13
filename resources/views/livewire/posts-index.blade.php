@@ -42,14 +42,10 @@
                             @foreach($post->categories as $category)
                                 <div class="flex {{ $loop->first ? '!-ml-0' : '' }}">
                                     <a href="{{ route('posts', [ 'category' => $category->name ]) }}">
-                                        <span class="inline-block pb-1 pt-1.5 mb-2 text-sm font-coda leading-4 text-gray-700 border-b-2 border-transparent
-                                            hover:text-red-500 dark:text-gray-500 dark:hover:text-red-400/[.75]">
+                                        <span class="py-[.35rem] px-4 bg-{{ $category->color }} rounded-full leading-3 uppercase inline-block text-[length:.63rem] font-bold font-coda text-white">
                                             {{ $category->name }}
                                         </span>
                                     </a>
-                                    @if(! $loop->last)
-                                        <span class="text-red-400 dark:text-red-400/[.75] ml-2">/</span>
-                                    @endif
                                 </div>
                             @endforeach
                         </div>

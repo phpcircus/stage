@@ -17,10 +17,6 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
-    safelist: [
-        'trix-toolbar-1',
-        'trix-button',
-    ],
     darkMode: 'class',
     theme: {
         screens: {
@@ -108,6 +104,7 @@ module.exports = {
                     'fill-mantle': withOpacity('---color-fill-mantle'),
                     'fill-crust': withOpacity('---color-fill-crust'),
                     'fill-extreme': withOpacity('---color-fill-extreme'),
+                    'fill-highlight': withOpacity('---color-fill-highlight'),
                 },
             },
             gradientColorStops: {
@@ -138,5 +135,6 @@ module.exports = {
         require('./resources/js/tailwindForms.js'),
         require('@tailwindcss/line-clamp'),
         require('@tailwindcss/aspect-ratio'),
+        require('tailwindcss-text-fill-stroke')(),
     ],
 };

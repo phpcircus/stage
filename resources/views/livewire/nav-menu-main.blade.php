@@ -62,18 +62,18 @@
                                 x-description="Dropdown menu, show/hide based on menu state." role="menu" aria-orientation="vertical"
                                 aria-labelledby="user-menu-button" x-cloak>
                                 <a id="user-menu-item-0" x-on:click="closeUserMenu()" href="{{ route('profile.show') }}"
-                                   class="block px-4 py-2 text-sm text-skin-base hover:bg-skin-fill-extreme hover:text-skin-extreme" role="menuitem">
+                                   class="block px-4 py-2 text-sm text-skin-base hover:bg-skin-fill-highlight hover:text-skin-extreme" role="menuitem">
                                    Your Profile
                                 </a>
                                 <a id="user-menu-item-1" x-on:click="closeUserMenu();" href="{{ route('admin.posts') }}"
-                                   class="block px-4 py-2 text-sm text-skin-base hover:bg-skin-fill-extreme hover:text-skin-extreme" role="menuitem">
+                                   class="block px-4 py-2 text-sm text-skin-base hover:bg-skin-fill-highlight hover:text-skin-extreme" role="menuitem">
                                     Posts
                                 </a>
                                 <a id="user-menu-item-2" x-on:click="closeUserMenu();" href="{{ route('admin.categories') }}"
-                                   class="block px-4 py-2 text-sm text-skin-base hover:bg-skin-fill-extreme hover:text-skin-extreme" role="menuitem">
+                                   class="block px-4 py-2 text-sm text-skin-base hover:bg-skin-fill-highlight hover:text-skin-extreme" role="menuitem">
                                     Categories
                                 </a>
-                                <div id="user-menu-item-3" class="block px-4 py-2 cursor-pointer hover:bg-skin-fill-extreme group" role="menuitem">
+                                <div id="user-menu-item-3" class="block px-4 py-2 cursor-pointer hover:bg-skin-fill-highlight group" role="menuitem">
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
                                         <button type="submit" class="text-sm text-skin-base active:outline-none group-hover:text-skin-extreme" onclick="event.preventDefault(); this.closest('form').submit();">
