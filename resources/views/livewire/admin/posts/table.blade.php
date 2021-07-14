@@ -3,8 +3,10 @@
         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
             <div id="posts-main-action-button" class="flex justify-start w-full mb-4 lg:justify-end">
                 <a href="{{ route('admin.posts.new') }}">
-                    <x-button.primary x-cloak>
+                    <x-button.primary x-cloak class="!py-[.6rem] !text-white !bg-indigo-500 !ring hover:!ring-offset-2 ring-indigo-600 dark:!ring-indigo-400">
                         New Post
+                        <x-heroicon-o-chevron-right class="h-4 ml-2 text-white group-hover:hidden"></x-heroicon-chevron-right>
+                        <x-heroicon-o-arrow-right class="hidden h-4 ml-2 text-white group-hover:inline-block"></x-heroicon-chevron-right>
                     </x-button.primary>
                 </a>
             </div>

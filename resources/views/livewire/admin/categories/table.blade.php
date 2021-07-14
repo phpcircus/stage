@@ -3,8 +3,10 @@
         <div class="inline-block w-full py-2 align-middle md:w-1/2 sm:px-6 lg:px-8">
             <div id="categories-main-action-button" class="flex justify-end w-full mb-4">
                 <a href="{{ route('admin.categories.new') }}">
-                    <x-button.primary x-cloak>
+                    <x-button.primary x-cloak class="!py-[.6rem] !text-white !bg-indigo-500 !ring hover:!ring-offset-2 ring-indigo-600 dark:!ring-indigo-400">
                         New Category
+                        <x-heroicon-o-chevron-right class="h-4 ml-2 text-white group-hover:hidden"></x-heroicon-chevron-right>
+                        <x-heroicon-o-arrow-right class="hidden h-4 ml-2 text-white group-hover:inline-block"></x-heroicon-chevron-right>
                     </x-button.primary>
                 </a>
             </div>
@@ -16,6 +18,10 @@
                                 class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase dark:text-gray-300">
                                 Name
                             </th>
+                            <th scope="col"
+                                class="px-6 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase dark:text-gray-300">
+                                Color
+                            </th>
                             <th scope="col" colspan="2" class="relative px-6 py-3">
                                 <span class="sr-only">Actions</span>
                             </th>
@@ -26,6 +32,11 @@
                         <tr id="category_{{ $category->id }}">
                             <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-gray-300 whitespace-nowrap">
                                 {{ $category->name }}
+                            </td>
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-gray-300 whitespace-nowrap">
+                                <span class="bg-{{ $category->color }} py-[.35rem] px-4 rounded-full leading-3 uppercase text-[length:.63rem] font-bold font-coda text-white">
+                                    {{ $category->color }}
+                                </span>
                             </td>
                             <td class="px-6 py-4 text-right">
                                 <a href="{{ route('admin.categories.edit', $category->slug) }}" class="w-full">
