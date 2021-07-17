@@ -33,16 +33,17 @@
             <li class="pt-4 mb-4 first:pt-0">
                 <a href="{{ route('posts.show', $post->slug) }}" class="block">
                     <div class="pt-2 mb-4">
-                        <div class="flex flex-col items-start justify-between mb-4 md:mb-0 md:items-center md:flex-row">
+                        <div class="flex flex-col items-start justify-between mb-2 md:items-center md:flex-row">
                             <p class="text-2xl font-bold text-gray-800 whitespace-normal overflow-wrap dark:text-gray-300">
                                 {{ $post->title }}
                             </p>
                         </div>
-                        <div class="flex flex-wrap mb-2 space-x-2">
+                        <div class="flex flex-wrap">
                             @foreach($post->categories as $category)
-                                <div class="flex {{ $loop->first ? '!-ml-0' : '' }}">
+                                <div class="flex mb-2 mr-2">
                                     <a href="{{ route('posts', [ 'category' => $category->name ]) }}">
-                                        <span class="py-[.35rem] px-4 bg-{{ $category->color }} rounded-full leading-3 uppercase inline-block text-[length:.63rem] font-bold font-coda text-white">
+                                        <span class="border border-transparent py-[.35rem] px-4 bg-{{ $category->color }} rounded-full leading-3 uppercase inline-block text-[length:.63rem] font-bold font-coda text-white
+                                            hover:bg-transparent hover:border-{{$category->color }} hover:text-{{$category->color }}">
                                             {{ $category->name }}
                                         </span>
                                     </a>

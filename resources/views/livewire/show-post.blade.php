@@ -8,7 +8,7 @@
                 {{ $post->title }}
             </h1>
             <div class="flex justify-center w-full py-4 mx-auto mb-4">
-                <img alt="primary_post_image" src="{{ $post->primary_image }}" class="object-cover h-auto rounded-md shadow-md max-h-96">
+                <img alt="primary_post_image" src="{{ $post->primary_image }}" class="object-cover h-auto rounded-md shadow-md ring-2 ring-gray-200/50 ring-offset-2 ring-offset-gray-50 dark:ring-offset-gray-800 max-h-96">
             </div>
             <div class="!leading-relaxed trix-content text-skin-base">
                 {!! $post->body !!}

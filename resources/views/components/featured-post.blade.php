@@ -2,18 +2,19 @@
     'post',
 ])
 
-<section class="col-span-6 p-4 mb-2 overflow-hidden font-sans rounded-lg shadow-md lg:p-8 lg:grid lg:grid-cols-3 lg:gap-4 bg-skin-fill-mantle">
+<section class="col-span-6 p-4 mb-2 overflow-hidden font-sans rounded-lg shadow-md xs:p-8 lg:p-8 lg:grid lg:grid-cols-3 lg:gap-4 bg-skin-fill-mantle">
     <!-- Post Image -->
-    <div class="flex items-center justify-center col-span-1 mb-4 overflow-hidden bg-blue-100 rounded-lg lg:mb-0 max-h-96">
-        <img src="{{ $post->primary_image }}" class="object-cover object-center w-full rounded-lg shadow-md ws:object-top xl:object-center h-96" />
+    <div class="flex items-center justify-center w-full mb-4 rounded-lg shadow-md">
+        <img src="{{ $post->primary_image }}" class="object-cover object-center w-full rounded-lg ws:object-top xl:object-center h-96 ring-2 ring-gray-200/50 ring-offset-2 ring-offset-gray-50 dark:ring-offset-gray-800" />
     </div>
     <!-- Post Categories and timestamp -->
     <div class="flex flex-col col-span-2">
-        <div class="flex flex-wrap mb-2 space-x-2">
+        <div class="flex flex-wrap mb-2">
             @foreach($post->categories as $category)
-                <div class="flex items-center mb-2">
+                <div x-data class="flex items-center mb-2 {{ $loop->first ? '' : 'ml-2' }}">
                     <a href="{{ route('posts', [ 'category' => $category->name ]) }}">
-                        <span class="py-[.35rem] px-4 bg-{{ $category->color }} rounded-full leading-3 uppercase inline-block text-[length:.63rem] font-bold font-coda text-white">
+                        <span class="border border-transparent py-[.35rem] px-4 bg-{{ $category->color }} rounded-full leading-3 uppercase inline-block text-[length:.63rem] font-bold font-coda text-white
+                            hover:bg-transparent hover:border-{{$category->color }} hover:text-{{$category->color }}">
                             {{ $category->name }}
                         </span>
                     </a>
