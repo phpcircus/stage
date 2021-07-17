@@ -45,7 +45,7 @@
                     @auth
                         <div x-data="userMenu(false)" x-on:keydown.escape.stop="closeUserMenu()" x-on:click.away="closeUserMenu()" class="relative ml-3">
                             <button id="user-menu-button" x-ref="button" x-on:click="toggleUserMenu()" type="button"
-                                class="flex text-sm bg-white rounded-full hover:ring-2 hover:ring-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                class="flex text-sm bg-white rounded-full ring-2 ring-gray-300 dark:ring-gray-200 hover:ring-red-500 dark:hover:ring-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                                 <span class="sr-only">Open user menu</span>
                                 <img class="w-8 h-8 rounded-full"
                                     src="{{ auth()->user()->profile_photo_url }}"
