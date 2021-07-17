@@ -1,15 +1,15 @@
 require('./bootstrap');
 
 import Alpine from 'alpinejs';
-import intersect from './alpinejs/intersect';
 import persist from './alpinejs/persist';
 import Fern from '@ryangjchandler/fern';
+import intersect from '@alpinejs/intersect'
 
 window.Alpine = Alpine;
 
 Alpine.plugin(Fern);
-Alpine.plugin(intersect);
 Alpine.plugin(persist);
+Alpine.plugin(intersect);
 
 Alpine.persistedStore('stage', {
     mobileMenuOpen: false,
