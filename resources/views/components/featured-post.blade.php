@@ -9,9 +9,9 @@
     </div>
     <!-- Post Categories and timestamp -->
     <div class="flex flex-col col-span-2">
-        <div class="flex flex-wrap mb-2">
+        <div class="flex flex-wrap mb-2 -mx-2">
             @foreach($post->categories as $category)
-                <div x-data class="flex items-center mb-2 {{ $loop->first ? '' : 'ml-2' }}">
+                <div x-data class="flex items-center mx-2 mb-2">
                     <a href="{{ route('posts', [ 'category' => $category->name ]) }}">
                         <span class="border border-transparent py-[.35rem] px-4 bg-{{ $category->color }} rounded-full leading-3 uppercase inline-block text-[length:.63rem] font-bold font-coda text-white
                             hover:bg-transparent hover:border-{{$category->color }} hover:text-{{$category->color }}">

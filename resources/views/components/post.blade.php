@@ -17,9 +17,9 @@
             <div class="flex items-center justify-center w-full mb-4 rounded-lg">
                 <img src="{{ $post->primary_image }}" class="object-cover w-auto h-auto rounded-lg shadow-md ring-2 ring-gray-200/50 ring-offset-2 ring-offset-gray-50 dark:ring-offset-gray-800 max-h-80" />
             </div>
-            <div class="flex flex-wrap mb-2 space-x-2">
+            <div class="flex flex-wrap mb-2 -mx-2">
                 @foreach($post->categories as $category)
-                    <div class="flex items-center mb-2">
+                    <div class="flex items-center mx-2 mb-2">
                         <a href="{{ route('posts', [ 'category' => $category->name ]) }}">
                             <span class="border border-transparent py-[.35rem] px-4 bg-{{ $category->color }} rounded-full leading-3 uppercase inline-block text-[length:.63rem] font-bold font-coda text-white
                                 hover:bg-transparent hover:border-{{$category->color }} hover:text-{{$category->color }}">
