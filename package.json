@@ -25,5 +25,8 @@
         "postcss-nesting": "^8.0.1",
         "tailwindcss": "^2.2.4",
         "tailwindcss-text-fill-stroke": "^1.1.2"
+    },
+    "dependencies": {
+        "@alpinejs/intersect": "^3.2.1"
     }
 }
