@@ -38,18 +38,7 @@
                                 {{ $post->title }}
                             </p>
                         </div>
-                        <div class="flex flex-wrap">
-                            @foreach($post->categories as $category)
-                                <div class="flex mb-2 mr-2">
-                                    <a href="{{ route('posts', [ 'category' => $category->name ]) }}">
-                                        <span class="border border-transparent py-[.35rem] px-4 bg-{{ $category->color }} rounded-full leading-3 uppercase inline-block text-[length:.63rem] font-bold font-coda text-white
-                                            hover:bg-transparent hover:border-{{$category->color }} hover:text-{{$category->color }}">
-                                            {{ $category->name }}
-                                        </span>
-                                    </a>
-                                </div>
-                            @endforeach
-                        </div>
+                        <x-categories :categories="$post->categories" />
                         <div class="flex flex-col items-center justify-between md:flex-row">
                             <div class="flex flex-col justify-between w-full mt-2 md:flex-row">
                                 <p class="w-4/5 mb-4 text-lg text-gray-600 whitespace-normal md:mb-0 dark:text-gray-400">

@@ -9,18 +9,7 @@
     </div>
     <!-- Post Categories and timestamp -->
     <div class="flex flex-col col-span-2">
-        <div class="flex flex-wrap mb-2 -mx-2">
-            @foreach($post->categories as $category)
-                <div x-data class="flex items-center mx-2 mb-2">
-                    <a href="{{ route('posts', [ 'category' => $category->name ]) }}">
-                        <span class="border border-transparent py-[.35rem] px-4 bg-{{ $category->color }} rounded-full leading-3 uppercase inline-block text-[length:.63rem] font-bold font-coda text-white
-                            hover:bg-transparent hover:border-{{$category->color }} hover:text-{{$category->color }}">
-                            {{ $category->name }}
-                        </span>
-                    </a>
-                </div>
-            @endforeach
-        </div>
+        <x-categories :categories="$post->categories" />
         <p class="mb-4 text-xs italic text-gray-500">Published {{ $post->published_at->diffForHumans() }}</p>
         <div x-data class="self-start my-2">
             <a x-on:click="$store.stage.setSeenToNewest()" href="{{ route('posts.show', $post->slug) }}"
