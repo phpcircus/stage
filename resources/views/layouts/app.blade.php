@@ -48,11 +48,11 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body x-data x-cloak class="font-sans antialiased selection:bg-red-300 selection:text-white bg-gradient-to-br from-skin-stop-core to-skin-stop-crust"
+    <body x-data x-cloak class="relative font-sans antialiased selection:bg-red-300 selection:text-white bg-gradient-to-br from-skin-stop-core to-skin-stop-crust"
         x-bind:class="{ 'dark': $store.stage.darkMode }">
         <x-jet-banner />
         <x-flyouts.toggle />
-        <div x-data class="relative w-full min-h-screen isolate bg-gradient-to-br from-skin-stop-core to-skin-stop-crust">
+        <div x-data class="absolute top-0 left-0 w-full min-h-screen isolate bg-gradient-to-br from-skin-stop-core to-skin-stop-crust">
             <img src="/img/cad.jpg" class="fixed top-0 left-0 object-cover w-full h-full mix-blend-difference dark:mix-blend-overlay blur-sm" alt="cad background" style="z-index: 0;" />
             <div class="isolate" style="z-index: 2;">
                 <livewire:nav-menu-main />
