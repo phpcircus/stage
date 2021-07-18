@@ -13,6 +13,7 @@
             <!-- SEO -->
             <title>{{ config('app.name', 'Laravel') }}</title>
             <meta name="description" content="A place to track the cool new things I'm learning in the world of PHP web development.">
+            <meta name="keywords" content="learning modern php, using laravel livewire, tracking progress php, web development with laravel, modern javascript with alpinejs">
 
             <!-- Social Media -->
             <meta property="twitter:card" content="summary_large_image">
