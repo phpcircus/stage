@@ -1,13 +1,13 @@
 <div>
     <div class="flex flex-col mt-6 space-y-4 sm:mt-5">
-        <x-input.group label="Title" for="title" :error="$errors->first('title')">
-            <x-input.text wire:model="title" id="title" autocomplete="off" />
+        <x-input.group label="Title" for="title" :error="$errors->first('post.title')">
+            <x-input.text wire:model.lazy="post.title" id="title" autocomplete="off" />
         </x-input.group>
-        <x-input.group label="Summary" for="summary" :error="$errors->first('summary')">
-            <x-input.textarea wire:model="summary" id="summary" />
+        <x-input.group label="Summary" for="summary" :error="$errors->first('post.summary')">
+            <x-input.textarea wire:model="post.summary" id="summary" />
         </x-input.group>
-        <x-input.group label="Body" for="body" :error="$errors->first('body')">
-            <x-input.rich-text wire:model.defer="body" id="body" />
+        <x-input.group label="Body" for="body" :error="$errors->first('post.body')">
+            <x-input.rich-text wire:model.defer="post.body" id="body" />
         </x-input.group>
         <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-gray-400 sm:border-t sm:py-5">
             <label for="categories" class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-300 sm:mt-px sm:pt-2">
