@@ -38,9 +38,9 @@ class Form extends Modal
 
     /** @var array */
     protected $rules = [
-        'post.title' => ['string', 'max:200'],
-        'post.summary' => ['string', 'max:1000'],
-        'post.body' => ['string'],
+        'post.title' => ['required', 'string', 'max:200'],
+        'post.summary' => ['required', 'string', 'max:1000'],
+        'post.body' => ['required', 'string'],
         'published_at' => ['nullable', 'date_format:m/d/Y'],
         'primaryImage' => ['nullable', 'image', 'max:2000'],
         'selectedCategories' => ['nullable', 'array'],

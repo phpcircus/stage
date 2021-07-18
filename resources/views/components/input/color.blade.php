@@ -1,7 +1,7 @@
 <div x-data="colorPicker">
     <label for="color-picker" class="block mb-1 font-semibold">Select a color</label>
     <div class="relative flex flex-row">
-        <input id="color-picker" class="p-2 border border-gray-400 rounded-lg"
+        <input x-on:click="isOpen = true" id="color-picker" class="p-2 border border-gray-400 rounded-lg"
             x-model="currentColor">
         <div @click="isOpen = !isOpen"
             class="flex w-10 h-10 my-auto ml-3 bg-indigo-600 rounded-full cursor-pointer"
@@ -29,7 +29,7 @@
                     <template x-for="color in colors">
                         <div class="">
                             <template x-for="variant in variants">
-                                <div @click="selectColor(color,variant)"
+                                <div x-on:click="selectColor(color,variant); isOpen = false;"
                                     class="w-6 h-6 mx-1 my-1 rounded-full cursor-pointer"
                                     :class="`bg-${color}-${variant}`"></div>
                             </template>
@@ -50,23 +50,14 @@
                     iconColor: '',
                     isOpen: false,
                     init() {
-                        // this.currentColor = 'indigo-600'
                         this.setIconWhite()
                     },
                     setIconWhite () {
                         this.iconColor = 'text-white'
                     },
-                    setIconBlack () {
-                        this.iconColor = 'text-black'
-                    },
                     selectColor (color, variant) {
                         this.currentColor = color + '-' + variant
-                        if (variant < 500) {
-                            this.setIconBlack()
-                    }
-                        else {
-                            this.setIconWhite()
-                        }
+                        this.setIconWhite();
                     }
                 }));
             });
