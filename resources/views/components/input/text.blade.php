@@ -2,6 +2,10 @@
     'leadingAddOn' => false,
 ])
 
+@php
+    $padding = $leadingAddOn ? 'pl-10' : 'pl-3';
+@endphp
+
 <div class="flex mt-1 rounded-md shadow-sm">
     <div class="relative flex items-stretch flex-grow focus-within:z-10">
         @if ($leadingAddOn)
@@ -11,7 +15,7 @@
         @endif
         <input type="text"
             {{ $attributes->merge([
-                'class' => "block w-full pl-10 border-gray-300 rounded-r-md focus:ring-indigo-500 focus:border-indigo-500 rounded-l-md sm:text-sm"
+                'class' => "block w-full {$padding} border-gray-300 rounded-r-md focus:ring-indigo-500 focus:border-indigo-500 rounded-l-md sm:text-sm"
             ]) }}
             tabindex="0" x-ref="field" x-bind:value="value" autocomplete="off"
             type="text">
