@@ -92,7 +92,7 @@ module.exports = {
                 'extreme': '-1px 3px 6px 3px var(---border-fill-extreme)',
                 'small-white': '0 0 6px 3px rgba(255,255,255,0.3)',
                 'small-dark': '0 0 6px 3px rgba(0,0,0,0.3)',
-            },
+            }
         },
     },
 
