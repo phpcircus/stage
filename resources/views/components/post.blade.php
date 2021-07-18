@@ -25,7 +25,7 @@
                     {{ $post->title }}
                 </a>
             </div>
-            <p class="mb-4 leading-relaxed text-skin-base">{{ $post->summary }}</p>
+            <p class="mb-4 leading-relaxed text-skin-base line-clamp-4">{{ $post->summary }}</p>
             <div class="flex flex-wrap items-center self-end w-full pb-4 mt-auto">
                 <a href="{{ route('posts.show', $post->slug) }}"
                     class="inline-flex items-center ml-auto text-skin-base hover:underline">Read More

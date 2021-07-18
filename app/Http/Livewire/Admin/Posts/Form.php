@@ -15,23 +15,14 @@ class Form extends Modal
     /** @var \App\Models\Post|null */
     public $post;
 
-    /** @var string */
-    public $title;
-
-    /** @var string */
-    public $summary;
-
-    /** @var string */
-    public $body;
+    /** @var /Carbon/CarbonImmutable|null */
+    public $published_at;
 
     /** @var \Illuminate\Http\UploadedFile */
     public $primaryImage;
 
     /** @var string */
     public $primaryImageUrl;
-
-    /** @var string */
-    public $published_at;
 
     /** @var mixed */
     public $categories;
@@ -47,10 +38,10 @@ class Form extends Modal
 
     /** @var array */
     protected $rules = [
-        'title' => ['string', 'max:200'],
-        'summary' => ['string', 'max:1000'],
-        'body' => ['string'],
-        'published_at' => ['nullable', 'date'],
+        'post.title' => ['string', 'max:200'],
+        'post.summary' => ['string', 'max:1000'],
+        'post.body' => ['string'],
+        'published_at' => ['nullable', 'date_format:m/d/Y'],
         'primaryImage' => ['nullable', 'image', 'max:2000'],
         'selectedCategories' => ['nullable', 'array'],
     ];
@@ -116,9 +107,6 @@ class Form extends Modal
             $category = Category::create(['name' => ucfirst($this->newCategory)]);
             $this->categories = $this->initializeCategories();
             $this->selectCategory($category->id);
-
-            // array_push($this->selectedCategories, $category->id);
-
             $this->newCategory = '';
         }
     }
@@ -167,9 +155,6 @@ class Form extends Modal
      */
     public function setFields(): void
     {
-        $this->title = $this->post->title;
-        $this->summary = $this->post->summary;
-        $this->body = $this->post->body;
         $this->published_at = $this->post->published_at ? $this->post->published_at->format('m/d/Y') : '';
         $this->primaryImageUrl = $this->post->primary_image;
     }
@@ -186,9 +171,9 @@ class Form extends Modal
 
         if (! $this->post->id) {
             $post = request()->user()->posts()->create([
-                'title' => $this->title,
-                'summary' => $this->summary,
-                'body' => $this->body,
+                'title' => $this->post->title,
+                'summary' => $this->post->summary,
+                'body' => $this->post->body,
                 'published_at' => $published_at,
                 'primary_image' => $primaryImage,
             ]);
@@ -196,9 +181,9 @@ class Form extends Modal
             $post->categories()->sync($this->selectedCategories);
         } else {
             $this->post->update([
-                'title' => $this->title,
-                'summary' => $this->summary,
-                'body' => $this->body,
+                'title' => $this->post->title,
+                'summary' => $this->post->summary,
+                'body' => $this->post->body,
                 'published_at' => $published_at,
                 'primary_image' => $primaryImage,
             ]);

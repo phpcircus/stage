@@ -15,8 +15,8 @@ class Post extends Model
     use HasUuid;
 
     /** @var array */
-    protected $casts = [
-        'published_at' => 'datetime',
+    protected $dates = [
+        'published_at',
     ];
 
     /**
