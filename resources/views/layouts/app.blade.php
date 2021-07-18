@@ -48,7 +48,7 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body x-data x-cloak class="font-sans antialiased selection:bg-red-300 selection:text-white"
+    <body x-data x-cloak class="font-sans antialiased selection:bg-red-300 selection:text-white bg-gradient-to-br from-skin-stop-core to-skin-stop-crust"
         x-bind:class="{ 'dark': $store.stage.darkMode }">
         <x-jet-banner />
         <x-flyouts.toggle />
