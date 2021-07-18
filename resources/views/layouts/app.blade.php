@@ -47,26 +47,28 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body x-data x-cloak class="font-sans antialiased bg-skin-fill-core selection:bg-red-300 selection:text-white"
+    <body x-data x-cloak class="font-sans antialiased selection:bg-red-300 selection:text-white"
         x-bind:class="{ 'dark': $store.stage.darkMode }">
         <x-jet-banner />
         <x-flyouts.toggle />
+        <div x-data class="relative w-full min-h-screen isolate bg-gradient-to-br from-skin-stop-core to-skin-stop-crust">
+            <img src="/img/cad.jpg" class="fixed top-0 left-0 object-cover w-full h-full mix-blend-difference dark:mix-blend-overlay blur-sm" alt="cad background" style="z-index: 0;" />
+            <div class="isolate" style="z-index: 2;">
+                <livewire:nav-menu-main />
 
-        <div x-data class="min-h-screen bg-gradient-to-br from-skin-stop-core to-skin-stop-crust">
-            <livewire:nav-menu-main />
+                <!--Notification pop-up -->
+                <div class="flex justify-end w-full x-cloak">
+                    <x-notification />
+                </div>
 
-            <!--Notification pop-up -->
-            <div class="flex justify-end w-full x-cloak">
-                <x-notification />
+                <!-- Page Content -->
+                <main class="mt-20">
+                    {{ $slot }}
+                </main>
+
+                <!-- Page Footer -->
+                <x-footer />
             </div>
-
-            <!-- Page Content -->
-            <main class="mt-20">
-                {{ $slot }}
-            </main>
-
-            <!-- Page Footer -->
-            <x-footer />
         </div>
 
         @stack('modals')
