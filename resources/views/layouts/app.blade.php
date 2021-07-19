@@ -53,7 +53,7 @@
         <x-jet-banner />
         <x-flyouts.toggle />
         <div x-data class="absolute top-0 left-0 w-full min-h-screen isolate bg-gradient-to-br from-skin-stop-core to-skin-stop-crust">
-            <img src="/img/cad.jpg" class="fixed top-0 left-0 object-cover w-full h-full mix-blend-difference dark:mix-blend-overlay blur-sm" alt="cad background" style="z-index: 0;" />
+            <img src="/img/geometric.jpg" class="fixed top-0 left-0 object-cover object-left w-full h-full opacity-50 md:object-center dark:opacity-25 mix-blend-normal dark:mix-blend-color-burn blur-lg" alt="cad background" style="z-index: 0;" />
             <div class="isolate" style="z-index: 2;">
                 <livewire:nav-menu-main />
 
