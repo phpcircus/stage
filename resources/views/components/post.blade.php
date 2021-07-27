@@ -11,7 +11,7 @@
     }
 @endphp
 
-<div x-data="{ shown: false }" x-intersect.once="shown = true" class="{{ $columnSpan }} p-4 mb-2 overflow-hidden font-sans rounded-lg shadow-md xs:p-8 bg-skin-fill-mantle">
+<div x-data="{ shown: false }" x-intersect.once="shown = true" class="{{ $columnSpan }} p-4 mb-2 group-link-underline overflow-hidden font-sans rounded-lg shadow-md xs:p-8 bg-skin-fill-mantle">
     <section x-show="shown" x-transition x-transition.duration.1000ms>
         <div class="flex flex-col items-start w-full">
             <div class="flex items-center justify-center w-full mb-4 rounded-lg">
@@ -21,7 +21,7 @@
             <p class="text-xs italic text-gray-500">Published {{ $post->published_at->diffForHumans() }}</p>
             <div class="my-2">
                 <a href="{{ route('posts.show', $post->slug) }}"
-                    class="inline-block text-2xl font-bold text-skin-loud hover:underline title-font ">
+                    class="inline-block text-2xl font-bold link link-underline link-underline-black dark:link-underline text-skin-loud hover:underline title-font ">
                     {{ $post->title }}
                 </a>
             </div>
