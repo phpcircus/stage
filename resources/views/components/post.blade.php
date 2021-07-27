@@ -21,8 +21,8 @@
             <p class="text-xs italic text-gray-500">Published {{ $post->published_at->diffForHumans() }}</p>
             <div class="my-2">
                 <a href="{{ route('posts.show', $post->slug) }}"
-                    class="inline-block text-2xl font-bold link link-underline link-underline-black dark:link-underline text-skin-loud title-font ">
-                    {{ $post->title }}
+                    class="inline-block">
+                    <span class="text-2xl font-bold link link-underline link-underline-black dark:link-underline text-skin-loud title-font">{{ $post->title }}</span>
                 </a>
             </div>
             <p class="mb-4 leading-relaxed text-skin-base line-clamp-4">{{ $post->summary }}</p>
