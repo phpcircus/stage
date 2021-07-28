@@ -14,7 +14,7 @@
         <div x-data class="self-start my-2">
             <a x-on:click="$store.stage.setSeenToNewest()" href="{{ route('posts.show', $post->slug) }}"
                 class="inline-block">
-                <span class="text-2xl font-bold link link-underline link-underline-black dark:link-underline text-skin-loud title-font">{{ $post->title }}</span>
+                <span class="text-2xl font-bold link link-underline text-skin-loud title-font">{{ $post->title }}</span>
             </a>
         </div>
         <p class="mb-4 leading-relaxed text-skin-base">{{ $post->summary }}</p>
