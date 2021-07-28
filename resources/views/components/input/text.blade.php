@@ -17,7 +17,6 @@
             {{ $attributes->merge([
                 'class' => "block w-full {$padding} border-gray-300 rounded-r-md focus:ring-indigo-500 focus:border-indigo-500 rounded-l-md sm:text-sm"
             ]) }}
-            tabindex="0" x-ref="field" x-bind:value="value" autocomplete="off"
-            type="text">
+            tabindex="0" x-ref="field" autocomplete="off" type="text">
     </div>
 </div>
