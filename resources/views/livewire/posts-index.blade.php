@@ -32,17 +32,15 @@
         @forelse($posts as $post)
             <li class="pt-4 mb-4 first:pt-0 group-link-underline">
                 <div class="flex flex-col">
-                    <div class="flex flex-col mb-1 space-y-4 md:space-y-0 md:space-x-4 md:items-center md:flex-row">
+                    <div class="flex flex-col mb-1 space-y-4 md:mb-2 md:space-y-0 md:space-x-4 md:items-center md:flex-row">
                         <x-categories :categories="$post->categories" />
                         <p class="font-mono text-xs font-normal text-gray-400">{{ $post->published_at->diffForHumans() }}</p>
                     </div>
-                    <h4 class="font-sans text-xl font-semibold tracking-tight text-gray-800 dark:text-gray-300">
-                        <a href="{{ route('posts.show', $post->slug) }}" class="block">
-                            <span class="link link-underline">
-                                {{ $post->title }}
-                            </span>
-                        </a>
-                    </h4>
+                    <a href="{{ route('posts.show', $post->slug) }}" class="block">
+                        <span class="font-sans text-xl font-semibold tracking-tight text-gray-800 dark:text-gray-300 link link-underline">
+                            {{ $post->title }}
+                        </span>
+                    </a>
                     <p class="mt-2 font-sans text-sm text-gray-500 dark:text-gray-400">
                         {{ $post->summary }}
                     </p>
