@@ -18,7 +18,7 @@
                 <img src="{{ $post->primary_image }}" class="object-cover object-center w-full h-auto rounded-lg shadow-md ws:object-top xl:object-center ring-2 ring-gray-200/50 ring-offset-2 ring-offset-gray-50 dark:ring-offset-gray-800 max-h-80" />
             </div>
             <x-categories :categories="$post->categories" />
-            <p class="text-xs italic text-gray-500">Published {{ $post->published_at->diffForHumans() }}</p>
+            <p class="mt-4 text-xs italic text-gray-500">Published {{ $post->published_at->diffForHumans() }}</p>
             <div class="my-2">
                 <a href="{{ route('posts.show', $post->slug) }}"
                     class="inline-block">

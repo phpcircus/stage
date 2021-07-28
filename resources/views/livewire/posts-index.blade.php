@@ -1,4 +1,4 @@
-<div class="flex flex-col p-4 space-y-4 rounded-lg shadow-md lg:p-6 bg-skin-fill-mantle">
+<div class="flex flex-col p-4 space-y-4 rounded-lg shadow-md lg:p-6 bg-skin-fill-mantle/50">
     <div class="flex w-full xl:w-1/2">
         <div class="flex flex-col w-full md:items-center md:flex-row">
             <div class="flex flex-col w-full mb-2 mr-4 space-y-2 md:mb-0">
@@ -28,27 +28,25 @@
             </div>
         </div>
     </div>
-    <ul class="pt-0 mb-2 font-sans divide-y-2 lg:pt-6 divide-gray-400/90 dark:divide-gray-400">
+    <ul class="pt-6 mb-2 space-y-8 font-sans">
         @forelse($posts as $post)
-            <li class="pt-4 mb-4 first:pt-0">
-                <a href="{{ route('posts.show', $post->slug) }}" class="block">
-                    <div class="pt-2 mb-4">
-                        <div class="flex flex-col items-start justify-between mb-2 md:items-center md:flex-row">
-                            <p class="text-2xl font-bold text-gray-800 whitespace-normal overflow-wrap dark:text-gray-300">
-                                {{ $post->title }}
-                            </p>
-                        </div>
+            <li class="pt-4 mb-4 first:pt-0 group-link-underline">
+                <div class="flex flex-col">
+                    <div class="flex flex-col mb-1 space-y-4 md:space-y-0 md:space-x-4 md:items-center md:flex-row">
                         <x-categories :categories="$post->categories" />
-                        <div class="flex flex-col items-center justify-between md:flex-row">
-                            <div class="flex flex-col justify-between w-full mt-2 md:flex-row">
-                                <p class="w-4/5 mb-4 text-lg text-gray-600 whitespace-normal md:mb-0 dark:text-gray-400">
-                                    {{ $post->summary }}
-                                </p>
-                                <p class="text-sm text-gray-500">Published <time>{{ $post->published_at->diffForHumans() }}</time></p>
-                            </div>
-                        </div>
+                        <p class="font-mono text-xs font-normal text-gray-400">{{ $post->published_at->diffForHumans() }}</p>
                     </div>
-                </a>
+                    <h4 class="font-sans text-xl font-semibold tracking-tight text-gray-800 dark:text-gray-300">
+                        <a href="{{ route('posts.show', $post->slug) }}" class="block">
+                            <span class="link link-underline">
+                                {{ $post->title }}
+                            </span>
+                        </a>
+                    </h4>
+                    <p class="mt-2 font-sans text-sm text-gray-500 dark:text-gray-400">
+                        {{ $post->summary }}
+                    </p>
+                </div>
             </li>
         @empty
             <li>

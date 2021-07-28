@@ -10,8 +10,8 @@
     <!-- Post Categories and timestamp -->
     <div class="flex flex-col col-span-2">
         <x-categories :categories="$post->categories" />
-        <p class="mb-4 text-xs italic text-gray-500">Published {{ $post->published_at->diffForHumans() }}</p>
-        <div x-data class="self-start my-2">
+        <p class="mt-4 mb-2 text-xs italic text-gray-500">Published {{ $post->published_at->diffForHumans() }}</p>
+        <div x-data class="self-start mb-2">
             <a x-on:click="$store.stage.setSeenToNewest()" href="{{ route('posts.show', $post->slug) }}"
                 class="inline-block">
                 <span class="text-2xl font-bold link link-underline text-skin-loud title-font">{{ $post->title }}</span>
