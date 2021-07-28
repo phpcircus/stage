@@ -58,6 +58,7 @@ class Table extends Component
             'time' => 3000,
         ]);
 
+        $this->dispatchBrowserEvent('scrollToTop');
         $this->emitSelf('post-updated');
     }
 

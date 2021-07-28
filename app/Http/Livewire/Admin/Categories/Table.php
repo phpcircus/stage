@@ -57,6 +57,8 @@ class Table extends Component
             'message' => 'Category successfully deleted!',
             'time' => 3000,
         ]);
+
+        $this->dispatchBrowserEvent('scrollToTop');
         $this->emitSelf('category-updated');
     }
 
