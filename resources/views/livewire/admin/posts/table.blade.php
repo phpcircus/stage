@@ -57,12 +57,15 @@
             Are you sure you want to delete this post?
         </x-slot>
         <x-slot name="footer">
-            <x-button.primary wire:click="deletePost()">
-                Delete Post
+            <x-button.primary wire:click="deletePost()" type="button"
+                class="group !px-4 !py-2 mr-8 dark:!ring-2 hover:!bg-indigo-600 hover:text-white hover:!ring hover:!ring-offset-2 hover:!ring-indigo-200/50">
+                {{ __('Delete') }}
+                <x-heroicon-o-chevron-right class="h-4 ml-2 text-gray-800 dark:text-white group-hover:text-white group-hover:hidden"></x-heroicon-chevron-right>
+                <x-heroicon-o-arrow-right class="hidden h-4 ml-2 text-gray-800 dark:text-white group-hover:text-white group-hover:inline-block"></x-heroicon-chevron-right>
             </x-button.primary>
-            <x-button.secondary wire:click="cancelModal()">
+            <x-button.link wire:click="cancelModal()">
                 Cancel
-            </x-button.secondary>
+            </x-button.link>
         </x-slot>
     </x-jet-dialog-modal>
 </div>

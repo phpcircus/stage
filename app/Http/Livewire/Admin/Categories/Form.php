@@ -73,8 +73,10 @@ class Form extends Component
 
     /**
      * Save the Post.
+     *
+     * @return \Illuminate\Http\RedirectResponse|Livewire\Redirector
      */
-    public function save(): void
+    public function save()
     {
         $this->validate();
 
@@ -90,10 +92,10 @@ class Form extends Component
             ]);
         }
 
-        request()->session()->flash('notify.message', 'Category saved successfully!');
-        request()->session()->flash('notify.title', 'Success!');
-        request()->session()->flash('notify.type', 'success');
+        request()->session()->flash('banner.message', 'Category saved successfully!');
+        request()->session()->flash('banner.style', 'success');
+        request()->session()->flash('banner.time', 3000);
 
-        redirect()->route('admin.categories');
+        return redirect()->route('admin.categories');
     }
 }

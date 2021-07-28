@@ -52,7 +52,11 @@ class Table extends Component
     {
         $this->workingCategory->delete();
         $this->showDeleteConfirmation = false;
-        $this->notify(['success', 'Success', 'Category successfully deleted!', 3000]);
+        $this->notify([
+            'style' => 'success',
+            'message' => 'Category successfully deleted!',
+            'time' => 3000,
+        ]);
         $this->emitSelf('category-updated');
     }
 
