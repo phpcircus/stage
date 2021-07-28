@@ -40,7 +40,7 @@ class PostsOverview extends Component
     public function previousPage(): void
     {
         $this->setPage(max($this->page - 1, 1));
-        $this->dispatchBrowserEvent('paginationChanged');
+        $this->dispatchBrowserEvent('scrollToTop');
     }
 
     /**
@@ -49,6 +49,6 @@ class PostsOverview extends Component
     public function nextPage(): void
     {
         $this->setPage($this->page + 1);
-        $this->dispatchBrowserEvent('paginationChanged');
+        $this->dispatchBrowserEvent('scrollToTop');
     }
 }

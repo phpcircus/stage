@@ -58,7 +58,7 @@
                 <livewire:nav-menu-main />
 
                 <!--Notification pop-up -->
-                <div class="absolute top-[5.15rem] right-0 flex justify-end w-full x-cloak">
+                <div class="flex justify-end w-full x-cloak">
                     <x-notification />
                 </div>
 
@@ -82,7 +82,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/languages/php.min.js"></script>
         @stack('scripts')
         <script>
-            window.addEventListener('paginationChanged', event => {
+            window.addEventListener('scrollToTop', event => {
                 window.scrollTo({top: 0, behavior: 'smooth'});
             })
         </script>
