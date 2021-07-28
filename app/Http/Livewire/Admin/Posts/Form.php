@@ -161,8 +161,10 @@ class Form extends Modal
 
     /**
      * Save the Post.
+     *
+     * @return \Illuminate\Http\RedirectResponse|Livewire\Redirector
      */
-    public function save(): void
+    public function save()
     {
         $this->validate();
 
@@ -191,11 +193,11 @@ class Form extends Modal
             $this->post->categories()->sync($this->selectedCategories);
         }
 
-        request()->session()->flash('notify.message', 'Post saved successfully!');
-        request()->session()->flash('notify.title', 'Success!');
-        request()->session()->flash('notify.type', 'success');
+        request()->session()->flash('banner.message', 'Post saved successfully!');
+        request()->session()->flash('banner.style', 'success');
+        request()->session()->flash('banner.time', 3000);
 
-        redirect()->route('admin.posts');
+        return redirect()->route('admin.posts');
     }
 
     /**

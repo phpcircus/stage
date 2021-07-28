@@ -58,7 +58,7 @@
                 <livewire:nav-menu-main />
 
                 <!--Notification pop-up -->
-                <div class="absolute top-[5.15rem] right-[40px] flex justify-end w-full x-cloak">
+                <div class="absolute top-[5.15rem] right-0 flex justify-end w-full x-cloak">
                     <x-notification />
                 </div>
 

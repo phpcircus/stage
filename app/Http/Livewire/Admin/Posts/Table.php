@@ -52,7 +52,12 @@ class Table extends Component
     {
         $this->workingPost->delete();
         $this->showDeleteConfirmation = false;
-        $this->notify(['success', 'Success', 'Post successfully deleted!', 3000]);
+        $this->notify([
+            'style' => 'success',
+            'message' => 'Post successfully deleted!',
+            'time' => 3000,
+        ]);
+
         $this->emitSelf('post-updated');
     }
 
