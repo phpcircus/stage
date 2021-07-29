@@ -33,6 +33,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                mono: ['Fira Mono', ...defaultTheme.fontFamily.mono],
                 badhandwriting: ['bad_handwriting', ...defaultTheme.fontFamily.sans],
                 protogrotesk: ['Proto Grotesk Web', ...defaultTheme.fontFamily.sans],
                 soloist: ['soloist', ...defaultTheme.fontFamily.sans],
@@ -92,6 +93,7 @@ module.exports = {
                 'extreme': '-1px 3px 6px 3px var(---border-fill-extreme)',
                 'small-white': '0 0 6px 3px rgba(255,255,255,0.3)',
                 'small-dark': '0 0 6px 3px rgba(0,0,0,0.3)',
+                'lower-right': '3px 4px 12px -1px rgba(0,0,0,0.95)',
             }
         },
     },
@@ -103,9 +105,9 @@ module.exports = {
     },
 
     plugins: [
-        require('./resources/js/tailwindForms.js'),
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/typography'),
         require('@tailwindcss/line-clamp'),
         require('@tailwindcss/aspect-ratio'),
-        require('tailwindcss-text-fill-stroke')(),
     ],
 };
