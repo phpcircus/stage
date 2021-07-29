@@ -1,7 +1,6 @@
-<div x-data="{ show : false, src: '', description: '' }"
-    class="flex flex-col p-4 rounded-lg shadow-md lg:p-6 bg-skin-fill-mantle"
+<div x-data="{ show : false, src: '', description: '' }" class="flex flex-col p-4 lg:p-6"
     x-on:close.window="show = false; src = ''; description = '';">
-    <p class="max-w-4xl mb-8 text-lg text-skin-quiet">
+    <p class="max-w-4xl mb-8 text-lg font-semibold text-skin-quiet">
         Here are a few of the projects I've worked on recently. These are mostly side projects as well as apps that I
         use for my day-job, which is not web-development. As I'm finally getting around to putting together a portfolio
         of sorts, I'll update this page as that progresses.
@@ -38,7 +37,8 @@
                                 <div
                                     class="flex items-center justify-between flex-1 truncate bg-white border-t border-b border-r border-gray-200 rounded-r-md">
                                     <div class="flex-1 px-4 py-2 text-sm truncate">
-                                        <a href="https://laravel.com" target="_blank" class="font-medium text-gray-900 hover:text-gray-600">Laravel</a>
+                                        <a href="https://laravel.com" target="_blank"
+                                            class="font-medium text-gray-900 hover:text-gray-600">Laravel</a>
                                     </div>
                                 </div>
                             </li>
@@ -50,7 +50,8 @@
                                 <div
                                     class="flex items-center justify-between flex-1 truncate bg-white border-t border-b border-r border-gray-200 rounded-r-md">
                                     <div class="flex-1 px-4 py-2 text-sm truncate">
-                                        <a href="https://laravel-livewire.com" target="_blank" class="font-medium text-gray-900 hover:text-gray-600">Livewire</a>
+                                        <a href="https://laravel-livewire.com" target="_blank"
+                                            class="font-medium text-gray-900 hover:text-gray-600">Livewire</a>
                                     </div>
                                 </div>
                             </li>
@@ -62,7 +63,8 @@
                                 <div
                                     class="flex items-center justify-between flex-1 truncate bg-white border-t border-b border-r border-gray-200 rounded-r-md">
                                     <div class="flex-1 px-4 py-2 text-sm truncate">
-                                        <a href="https://alpinejs.dev" target="_blank" class="font-medium text-gray-900 hover:text-gray-600">Alpinejs</a>
+                                        <a href="https://alpinejs.dev" target="_blank"
+                                            class="font-medium text-gray-900 hover:text-gray-600">Alpinejs</a>
                                     </div>
                                 </div>
                             </li>
@@ -74,7 +76,8 @@
                                 <div
                                     class="flex items-center justify-between flex-1 truncate bg-white border-t border-b border-r border-gray-200 rounded-r-md">
                                     <div class="flex-1 px-4 py-2 text-sm truncate">
-                                        <a href="https://tailwindcss.com" target="_blank" class="font-medium text-gray-900 hover:text-gray-600">Tailwindcss</a>
+                                        <a href="https://tailwindcss.com" target="_blank"
+                                            class="font-medium text-gray-900 hover:text-gray-600">Tailwindcss</a>
                                     </div>
                                 </div>
                             </li>

@@ -34,7 +34,6 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
                 mono: ['Fira Mono', ...defaultTheme.fontFamily.mono],
-                badhandwriting: ['bad_handwriting', ...defaultTheme.fontFamily.sans],
                 protogrotesk: ['Proto Grotesk Web', ...defaultTheme.fontFamily.sans],
                 soloist: ['soloist', ...defaultTheme.fontFamily.sans],
                 'lemonmilk': ['lemon_milk', ...defaultTheme.fontFamily.sans],

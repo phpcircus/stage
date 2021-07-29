@@ -1,13 +1,4 @@
 @font-face {
-    font-family: 'bad_handwriting';
-    src: url('../fonts/BadHandwriting72.woff2') format('woff2'),
-        url('../fonts/BadHandwriting72.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
     font-family: 'Proto Grotesk Web';
     src: url('../fonts/ProtoGroteskWeb-Regular.eot');
     src: local('../fonts/Proto Grotesk Web Regular'), local('ProtoGroteskWeb-Regular'),

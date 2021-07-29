@@ -1,11 +1,11 @@
-<div class="flex flex-col p-4 space-y-4 rounded-lg shadow-md lg:p-6 bg-skin-fill-mantle/50">
+<div class="flex flex-col p-4 space-y-4 lg:p-6">
     <div class="flex w-full xl:w-1/2">
         <div class="flex flex-col w-full md:items-center md:flex-row">
             <div class="flex flex-col w-full mb-2 mr-4 space-y-2 md:mb-0">
                 <x-input.select wire:model="category" id="category" class="w-full md:w-1/3">
                     <option wire:click="$set('category', '')" value="">All Categories</option>
-                    @foreach($categories as $category)
-                        <option wire:click="$set('category', {{$category->name}})">{{ $category->name }}</option>
+                    @foreach ($categories as $category)
+                        <option wire:click="$set('category', {{ $category->name }})">{{ $category->name }}</option>
                     @endforeach
                 </x-input.select>
                 <div class="flex flex-col items-center w-full md:flex-row">
@@ -17,10 +17,12 @@
                         </x-input.text>
                     </div>
                     <div class="flex w-full space-x-4 md:w-1/3 md:ml-2">
-                        <x-button.secondary wire:click="search" x-cloak class="text-gray-800 bg-gray-200 border-gray-300 shadow hover:shadow-none hover:border-transparent hover:text-gray-400 dark:border-gray-300 dark:text-gray-300 dark:bg-gray-800 dark:hover:border-gray-400 dark:hover:text-gray-400">
+                        <x-button.secondary wire:click="search" x-cloak
+                            class="text-gray-800 bg-gray-200 border-gray-300 shadow hover:shadow-none hover:border-transparent hover:text-gray-400 dark:border-gray-300 dark:text-gray-300 dark:bg-gray-800 dark:hover:border-gray-400 dark:hover:text-gray-400">
                             Search
                         </x-button.secondary>
-                        <x-button.link wire:click="resetSearch" class="ml-auto hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-400">
+                        <x-button.link wire:click="resetSearch"
+                            class="ml-auto hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-400">
                             Clear
                         </x-button.link>
                     </div>
@@ -32,16 +34,19 @@
         @forelse($posts as $post)
             <li class="pt-4 mb-4 first:pt-0 group-link-underline">
                 <div class="flex flex-col">
-                    <div class="flex flex-col mb-1 space-y-4 md:mb-2 md:space-y-0 md:space-x-4 md:items-center md:flex-row">
+                    <div
+                        class="flex flex-col mb-1 space-y-4 md:mb-2 md:space-y-0 md:space-x-4 md:items-center md:flex-row">
                         <x-categories :categories="$post->categories" />
-                        <p class="font-mono text-xs font-normal text-gray-400">{{ $post->published_at->diffForHumans() }}</p>
+                        <p class="font-mono text-xs font-normal text-gray-400">
+                            {{ $post->published_at->diffForHumans() }}</p>
                     </div>
                     <a href="{{ route('posts.show', $post->slug) }}" class="block">
-                        <span class="font-sans text-xl font-semibold tracking-tight text-gray-800 dark:text-gray-300 link link-underline">
+                        <span
+                            class="font-sans text-2xl font-semibold tracking-tight text-gray-800 dark:text-gray-300 link link-underline">
                             {{ $post->title }}
                         </span>
                     </a>
-                    <p class="mt-2 font-sans text-sm text-gray-500 dark:text-gray-400">
+                    <p class="mt-2 font-sans text-base font-semibold text-gray-600 dark:text-gray-400">
                         {{ $post->summary }}
                     </p>
                 </div>
