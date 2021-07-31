@@ -15,9 +15,9 @@
                             </span>
                         </div>
                     </a>
-                    <ul id="main-menu" class="hidden sm:h-full sm:flex">
+                    <ul id="main-menu" class="relative hidden sm:h-full sm:flex">
                         <li x-on:mouseenter="setPosition('home')" x-on:mouseleave="setPosition(currentPath)"
-                            class="inline-flex items-center h-full pt-[1.75rem] main-menu-option">
+                            class="inline-flex items-center h-full pt-[1.75rem] main-menu-option w-24">
                             <a href="{{ route('home') }}"
                                 class="inline-block h-full font-sans text-base font-bold uppercase"
                                 x-bind:class="pathIs('home') ? 'text-skin-loud' : 'text-skin-muted hover:text-skin-loud'">
@@ -25,7 +25,7 @@
                             </a>
                         </li>
                         <li x-on:mouseenter="setPosition('posts')" x-on:mouseleave="setPosition(currentPath)"
-                            class="inline-flex items-center h-full pt-[1.75rem] main-menu-option">
+                            class="inline-flex items-center h-full pt-[1.75rem] main-menu-option w-24">
                             <a href="{{ route('posts') }}" x-on:click="$store.stage.setSeenToNewest()"
                                 class="relative inline-block h-full font-sans text-base font-bold uppercase"
                                 x-bind:class="pathIs('posts') ? 'text-skin-loud' : 'text-skin-muted hover:text-skin-loud'">
@@ -39,7 +39,7 @@
                             </a>
                         </li>
                         <li x-on:mouseenter="setPosition('about')" x-on:mouseleave="setPosition(currentPath)"
-                            class="inline-flex items-center h-full pt-[1.75rem] main-menu-option">
+                            class="inline-flex items-center h-full pt-[1.75rem] main-menu-option w-24">
                             <a href="{{ route('about') }}"
                                 class="inline-block h-full font-sans text-base font-bold uppercase"
                                 x-bind:class="pathIs('about') ? 'text-skin-loud' : 'text-skin-muted hover:text-skin-loud'">
@@ -47,14 +47,15 @@
                             </a>
                         </li>
                         <li x-on:mouseenter="setPosition('projects')" x-on:mouseleave="setPosition(currentPath)"
-                            class="inline-flex items-center h-full pt-[1.75rem] main-menu-option">
+                            class="inline-flex items-center h-full pt-[1.75rem] main-menu-option w-32">
                             <a href="{{ route('projects') }}"
                                 class="inline-block h-full font-sans text-base font-bold uppercase"
                                 x-bind:class="pathIs('projects') ? 'text-skin-loud' : 'text-skin-muted hover:text-skin-loud'">
                                 Projects
                             </a>
                         </li>
-                        <li x-ref="slider" class="slider"></li>
+                        <li x-ref="slider" class="absolute bottom-0 h-1 transition-all duration-[250ms] rounded-md">
+                        </li>
                     </ul>
                 </div>
                 <div class="hidden sm:ml-4 sm:flex sm:items-center">
