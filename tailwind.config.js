@@ -88,7 +88,7 @@ module.exports = {
             },
             boxShadow: {
                 'red': '0 0 25px 10px rgba(239,68,68,0.3)',
-                'attention': '0 0 12px 5px var(---border-fill-attention)',
+                'attention': '0 -15px 12px 12px var(---border-fill-attention)',
                 'extreme': '-1px 3px 6px 3px var(---border-fill-extreme)',
                 'small-white': '0 0 6px 3px rgba(255,255,255,0.3)',
                 'small-dark': '0 0 6px 3px rgba(0,0,0,0.3)',
