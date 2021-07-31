@@ -226,12 +226,15 @@
                         },
                     },
                     setPosition(position) {
-                        this.$refs.slider.style.left = this.positions[position]['left'];
-                        this.$refs.slider.style.width = this.positions[position]['width'];
-                        if (position === this.currentPath) {
-                            this.$refs.slider.style.backgroundColor = '#DC2626';
-                        } else {
-                            this.$refs.slider.style.backgroundColor = '#FCA5A5';
+                        var position = position.split('/')[0];
+                        if (this.positions.hasOwnProperty(position)) {
+                            this.$refs.slider.style.left = this.positions[position]['left'];
+                            this.$refs.slider.style.width = this.positions[position]['width'];
+                            if (position === this.currentPath) {
+                                this.$refs.slider.style.backgroundColor = '#DC2626';
+                            } else {
+                                this.$refs.slider.style.backgroundColor = '#FCA5A5';
+                            }
                         }
                     },
                     init() {
