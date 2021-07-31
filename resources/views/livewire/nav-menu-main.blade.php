@@ -15,19 +15,21 @@
                             </span>
                         </div>
                     </a>
-                    <ul id="main-menu" class="relative hidden sm:h-full sm:flex">
-                        <li x-on:mouseenter="setPosition('home')" x-on:mouseleave="setPosition(currentPath)"
-                            class="inline-flex items-center h-full pt-[1.75rem] main-menu-option w-24">
-                            <a href="{{ route('home') }}"
-                                class="inline-block h-full font-sans text-base font-bold uppercase"
+                    <ul id="main-menu" class="relative hidden isolate sm:h-full sm:flex">
+                        <li class="inline-flex items-center h-full pt-[1.75rem] main-menu-option w-24"
+                            style="z-index: 2;">
+                            <a href="{{ route('home') }}" x-on:mouseover="setPosition('home')"
+                                x-on:mouseout="setPosition(currentPath)"
+                                class="block w-full h-full font-sans text-base font-bold uppercase transition-all duration-[750ms]"
                                 x-bind:class="pathIs('home') ? 'text-skin-loud' : 'text-skin-muted hover:text-skin-loud'">
                                 Home
                             </a>
                         </li>
-                        <li x-on:mouseenter="setPosition('posts')" x-on:mouseleave="setPosition(currentPath)"
-                            class="inline-flex items-center h-full pt-[1.75rem] main-menu-option w-24">
+                        <li class="inline-flex items-center h-full pt-[1.75rem] main-menu-option w-24"
+                            style="z-index: 2;">
                             <a href="{{ route('posts') }}" x-on:click="$store.stage.setSeenToNewest()"
-                                class="relative inline-block h-full font-sans text-base font-bold uppercase"
+                                x-on:mouseover="setPosition('posts')" x-on:mouseout="setPosition(currentPath)"
+                                class="relative block w-full h-full font-sans text-base font-bold uppercase transition-all duration-[750ms]"
                                 x-bind:class="pathIs('posts') ? 'text-skin-loud' : 'text-skin-muted hover:text-skin-loud'">
                                 Posts
                                 <div x-cloak x-show="$store.stage.hasntSeenNewest()">
@@ -38,23 +40,26 @@
                                 </div>
                             </a>
                         </li>
-                        <li x-on:mouseenter="setPosition('about')" x-on:mouseleave="setPosition(currentPath)"
-                            class="inline-flex items-center h-full pt-[1.75rem] main-menu-option w-24">
-                            <a href="{{ route('about') }}"
-                                class="inline-block h-full font-sans text-base font-bold uppercase"
+                        <li class="inline-flex items-center h-full pt-[1.75rem] main-menu-option w-24"
+                            style="z-index: 2;">
+                            <a href="{{ route('about') }}" x-on:mouseover="setPosition('about')"
+                                x-on:mouseout="setPosition(currentPath)"
+                                class="block w-full h-full font-sans text-base font-bold uppercase transition-all duration-[750ms]"
                                 x-bind:class="pathIs('about') ? 'text-skin-loud' : 'text-skin-muted hover:text-skin-loud'">
                                 About
                             </a>
                         </li>
-                        <li x-on:mouseenter="setPosition('projects')" x-on:mouseleave="setPosition(currentPath)"
-                            class="inline-flex items-center h-full pt-[1.75rem] main-menu-option w-32">
-                            <a href="{{ route('projects') }}"
-                                class="inline-block h-full font-sans text-base font-bold uppercase"
+                        <li class="inline-flex items-center h-full pt-[1.75rem] main-menu-option w-32"
+                            style="z-index: 2;">
+                            <a href="{{ route('projects') }}" x-on:mouseover="setPosition('projects')"
+                                x-on:mouseout="setPosition(currentPath)"
+                                class="block w-full h-full font-sans text-base font-bold uppercase transition-all duration-[750ms]"
                                 x-bind:class="pathIs('projects') ? 'text-skin-loud' : 'text-skin-muted hover:text-skin-loud'">
                                 Projects
                             </a>
                         </li>
-                        <li x-ref="slider" class="absolute bottom-0 h-1 transition-all duration-[250ms] rounded-md">
+                        <li x-ref="slider" style="transition: left .25s linear; z-index: 1;"
+                            class="absolute bottom-0 h-full border-b-4 border-red-500 bg-gradient-to-b from-transparent to-gray-400/[.1] dark:to-white/[.04]">
                         </li>
                     </ul>
                 </div>
@@ -210,31 +215,32 @@
                     },
                     positions: {
                         home: {
-                            left: '0.10rem',
+                            left: '0',
                             width: '47.875px'
                         },
                         posts: {
-                            left: '6.2rem',
+                            left: '6.1rem',
                             width: '47.875px'
                         },
                         about: {
-                            left: '12.15rem',
+                            left: '12.05rem',
                             width: '55px'
                         },
                         projects: {
-                            left: '18.05rem',
+                            left: '17.95rem',
                             width: '5rem'
                         },
                     },
                     setPosition(position) {
                         var position = position.split('/')[0];
                         if (this.positions.hasOwnProperty(position)) {
+                            console.log('set position');
                             this.$refs.slider.style.left = this.positions[position]['left'];
                             this.$refs.slider.style.width = this.positions[position]['width'];
                             if (position === this.currentPath) {
-                                this.$refs.slider.style.backgroundColor = '#DC2626';
+                                this.$refs.slider.style.borderColor = '#DC2626';
                             } else {
-                                this.$refs.slider.style.backgroundColor = '#FCA5A5';
+                                this.$refs.slider.style.borderColor = '#FCA5A5';
                             }
                         }
                     },

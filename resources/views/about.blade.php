@@ -14,19 +14,19 @@
                             </h1>
                             <span class="font-sans text-2xl font-semibold text-skin-loud">
                                 Years in web development:
-                                <span class="text-xl text-skin-muted">
+                                <span class="text-xl text-skin-quiet">
                                     16
                                 </span>
                             </span>
                             <span class="font-sans text-2xl font-semibold text-skin-loud">
                                 Started with:
-                                <span class="text-xl text-skin-muted">
+                                <span class="text-xl text-skin-quiet">
                                     Coldfusion
                                 </span>
                             </span>
                             <span class="font-sans text-2xl font-semibold text-skin-loud">
                                 Current:
-                                <span class="text-xl text-skin-muted">
+                                <span class="text-xl text-skin-quiet">
                                     PHP(Laravel), Vue, Livewire, Alpinejs
                                 </span>
                             </span>
