@@ -83,4 +83,35 @@
         background-size: 0 3px,100% 3px;
         background-position: 100% 100%,0 100%
     }
+    ul#main-menu {
+        @apply relative isolate;
+    }
+
+    ul#main-menu li.main-menu-option a {
+        z-index: 2;
+    }
+
+    ul#main-menu > li.slider {
+        height: 5px;
+        position: absolute;
+        bottom: 0;
+        transition: all .25s ease-in;
+        z-index: 1;
+    }
+
+    li.main-menu-option:first-child {
+        @apply w-24;
+    }
+
+    li.main-menu-option:nth-child(2) {
+        @apply w-24;
+    }
+
+    li.main-menu-option:nth-child(3) {
+        @apply w-24;
+    }
+
+    li.main-menu-option:nth-child(4) {
+        @apply w-32;
+    }
 }
