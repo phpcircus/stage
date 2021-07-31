@@ -1,6 +1,6 @@
 <div x-data="{ show : false, src: '', description: '' }" class="flex flex-col p-4 lg:p-6"
     x-on:close.window="show = false; src = ''; description = '';">
-    <p class="max-w-4xl mb-8 text-lg font-semibold text-skin-quiet">
+    <p class="max-w-4xl mb-8 text-lg font-semibold text-skin-base">
         Here are a few of the projects I've worked on recently. These are mostly side projects as well as apps that I
         use for my day-job, which is not web-development. As I'm finally getting around to putting together a portfolio
         of sorts, I'll update this page as that progresses.

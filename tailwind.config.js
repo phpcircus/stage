@@ -93,7 +93,7 @@ module.exports = {
                 'small-white': '0 0 6px 3px rgba(255,255,255,0.3)',
                 'small-dark': '0 0 6px 3px rgba(0,0,0,0.3)',
                 'lower-right': '3px 4px 12px -1px rgba(0,0,0,0.95)',
-            }
+            },
         },
     },
 

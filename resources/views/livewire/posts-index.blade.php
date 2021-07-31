@@ -46,7 +46,7 @@
                             {{ $post->title }}
                         </span>
                     </a>
-                    <p class="mt-2 font-sans text-base font-semibold text-gray-600 dark:text-gray-400">
+                    <p class="mt-2 font-sans text-base font-semibold text-skin-quiet">
                         {{ $post->summary }}
                     </p>
                 </div>
