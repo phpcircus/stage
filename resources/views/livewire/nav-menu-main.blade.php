@@ -34,9 +34,9 @@
                                 Posts
                                 <div x-cloak x-show="$store.stage.hasntSeenNewest()">
                                     <span
-                                        class="absolute -right-[10px] top-[25px] inline-flex w-3 h-3 bg-red-400 rounded-full opacity-75 animate-ping"></span>
+                                        class="absolute right-[32px] top-0 inline-flex w-3 h-3 bg-red-400 rounded-full opacity-75 animate-ping"></span>
                                     <span
-                                        class="absolute -right-[10px] top-[25px] inline-flex w-3 h-3 bg-red-500 rounded-full opacity-50"></span>
+                                        class="absolute right-[32px] top-0 inline-flex w-3 h-3 bg-red-500 rounded-full opacity-50"></span>
                                 </div>
                             </a>
                         </li>
