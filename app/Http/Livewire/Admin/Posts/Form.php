@@ -2,13 +2,13 @@
 
 namespace App\Http\Livewire\Admin\Posts;
 
-use App\Http\Livewire\Components\Modal;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Support\Collection;
+use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class Form extends Modal
+class Form extends Component
 {
     use WithFileUploads;
 

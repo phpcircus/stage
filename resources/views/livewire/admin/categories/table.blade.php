@@ -3,7 +3,7 @@
         <div class="inline-block w-full py-2 align-middle md:w-1/2 sm:px-6 lg:px-8">
             <div id="categories-main-action-button" class="flex justify-end w-full mb-4">
                 <a href="{{ route('admin.categories.new') }}">
-                    <x-button.primary x-cloak class="!py-[.6rem] !text-white !bg-indigo-500 !ring hover:!ring-offset-2 ring-indigo-600 dark:!ring-indigo-400">
+                    <x-button.primary x-cloak class="group">
                         New Category
                         <x-heroicon-o-chevron-right class="h-4 ml-2 text-white group-hover:hidden"></x-heroicon-chevron-right>
                         <x-heroicon-o-arrow-right class="hidden h-4 ml-2 text-white group-hover:inline-block"></x-heroicon-chevron-right>
@@ -44,7 +44,10 @@
                                 </a>
                             </td>
                             <td class="px-6 py-4 text-right">
-                                <x-heroicon-o-trash wire:click="showDeleteConfirmation('{{ $category->uuid }}')" class="w-5 text-red-500 cursor-pointer" />
+                                <x-confirms-action wire:then="deleteCategory()" title="Delete Category" confirmable="{{ $category->uuid }}"
+                                    content="Are you sure you want to delete this category?" button="Delete">
+                                    <x-heroicon-o-trash wire:loading.attr="disabled" class="w-5 text-red-500 cursor-pointer hover:text-red-300" />
+                                </x-confirms-action>
                             </td>
                         </tr>
                         @empty
@@ -59,24 +62,4 @@
             </div>
         </div>
     </div>
-
-    <x-jet-dialog-modal wire:model="showDeleteConfirmation" component="admin.categories.table">
-        <x-slot name="title">
-            Delete Category
-        </x-slot>
-        <x-slot name="content">
-            Are you sure you want to delete this category?
-        </x-slot>
-        <x-slot name="footer">
-            <x-button.primary wire:click="deleteCategory()" type="button"
-                class="group !px-4 !py-2 mr-8 dark:!ring-2 hover:!bg-indigo-600 hover:text-white hover:!ring hover:!ring-offset-2 hover:!ring-indigo-200/50">
-                {{ __('Delete') }}
-                <x-heroicon-o-chevron-right class="h-4 ml-2 text-gray-800 dark:text-white group-hover:text-white group-hover:hidden"></x-heroicon-chevron-right>
-                <x-heroicon-o-arrow-right class="hidden h-4 ml-2 text-gray-800 dark:text-white group-hover:text-white group-hover:inline-block"></x-heroicon-chevron-right>
-            </x-button.primary>
-            <x-button.link wire:click="cancelModal()">
-                Cancel
-            </x-button.link>
-        </x-slot>
-    </x-jet-dialog-modal>
 </div>

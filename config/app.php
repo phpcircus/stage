@@ -179,6 +179,7 @@ return [
         App\Providers\LivewireServiceProvider::class,
         App\Providers\DateServiceProvider::class,
         App\Providers\MacroServiceProvider::class,
+        App\Providers\BladeServiceProvider::class,
 
     ],
 

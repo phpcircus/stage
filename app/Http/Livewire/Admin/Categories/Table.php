@@ -2,19 +2,16 @@
 
 namespace App\Http\Livewire\Admin\Categories;
 
+use App\Http\Livewire\ConfirmsActionsComponent;
 use App\Models\Category;
-use Livewire\Component;
 use Livewire\WithPagination;
 
-class Table extends Component
+class Table extends ConfirmsActionsComponent
 {
     use WithPagination;
 
     /** @var \App\Models\Category|null */
     public $workingCategory;
-
-    /** @var bool */
-    public $showDeleteConfirmation = false;
 
     /** @var array */
     public $listeners = [
@@ -35,39 +32,29 @@ class Table extends Component
     }
 
     /**
-     * Show the delete confirmation modal.
-     */
-    public function showDeleteConfirmation($id): void
-    {
-        if ($category = Category::where('uuid', $id)->first()) {
-            $this->workingCategory = $category;
-            $this->showDeleteConfirmation = true;
-        }
-    }
-
-    /**
      * Delete the category.
      */
     public function deleteCategory(): void
     {
-        $this->workingCategory->delete();
-        $this->showDeleteConfirmation = false;
-        $this->notify([
-            'style' => 'success',
-            'message' => 'Category successfully deleted!',
-            'time' => 3000,
-        ]);
+        if ($category = Category::where('uuid', $this->confirmableId)->first()) {
+            $this->workingCategory = $category;
+            $this->workingCategory->delete();
+            $this->notify([
+                'style' => 'success',
+                'message' => 'Category successfully deleted!',
+                'time' => 2500,
+            ]);
+            $this->emitSelf('category-updated');
+        } else {
+            $this->notify([
+                'style' => 'danger',
+                'message' => 'Error deleting category. Please try again later.',
+                'time' => 3000,
+            ]);
+        }
+
+        $this->workingCategory = null;
 
         $this->dispatchBrowserEvent('scrollToTop');
-        $this->emitSelf('category-updated');
-    }
-
-    /**
-     * Cancel the modal.
-     */
-    public function cancelModal(): void
-    {
-        $this->workingCategory = null;
-        $this->showDeleteConfirmation = false;
     }
 }

@@ -1,6 +1,13 @@
-<x-button
+@props([
+    'trailingAddOn' => false,
+    'type' => 'submit',
+])
+<x-button type="{{ $type }}"
     {{ $attributes->merge([
-        'class' => 'group dark:ring-gray-800 dark:ring-white border-none relative text-gray-800 dark:text-white bg-transparent outline-none flex text-base font-semibold leading-4 text-center cursor-pointer rounded-lg py-3 px-6 shadow-md dark:shadow-small-dark ring-1 transition-shadow hover:ring-2 ring-gray-800 focus:outline-none active:outline-none dark:hover:ring-white hover:outline-none hover:transition-shadow hover:shadow-none'
-    ]) }}>
+    'class' => '!border-transparent text-base !font-semibold !text-white !bg-indigo-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:!ring-indigo-600 hover:ring-2 hover:ring-offset-2 hover:ring-offset-white hover:!ring-indigo-600',
+]) }}>
     {{ $slot }}
+    @if ($trailingAddOn)
+        {{ $trailingAddOn }}
+    @endif
 </x-button>

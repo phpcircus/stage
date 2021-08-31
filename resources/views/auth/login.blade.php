@@ -46,7 +46,7 @@
                 @endif
 
                 <x-button.primary type="submit"
-                    class="group !px-4 !py-2 ml-8 hover:!bg-indigo-600 hover:text-white hover:!ring hover:!ring-offset-2 hover:!ring-indigo-200/50">
+                    class="group">
                     {{ __('Log in') }}
                     <x-heroicon-o-chevron-right class="h-4 ml-2 text-gray-800 group-hover:text-white group-hover:hidden"></x-heroicon-chevron-right>
                     <x-heroicon-o-arrow-right class="hidden h-4 ml-2 text-gray-800 group-hover:text-white group-hover:inline-block"></x-heroicon-chevron-right>
