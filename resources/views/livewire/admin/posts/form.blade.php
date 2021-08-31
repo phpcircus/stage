@@ -1,7 +1,7 @@
 <div>
     <div class="flex flex-col mt-6 space-y-4 sm:mt-5">
         <x-input.group label="Title" for="title" :error="$errors->first('post.title')">
-            <x-input.text wire:model.lazy="post.title" id="title" autocomplete="off" />
+            <x-input.text wire:model.lazy="post.title" id="title" autocomplete="off" :focus="true" />
         </x-input.group>
         <x-input.group label="Summary" for="summary" :error="$errors->first('post.summary')">
             <x-input.textarea wire:model="post.summary" id="summary" />
@@ -54,7 +54,7 @@
             <x-button.link wire:click="cancel" class="mr-4">
                 Cancel
             </x-button.link>
-            <x-button.primary wire:click.prevent="save" class="!py-[.6rem] !text-white !bg-indigo-500 !ring hover:!ring-offset-2 ring-indigo-600 dark:!ring-indigo-400">
+            <x-button.primary wire:click.prevent="save" class="group">
                 Save
                 <x-heroicon-o-chevron-right class="h-4 ml-2 text-white group-hover:hidden"></x-heroicon-chevron-right>
                 <x-heroicon-o-arrow-right class="hidden h-4 ml-2 text-white group-hover:inline-block"></x-heroicon-chevron-right>

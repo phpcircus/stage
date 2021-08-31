@@ -88,9 +88,9 @@ module.exports = {
             },
             boxShadow: {
                 'red': '0 0 25px 10px rgba(239,68,68,0.3)',
-                'attention': '0 -15px 12px 12px var(---border-fill-attention)',
+                'all-around': '0 2px 7px var(---border-fill-all-around)',
                 'extreme': '-1px 3px 6px 3px var(---border-fill-extreme)',
-                'small-white': '0 0 6px 3px rgba(255,255,255,0.3)',
+                'all-around-light': '0 2px 7px rgba(255,255,255,0.1)',
                 'small-dark': '0 0 6px 3px rgba(0,0,0,0.3)',
                 'lower-right': '3px 4px 12px -1px rgba(0,0,0,0.95)',
             },

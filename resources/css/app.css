@@ -20,7 +20,8 @@
         ---color-fill-crust: 249, 250, 251;
         ---color-fill-extreme: 0, 0, 0;
         ---color-fill-highlight: 31, 41, 55;
-        ---border-fill-attention:rgba(220,38,38,0.1);
+        ---border-fill-attention: 220, 38, 38;
+        ---border-fill-all-around: rgba(0, 0, 0, 0.3);
         ---border-fill-extreme:rgba(0,0,0,0.1);
     }
 
@@ -45,6 +46,10 @@
 
     .trix-content h1 {
         @apply text-gray-700 dark:text-gray-300 text-3xl uppercase mt-4 !important;
+    }
+
+    .trix-content.form-textarea h1 {
+        @apply text-gray-700 !important;
     }
 
     .trix-content a {

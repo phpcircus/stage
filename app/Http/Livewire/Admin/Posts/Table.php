@@ -2,14 +2,13 @@
 
 namespace App\Http\Livewire\Admin\Posts;
 
+use App\Http\Livewire\ConfirmsActionsComponent;
 use App\Models\Post;
-use Livewire\Component;
 use Livewire\WithPagination;
 
-class Table extends Component
+class Table extends ConfirmsActionsComponent
 {
-    /** @var bool */
-    public $showDeleteConfirmation = false;
+    use WithPagination;
 
     /** @var \App\Models\Post|null */
     public $workingPost;
@@ -35,39 +34,24 @@ class Table extends Component
     }
 
     /**
-     * Show the delete confirmation modal.
-     */
-    public function showDeleteConfirmation($id): void
-    {
-        if ($post = Post::where('uuid', $id)->first()) {
-            $this->workingPost = $post;
-            $this->showDeleteConfirmation = true;
-        }
-    }
-
-    /**
      * Delete the post.
      */
     public function deletePost(): void
     {
-        $this->workingPost->delete();
-        $this->showDeleteConfirmation = false;
-        $this->notify([
-            'style' => 'success',
-            'message' => 'Post successfully deleted!',
-            'time' => 3000,
-        ]);
+        if ($post = Post::where('uuid', $this->confirmableId)->first()) {
+            $this->workingPost = $post;
+            $this->showDeleteConfirmation = true;
+            $this->workingPost->delete();
+            $this->workingPost = null;
 
-        $this->dispatchBrowserEvent('scrollToTop');
-        $this->emitSelf('post-updated');
-    }
+            $this->notify([
+                'style' => 'success',
+                'message' => 'Post successfully deleted!',
+                'time' => 3000,
+            ]);
 
-    /**
-     * Cancel the modal.
-     */
-    public function cancelModal(): void
-    {
-        $this->workingPost = null;
-        $this->showDeleteConfirmation = false;
+            $this->dispatchBrowserEvent('scrollToTop');
+            $this->emitSelf('post-updated');
+        }
     }
 }

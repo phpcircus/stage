@@ -1,7 +1,7 @@
 <div class="min-h-[500px]">
     <div class="mt-6 sm:mt-5">
         <x-input.group label="Name" for="name" :error="$errors->first('name')">
-            <x-input.text wire:model="name" id="name" />
+            <x-input.text wire:model="name" id="name" :focus="true" />
         </x-input.group>
         <x-input.group label="Color" for="color" :error="$errors->first('color')">
             <x-input.color wire:model="color" id="color" />
@@ -12,7 +12,7 @@
             <x-button.link wire:click="cancel" class="mr-4">
                 Cancel
             </x-button.link>
-            <x-button.primary wire:click.prevent="save" class="!py-[.6rem] !text-white !bg-indigo-500 !ring hover:!ring-offset-2 ring-indigo-600 dark:!ring-indigo-400">
+            <x-button.primary wire:click.prevent="save" class="group">
                 Save
                 <x-heroicon-o-chevron-right class="h-4 ml-2 text-white group-hover:hidden"></x-heroicon-chevron-right>
                 <x-heroicon-o-arrow-right class="hidden h-4 ml-2 text-white group-hover:inline-block"></x-heroicon-chevron-right>

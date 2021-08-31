@@ -76,11 +76,11 @@ class PostsIndex extends Component
     {
         $category = $this->category ? $this->category : request()->input('category');
 
-        if ($category && 'all' != $category) {
-            $this->category = $category;
-        } else {
-            $this->category = '';
-        }
+        match ($category) {
+            'all' => $this->category = '',
+            default => $this->category = $category,
+        };
+
         $posts = Post::with('categories');
 
         if ($this->category) {

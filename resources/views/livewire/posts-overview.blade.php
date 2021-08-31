@@ -1,15 +1,20 @@
-<div class="flex flex-col mt-2">
-    <div class="flex flex-col mb-2 lg:grid lg:grid-cols-6 lg:gap-4">
-        @if ($featured && ($page == 1 || $page == null))
-            <x-featured-post :post="$featured" />
+<div class="w-full">
+    <div class="grid grid-cols-6 gap-4 pb-12 md:gap-8">
+        @if ($featured && ($page === 1 || $page === null))
+            <x-featured-post :post="$featured"></x-featured-post>
         @endif
-        @if ($posts && $posts->count() > 0)
-            @foreach ($posts as $post)
-                <x-post :post="$post" :loop="$loop" :page="$page" />
-            @endforeach
-        @else
-            <h1 class="w-full text-4xl text-gray-700 lg:col-span-6 font-protogrotesk">No Posts Found. 🙁 Check back
-                later.</h1>
+
+        @foreach ($posts as $post)
+            <div x-data="{ shown: false }" x-intersect.once="shown = true"
+                class="col-span-6 {{ ($loop->iteration <= 2 && ($page === 1 || $page === null)) ? 'lg:col-span-3' : 'lg:col-span-2' }} mb-2 group-link-underline overflow-visible font-sans rounded-lg">
+                <section x-show="shown" x-transition x-transition.duration.1000ms>
+                    <x-post :post="$post"></x-post>
+                </section>
+            </div>
+        @endforeach
+
+        @if (! $featured && $posts->count() < 1)
+            <h1 class="col-span-6 text-4xl text-gray-700 dark:text-gray-400 font-protogrotesk">No Posts Found. 🙁 Check back later.</h1>
         @endif
     </div>
     <div class="flex justify-end w-full">

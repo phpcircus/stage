@@ -1,207 +1,185 @@
-<div>
-    <nav x-data="nav(false)"
-        x-effect="mobileMenuOpen ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')"
-        class="fixed top-0 left-0 z-30 w-full h-20 shadow dark:shadow-md bg-skin-fill-mantle">
-        <div class="h-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between w-full h-full">
-                <div class="flex items-center h-full">
-                    <a href="/" class="mr-4">
-                        <div class="flex items-center flex-shrink-0 mr-2 md:mr-8">
-                            <img x-bind:src="$store.stage.darkMode ? '/img/light_elephant.png' : '/img/dark_elephant.png'"
-                                class="h-6 mr-1 dark:opacity-75" />
-                            <span
-                                class="text-xl text-transparent uppercase bg-gradient-to-r dark:bg-gradient-to-l xs:text-2xl sm:text-3xl bg-clip-text from-gray-600 to-gray-400 font-soloist">
-                                PhpStage
-                            </span>
-                        </div>
-                    </a>
-                    <ul id="main-menu" class="relative hidden isolate sm:h-full sm:flex">
-                        <li class="inline-flex items-center h-full pt-[1.75rem] main-menu-option w-24"
-                            style="z-index: 2;">
-                            <a href="{{ route('home') }}" x-on:mouseover="setPosition('home')"
-                                x-on:mouseout="setPosition(currentPath)"
-                                class="block w-full h-full font-sans text-base font-bold uppercase transition-all duration-[750ms]"
-                                x-bind:class="pathIs('home') ? 'text-skin-loud' : 'text-skin-muted hover:text-skin-loud'">
-                                Home
-                            </a>
-                        </li>
-                        <li class="inline-flex items-center h-full pt-[1.75rem] main-menu-option w-24"
-                            style="z-index: 2;">
-                            <a href="{{ route('posts') }}" x-on:click="$store.stage.setSeenToNewest()"
-                                x-on:mouseover="setPosition('posts')" x-on:mouseout="setPosition(currentPath)"
-                                class="relative block w-full h-full font-sans text-base font-bold uppercase transition-all duration-[750ms]"
-                                x-bind:class="pathIs('posts') ? 'text-skin-loud' : 'text-skin-muted hover:text-skin-loud'">
-                                Posts
-                                <div x-cloak x-show="$store.stage.hasntSeenNewest()">
-                                    <span
-                                        class="absolute right-[32px] top-0 inline-flex w-3 h-3 bg-red-400 rounded-full opacity-75 animate-ping"></span>
-                                    <span
-                                        class="absolute right-[32px] top-0 inline-flex w-3 h-3 bg-red-500 rounded-full opacity-50"></span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="inline-flex items-center h-full pt-[1.75rem] main-menu-option w-24"
-                            style="z-index: 2;">
-                            <a href="{{ route('about') }}" x-on:mouseover="setPosition('about')"
-                                x-on:mouseout="setPosition(currentPath)"
-                                class="block w-full h-full font-sans text-base font-bold uppercase transition-all duration-[750ms]"
-                                x-bind:class="pathIs('about') ? 'text-skin-loud' : 'text-skin-muted hover:text-skin-loud'">
-                                About
-                            </a>
-                        </li>
-                        <li class="inline-flex items-center h-full pt-[1.75rem] main-menu-option w-32"
-                            style="z-index: 2;">
-                            <a href="{{ route('projects') }}" x-on:mouseover="setPosition('projects')"
-                                x-on:mouseout="setPosition(currentPath)"
-                                class="block w-full h-full font-sans text-base font-bold uppercase transition-all duration-[750ms]"
-                                x-bind:class="pathIs('projects') ? 'text-skin-loud' : 'text-skin-muted hover:text-skin-loud'">
-                                Projects
-                            </a>
-                        </li>
-                        <li x-ref="slider" style="transition: left .25s linear; z-index: 1;"
-                            class="absolute bottom-0 h-full border-b-4 border-red-500 bg-gradient-to-b from-transparent to-gray-400/[.1] dark:to-white/[.04]">
-                        </li>
-                    </ul>
-                </div>
-                <div class="hidden sm:ml-4 sm:flex sm:items-center">
-                    <!-- Profile dropdown -->
-                    @auth
-                        <div x-data="userMenu(false)" x-on:keydown.escape.stop="closeUserMenu()"
-                            x-on:click.away="closeUserMenu()" class="relative ml-3">
-                            <button id="user-menu-button" x-ref="button" x-on:click="toggleUserMenu()" type="button"
-                                class="flex text-sm bg-white rounded-full ring-2 ring-gray-300 dark:ring-gray-200 hover:ring-red-500 dark:hover:ring-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                                <span class="sr-only">Open user menu</span>
-                                <img class="w-8 h-8 rounded-full" src="{{ auth()->user()->profile_photo_url }}"
-                                    alt="profile photo">
-                            </button>
-
-                            <div x-ref="menu-items" x-show="userMenuOpen"
-                                x-transition:enter="transition ease-out duration-200"
-                                x-transition:enter-start="transform opacity-0 scale-95"
-                                x-transition:enter-end="transform opacity-100 scale-100"
-                                x-transition:leave="transition ease-in duration-75"
-                                x-transition:leave-start="transform opacity-100 scale-100"
-                                x-transition:leave-end="transform opacity-0 scale-95"
-                                class="absolute right-0 w-48 py-1 mt-2 origin-top-right rounded-md shadow-lg bg-skin-fill-mantle ring-1 ring-black ring-opacity-5 focus:outline-none"
-                                x-description="Dropdown menu, show/hide based on menu state." role="menu"
-                                aria-orientation="vertical" aria-labelledby="user-menu-button" x-cloak>
-                                <a id="user-menu-item-0" x-on:click="closeUserMenu()" href="{{ route('profile.show') }}"
-                                    class="block px-4 py-2 text-sm text-skin-base hover:bg-skin-fill-highlight hover:text-skin-extreme"
-                                    role="menuitem">
-                                    Your Profile
-                                </a>
-                                <a id="user-menu-item-1" x-on:click="closeUserMenu();" href="{{ route('admin.posts') }}"
-                                    class="block px-4 py-2 text-sm text-skin-base hover:bg-skin-fill-highlight hover:text-skin-extreme"
-                                    role="menuitem">
-                                    Posts
-                                </a>
-                                <a id="user-menu-item-2" x-on:click="closeUserMenu();"
-                                    href="{{ route('admin.categories') }}"
-                                    class="block px-4 py-2 text-sm text-skin-base hover:bg-skin-fill-highlight hover:text-skin-extreme"
-                                    role="menuitem">
-                                    Categories
-                                </a>
-                                <div id="user-menu-item-3"
-                                    class="block px-4 py-2 cursor-pointer hover:bg-skin-fill-highlight group"
-                                    role="menuitem">
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <button type="submit"
-                                            class="text-sm text-skin-base active:outline-none group-hover:text-skin-extreme"
-                                            onclick="event.preventDefault(); this.closest('form').submit();">
-                                            Sign out
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-
-                        </div>
-                    @endauth
-                </div>
-                <div class="flex items-center -mr-2 sm:hidden">
-                    <!-- Mobile menu button -->
-                    <button x-on:click="toggleMobileMenu()" x-on:keydown.escape="toggleMobileMenu()"
-                        x-ref="mobileMenuTrigger" type="button" aria-controls="mobile-menu" aria-expanded="false"
-                        class="z-30 inline-flex items-center justify-center p-2 rounded-md group hover:bg-gray-100 focus:outline-none">
-                        <span class="sr-only">Open main menu</span>
-                        <x-heroicon-o-menu class="block w-6 h-6 text-skin-loud group-hover:text-gray-800"
-                            x-bind:class="{ 'hidden': mobileMenuOpen, 'block': !(mobileMenuOpen) }" />
-                        <x-heroicon-o-x class="block w-6 h-6 text-white group-hover:text-gray-800"
-                            x-bind:class="{ 'block': mobileMenuOpen, 'hidden': !(mobileMenuOpen) }" />
-                    </button>
-                </div>
-                <div id="mobile-menu" x-show="mobileMenuOpen" x-cloak
-                    x-description="Mobile menu, show/hide based on menu state."
-                    class="absolute top-0 left-0 w-full h-screen overflow-y-hidden bg-gray-800 sm:hidden">
-                    <div x-data class="flex flex-col items-center justify-center w-full h-full pt-8">
-                        <a href="/" class="block mb-8 text-3xl font-bold text-white uppercase border-b-2"
-                            x-bind:class="pathIs('home') ? 'border-white' : 'border-transparent'">
+<nav x-data="nav" class="fixed top-0 z-50 w-full h-24 font-sans shadow dark:shadow-md bg-skin-fill-mantle">
+    <div class="h-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="flex justify-between h-full">
+            <div class="flex items-center w-full h-full">
+                <a href="@route('home')" class="flex items-center">
+                    <x-jet-application-mark />
+                </a>
+                <div x-cloak class="relative hidden h-full isolate sm:ml-6 sm:flex lg:ml-24">
+                    <div x-ref="home" x-on:mouseover="setPosition('home')" x-on:mouseout="setPosition(currentPath)"
+                          class="inline-flex items-center justify-center w-24">
+                        <a href="@route('home')" class="z-20 font-bold inline-block w-full py-8 text-center uppercase tracking-tight transition-all duration-[500ms]"
+                        x-bind:class="position === 'home' ? 'text-white' : 'text-skin-muted'"
+                        x-bind:class="this.currentPath.split('/')[0] !== 'admin' ? 'hover:text-white' : ''">
                             Home
                         </a>
-                        <a x-on:click="$store.stage.setSeenToNewest()" href="{{ route('posts') }}"
-                            class="relative block mb-8 text-3xl font-bold text-white uppercase border-b-2"
-                            x-bind:class="pathIs('posts') ? 'border-white' : 'border-transparent'">
+                    </div>
+                    <div x-ref="posts" x-on:mouseover="setPosition('posts')" x-on:mouseout="setPosition(currentPath)"
+                          class="inline-flex items-center justify-center w-24">
+                        <a href="@route('posts')" x-on:click="$store.stage.setSeenToNewest()"
+                           class="relative z-20 font-bold inline-block w-full py-8 text-center uppercase tracking-tight transition-all duration-[500ms]"
+                           x-bind:class="position === 'posts' ? 'text-white' : 'text-skin-muted'"
+                           x-bind:class="this.currentPath.split('/')[0] !== 'admin' ? 'hover:text-white' : ''">
                             Posts
                             <div x-cloak x-show="$store.stage.hasntSeenNewest()">
                                 <span
-                                    class="absolute top-0 left-[100px] inline-flex w-3 h-3 bg-red-400 rounded-full opacity-75 animate-ping"></span>
+                                    class="absolute right-[12px] top-7 inline-flex w-3 h-3 bg-red-400 rounded-full opacity-75 animate-ping"></span>
                                 <span
-                                    class="absolute top-0 left-[100px] inline-flex w-3 h-3 bg-red-500 rounded-full opacity-50"></span>
+                                    class="absolute right-[12px] top-7 inline-flex w-3 h-3 bg-red-500 rounded-full opacity-50"></span>
                             </div>
                         </a>
-                        <a href="{{ route('about') }}"
-                            class="block mb-8 text-3xl font-bold text-white uppercase border-b-2"
-                            x-bind:class="pathIs('about') ? 'border-white' : 'border-transparent'">
+                    </div>
+                    <div x-ref="about" x-on:mouseover="setPosition('about')" x-on:mouseout="setPosition(currentPath)"
+                          class="inline-flex items-center justify-center w-24">
+                        <a href="@route('about')" class="z-20 font-bold inline-block w-full py-8 text-center uppercase tracking-tight transition-all duration-[500ms]"
+                        x-bind:class="position === 'about' ? 'text-white' : 'text-skin-muted'"
+                        x-bind:class="this.currentPath.split('/')[0] !== 'admin' ? 'hover:text-white' : ''">
                             About
                         </a>
-                        <a href="{{ route('projects') }}"
-                            class="block mb-8 text-3xl font-bold text-white uppercase border-b-2"
-                            x-bind:class="pathIs('projects') ? 'border-white' : 'border-transparent'">
+                    </div>
+                    <div x-ref="projects" x-on:mouseover="setPosition('projects')" x-on:mouseout="setPosition(currentPath)"
+                          class="inline-flex items-center justify-center w-24">
+                        <a href="@route('projects')" class="z-20 font-bold inline-block w-full py-8 text-center uppercase tracking-tight transition-all duration-[500ms]"
+                        x-bind:class="position === 'projects' ? 'text-white' : 'text-skin-muted'"
+                        x-bind:class="this.currentPath.split('/')[0] !== 'admin' ? 'hover:text-white' : ''">
                             Projects
                         </a>
-                        @auth
-                            <a href="{{ route('profile.show') }}"
-                                class="block mb-8 text-3xl font-bold text-white uppercase border-b-2"
-                                x-bind:class="pathIs('profile') ? 'border-white' : 'border-transparent'">
-                                Profile
+                    </div>
+                    <div x-ref="slider" style="transition: all .25s linear;" x-bind:class="pathIs('admin') ? 'hidden' : ''"
+                        class="absolute bottom-0 z-10 w-24 h-full">
+                    </div>
+                </div>
+                <span class="ml-auto cursor-pointer group">
+                    <span class="sr-only">Dark Mode / Light Mode</span>
+                    <span x-on:click="$store.stage.toggleTheme()">
+                        <x-heroicon-s-moon x-cloak x-show="$store.stage.darkMode" class="w-6 mr-4 text-gray-100 group-hover:text-gray-300"></x-heroicon-o-moon>
+                        <x-heroicon-s-sun x-cloak x-show="! $store.stage.darkMode" class="w-6 mr-4 text-yellow-500 group-hover:text-yellow-300"></x-heroicon-o-sun>
+                    </span>
+                </span>
+            </div>
+            <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                <!-- User Menu dropdown -->
+                @auth
+                    <div x-on:keydown.escape.stop="closeUserMenu(true)" x-on:click.away="closeUserMenu()" class="relative ml-3">
+                        <div>
+                            <button x-ref="userMenuButton" type="button" x-on:click="toggleUserMenu()"
+                                class="flex w-8 h-8 text-sm bg-white rounded-full ring-2 ring-offset-2 ring-gray-300 dark:ring-gray-200 hover:ring-red-500 dark:hover:ring-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                                id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                <span class="sr-only">Open user menu</span>
+                                <img class="w-8 h-8 rounded-full" src="{{ auth()->user()->profile_photo_url }}" alt="{{ auth()->user()->name }}">
+                            </button>
+                        </div>
+                        <div x-show="userMenuOpen" x-cloak
+                            class="absolute right-0 w-48 py-1 mt-2 origin-top-right rounded-md shadow-lg bg-skin-fill-mantle ring-1 ring-black ring-opacity-5 focus:outline-none"
+                            role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                            <a href="@route('profile.show')" class="block px-4 py-2 uppercase text-skin-base hover:bg-skin-fill-highlight hover:text-skin-extreme" role="menuitem"
+                                tabindex="-1" id="user-menu-item-0">
+                                Your Profile
                             </a>
-                            <a href="{{ route('admin.posts') }}"
-                                class="block mb-8 text-3xl font-bold text-white uppercase border-b-2"
-                                x-bind:class="pathIs('admin/posts') ? 'border-white' : 'border-transparent'">
-                                Posts
-                            </a>
-                            <a href="{{ route('admin.categories') }}"
-                                class="block mb-8 text-3xl font-bold text-white uppercase border-b-2"
-                                x-bind:class="pathIs('categories') ? 'border-white' : 'border-transparent'">
+                            <a href="@route('admin.categories')" class="block px-4 py-2 uppercase text-skin-base hover:bg-skin-fill-highlight hover:text-skin-extreme" role="menuitem"
+                                tabindex="-1" id="user-menu-item-1">
                                 Categories
                             </a>
-                            <div class="block cursor-pointer group" role="menuitem" id="user-menu-item-3">
-                                <form method="POST" action="{{ route('logout') }}">
+                            <a href="@route('admin.posts')" class="block px-4 py-2 uppercase text-skin-base hover:bg-skin-fill-highlight hover:text-skin-extreme" role="menuitem"
+                                tabindex="-1" id="user-menu-item-2">
+                                Posts
+                            </a>
+                            <span class="block px-4 py-2 hover:bg-skin-fill-highlight group" role="menuitem"
+                                tabindex="-1" id="user-menu-item-3">
+                                <form method="POST" action="@route('logout')">
                                     @csrf
-                                    <button type="submit" class="text-3xl font-bold text-white uppercase"
+                                    <button type="submit"
+                                        class="inline-block w-full text-left uppercase active:outline-none text-skin-base group-hover:bg-skin-fill-highlight group-hover:text-skin-extreme"
                                         onclick="event.preventDefault(); this.closest('form').submit();">
                                         Sign out
                                     </button>
                                 </form>
-                            </div>
-                        @endauth
+                            </span>
+                        </div>
                     </div>
-                </div>
+                @endauth
+            </div>
+            <div class="flex items-center -mr-2 sm:hidden">
+                <!-- Mobile menu button -->
+                <button type="button" x-on:click="toggleMobileMenu()" x-ref="mobileMenuTrigger"
+                    class="inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-100 focus:outline-none group"
+                    aria-controls="mobile-menu" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <x-heroicon-o-menu class="block w-6 h-6 text-skin-loud group-hover:text-gray-800"
+                        x-bind:class="{ 'hidden': mobileMenuOpen, 'block': !(mobileMenuOpen) }" />
+                    <x-heroicon-o-x class="block w-6 h-6 text-white group-hover:text-gray-800"
+                            x-bind:class="{ 'block': mobileMenuOpen, 'hidden': !(mobileMenuOpen) }" />
+                </button>
             </div>
         </div>
-    </nav>
-    <div class="fixed z-20 w-full h-10 ws:h-12 bg-gradient-to-r from-gray-400 to-gray-500 dark:from-gray-600 dark:to-gray-400"
-        x-bind:class="true ? 'rotate-[2deg] ws:rotate-[1.5deg] lg:rotate-[1.7deg] xl:rotate-[0.9deg] top-[3rem] ws:top-[2.75rem] lg:top-[3rem] left-0' : ''">
-        &nbsp;
     </div>
 
-
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div id="mobile-menu" x-show="mobileMenuOpen" x-cloak
+        x-description="Mobile menu, show/hide based on menu state."
+        class="absolute top-0 left-0 w-full h-screen overflow-y-hidden bg-gray-800 sm:hidden">
+        <div x-data class="flex flex-col items-center justify-center w-full h-full pt-8">
+            <a href="/" class="block mb-8 text-3xl font-bold text-white uppercase border-b-2"
+                x-bind:class="pathIs('home') ? 'border-white' : 'border-transparent'">
+                Home
+            </a>
+            <a x-on:click="$store.stage.setSeenToNewest()" href="{{ route('posts') }}"
+                class="relative block mb-8 text-3xl font-bold text-white uppercase border-b-2"
+                x-bind:class="pathIs('posts') ? 'border-white' : 'border-transparent'">
+                Posts
+                <div x-cloak x-show="$store.stage.hasntSeenNewest()">
+                    <span
+                        class="absolute top-0 left-[100px] inline-flex w-3 h-3 bg-red-400 rounded-full opacity-75 animate-ping"></span>
+                    <span
+                        class="absolute top-0 left-[100px] inline-flex w-3 h-3 bg-red-500 rounded-full opacity-50"></span>
+                </div>
+            </a>
+            <a href="{{ route('about') }}"
+                class="block mb-8 text-3xl font-bold text-white uppercase border-b-2"
+                x-bind:class="pathIs('about') ? 'border-white' : 'border-transparent'">
+                About
+            </a>
+            <a href="{{ route('projects') }}"
+                class="block mb-8 text-3xl font-bold text-white uppercase border-b-2"
+                x-bind:class="pathIs('projects') ? 'border-white' : 'border-transparent'">
+                Projects
+            </a>
+            @auth
+                <a href="{{ route('profile.show') }}"
+                    class="block mb-8 text-3xl font-bold text-white uppercase border-b-2"
+                    x-bind:class="pathIs('profile') ? 'border-white' : 'border-transparent'">
+                    Profile
+                </a>
+                <a href="{{ route('admin.posts') }}"
+                    class="block mb-8 text-3xl font-bold text-white uppercase border-b-2"
+                    x-bind:class="pathIs('admin/posts') ? 'border-white' : 'border-transparent'">
+                    Posts
+                </a>
+                <a href="{{ route('admin.categories') }}"
+                    class="block mb-8 text-3xl font-bold text-white uppercase border-b-2"
+                    x-bind:class="pathIs('categories') ? 'border-white' : 'border-transparent'">
+                    Categories
+                </a>
+                <div class="block cursor-pointer group" role="menuitem" id="user-menu-item-3">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="text-3xl font-bold text-white uppercase"
+                            onclick="event.preventDefault(); this.closest('form').submit();">
+                            Sign out
+                        </button>
+                    </form>
+                </div>
+            @endauth
+        </div>
+    </div>
     @push('scripts')
         <script>
             document.addEventListener('alpine:initializing', function() {
-                Alpine.data('nav', (mobileMenuState = false) => ({
-                    mobileMenuOpen: mobileMenuState,
+                Alpine.data('nav', () => ({
+                    mobileMenuOpen: false,
+                    userMenuOpen: false,
                     currentPath: '{{ request()->path() }}',
+                    position: '',
                     pathIs(path) {
                         return this.currentPath.includes(path);
                     },
@@ -213,34 +191,41 @@
                             });
                         }
                     },
+                    toggleUserMenu() {
+                        this.userMenuOpen = !this.userMenuOpen;
+                        this.$refs.userMenuButton.focus();
+                    },
+                    closeUserMenu(focusMenuButton = false) {
+                        this.userMenuOpen = false;
+
+                        if (focusMenuButton) {
+                            this.$refs.userMenuButton.focus();
+                        }
+                    },
                     positions: {
                         home: {
-                            left: '0',
-                            width: '47.875px'
+                            right: '18rem',
                         },
                         posts: {
-                            left: '6.1rem',
-                            width: '47.875px'
+                            right: '12rem',
                         },
                         about: {
-                            left: '12.05rem',
-                            width: '55px'
+                            right: '6rem',
                         },
                         projects: {
-                            left: '17.95rem',
-                            width: '5rem'
+                            right: '0',
                         },
                     },
                     setPosition(position) {
                         var position = position.split('/')[0];
-                        if (this.positions.hasOwnProperty(position)) {
-                            console.log('set position');
-                            this.$refs.slider.style.left = this.positions[position]['left'];
-                            this.$refs.slider.style.width = this.positions[position]['width'];
-                            if (position === this.currentPath) {
-                                this.$refs.slider.style.borderColor = '#DC2626';
+                        var path = this.currentPath.split('/')[0];
+                        if (this.positions.hasOwnProperty(position) && this.positions.hasOwnProperty(path)) {
+                            this.position = position;
+                            this.$refs.slider.style.right = this.positions[position]['right'];
+                            if (position === path) {
+                                this.$refs.slider.style.backgroundColor = '#ff3d40';
                             } else {
-                                this.$refs.slider.style.borderColor = '#FCA5A5';
+                                this.$refs.slider.style.backgroundColor = '#ff9496';
                             }
                         }
                     },
@@ -249,16 +234,7 @@
                         this.setPosition(this.currentPath);
                     }
                 }));
-                Alpine.data('userMenu', (userMenuState = false) => ({
-                    userMenuOpen: userMenuState,
-                    closeUserMenu() {
-                        this.userMenuOpen = false;
-                    },
-                    toggleUserMenu() {
-                        this.userMenuOpen = !this.userMenuOpen;
-                    },
-                }));
             });
         </script>
     @endpush
-</div>
+</nav>

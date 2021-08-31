@@ -1,5 +1,7 @@
 @props([
     'leadingAddOn' => false,
+    'type' => 'text',
+    'focus' => false,
 ])
 
 @php
@@ -13,10 +15,11 @@
                 {{ $leadingAddOn }}
             </div>
         @endif
-        <input type="text"
-            {{ $attributes->merge([
-                'class' => "block w-full {$padding} border-gray-300 rounded-r-md focus:ring-indigo-500 focus:border-indigo-500 rounded-l-md sm:text-sm"
-            ]) }}
-            tabindex="0" x-ref="field" autocomplete="off" type="text">
+        <input x-data="{ focused: {{ json_encode($focus) }} }" x-init="focused && setTimeout(() => $el.focus(), 250)"
+               type="{{ $type }}" {!! $attributes->merge([
+                    'class' => "form-input block w-full {$padding} shadow-sm border border-gray-300 rounded-r-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-indigo-500 dark:ring-indigo-300 rounded-l-md sm:text-sm"
+                ]) !!}
+                tabindex="0"
+                autocomplete="off">
     </div>
 </div>

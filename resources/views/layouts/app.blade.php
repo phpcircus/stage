@@ -58,7 +58,6 @@
     class="relative font-sans antialiased selection:bg-red-300 selection:text-white bg-gradient-to-br from-skin-stop-core to-skin-stop-crust"
     x-bind:class="{ 'dark': $store.stage.darkMode }">
     <x-jet-banner />
-    <x-flyouts.toggle />
     <div x-data
         class="absolute top-0 left-0 w-full min-h-screen isolate bg-gradient-to-br from-skin-stop-core to-skin-stop-crust">
         <img src="/img/geometric.jpg"
@@ -73,7 +72,7 @@
             </div>
 
             <!-- Page Content -->
-            <main class="mt-20">
+            <main class="mt-28 lg:mt-20">
                 {{ $slot }}
             </main>
 
