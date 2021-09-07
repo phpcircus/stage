@@ -24,13 +24,11 @@ class Modal extends Component
      */
     public function show(string $model, $id = null): void
     {
-        if ($model && $id) {
-            $this->model = resolve($model)->findOrFail($id);
-        } elseif ($model && $id === null) {
-            $this->model = resolve($model);
-        } else {
-            abort(404, 'Model not found.');
-        }
+        match ([$model, $id]) {
+            [$model, null] => $this->model = resolve($model),
+            [$model, $id] => $this->model = $model::findOrFail($id),
+            default => abort(404, 'Model not found.')
+        };
 
         $this->setFields($this->model);
         $this->show = true;
