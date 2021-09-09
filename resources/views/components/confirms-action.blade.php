@@ -1,19 +1,21 @@
 @props([
     'title' => __('Confirm Action'),
-    'content' => __('Please confirm this action before continuing.'),
+    'content' => __('For your security, please confirm this action to continue.'),
     'button' => __('Confirm'),
+    'action' => '',
+    'id' => '',
 ])
 
 @php
-    $confirmableId = $attributes->get('confirmable')
+    $uid = md5($action.$id);
 @endphp
 
 <span
     {{ $attributes->wire('then') }}
     x-data
     x-ref="span"
-    x-on:click="$wire.startConfirmingAction('{{ $confirmableId }}')"
-    x-on:action-confirmed.window="setTimeout(() => $refs.span.dispatchEvent(new CustomEvent('then', { bubbles: false })), 250);"
+    x-on:click="$wire.startConfirmingAction('{{ $id }}', '{{ $action }}', '{{ $uid }}')"
+    x-on:action-confirmed.window="setTimeout(() => $event.detail.uid === '{{ $uid }}' && $refs.span.dispatchEvent(new CustomEvent('then', { bubbles: false })), 250);"
 >
     {{ $slot }}
 </span>
@@ -26,26 +28,16 @@
 
     <x-slot name="content">
         {{ $content }}
-        @if ($this->confirmsPassword)
-            <div class="mt-4" x-data="{}" x-on:confirming-action.window="setTimeout(() => $refs.confirmable_password.focus(), 250)">
-                <x-input.confirm-password type="password" class="block w-3/4 mt-1" placeholder="{{ __('Password') }}"
-                    x-ref="confirmable_password"
-                    wire:model.defer="confirmablePassword"
-                    wire:keydown.enter="confirmAction()" />
-
-                <x-input.input-error for="confirmable_password" class="mt-2" />
-            </div>
-        @endif
     </x-slot>
 
     <x-slot name="footer">
-        <x-button.link wire:click="stopConfirmingAction" wire:loading.attr="disabled">
+        <x-jet-secondary-button wire:click="stopConfirmingAction" wire:loading.attr="disabled">
             {{ __('Cancel') }}
-        </x-button.link>
+        </x-jet-secondary-button>
 
-        <x-button.primary class="ml-2" wire:click="confirmAction()" wire:loading.attr="disabled">
+        <x-jet-button class="ml-2" wire:click="confirmAction" wire:loading.attr="disabled">
             {{ $button }}
-        </x-button.primary>
+        </x-jet-button>
     </x-slot>
 </x-jet-dialog-modal>
 @endonce

@@ -1,10 +1,10 @@
 <div x-data="colorPicker">
-    <label for="color-picker" class="block mb-1 font-semibold">Select a color</label>
+    <label for="color-picker" class="block mb-1 font-semibold text-skin-base">Select a color</label>
     <div class="relative flex flex-row">
         <input x-on:click="isOpen = true" id="color-picker" class="p-2 border border-gray-400 rounded-lg"
             x-model="currentColor">
         <div @click="isOpen = !isOpen"
-            class="flex w-10 h-10 my-auto ml-3 bg-indigo-600 rounded-full cursor-pointer"
+            class="flex w-10 h-10 my-auto ml-3 rounded-full cursor-pointer"
             :class="`bg-${currentColor}`">
             <svg xmlns="http://www.w3.org/2000/svg" :class="`${iconColor}`"
                 class="w-6 h-6 mx-auto my-auto text-white" fill="none"

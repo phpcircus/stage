@@ -13,6 +13,9 @@ class Table extends ConfirmsActionsComponent
     /** @var \App\Models\Category|null */
     public $workingCategory;
 
+    /** @var string */
+    public $confirmableId = '';
+
     /** @var array */
     public $listeners = [
         'category-updated' => '$refresh',
@@ -54,6 +57,7 @@ class Table extends ConfirmsActionsComponent
         }
 
         $this->workingCategory = null;
+        $this->confirmableId = '';
 
         $this->dispatchBrowserEvent('scrollToTop');
     }

@@ -10,21 +10,26 @@ class ConfirmsActionsComponent extends Component
     public $confirmingAction = false;
 
     /** @var string */
+    public $action = '';
+
+    /** @var string */
     public $confirmableId = '';
 
     /** @var string */
-    public $action = '';
+    public $uid = '';
 
     /**
      * Start confirming the requested action.
      */
-    public function startConfirmingAction(string $id, string $action): void
+    public function startConfirmingAction(string $id, string $action, string $uid): void
     {
         $this->resetErrorBag();
 
-        $this->confirmableId = $id;
+        $this->uid = $uid;
 
         $this->action = $action;
+
+        $this->confirmableId = $id;
 
         $this->confirmingAction = true;
 
@@ -38,7 +43,7 @@ class ConfirmsActionsComponent extends Component
     {
         $this->confirmingAction = false;
         $this->action = '';
-        $this->confirmableId = '';
+        $this->uid = '';
     }
 
     /**
@@ -48,7 +53,7 @@ class ConfirmsActionsComponent extends Component
      */
     public function confirmAction(): void
     {
-        $this->dispatchBrowserEvent('action-confirmed', ['action' => $this->action, 'confirmableId' => $this->confirmableId]);
+        $this->dispatchBrowserEvent('action-confirmed', ['uid' => $this->uid]);
 
         $this->stopConfirmingAction();
     }
