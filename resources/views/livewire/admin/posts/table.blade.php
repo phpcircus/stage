@@ -29,9 +29,9 @@
                                 </div>
                             </div>
                             <div class="ml-auto">
-                                <x-confirms-action wire:then="deletePost()" title="Delete Post" confirmable="{{ $post->uuid }}"
-                                    content="Are you sure you want to delete this post?" button="Delete">
-                                    <x-heroicon-o-trash wire:loading.attr="disabled" class="w-5 text-red-500 cursor-pointer hover:text-red-300" />
+                                <x-confirms-action wire:then="deletePost" title="Delete Post" id="{{ $post->uuid }}"
+                                    content="Are you sure you want to delete this post?" button="Delete" action="delete">
+                                    <x-heroicon-o-trash wire:loading.attr="disabled" wire:target="deletePost" class="w-5 text-red-500 cursor-pointer hover:text-red-300" />
                                 </x-confirms-action>
                             </div>
                         </div>

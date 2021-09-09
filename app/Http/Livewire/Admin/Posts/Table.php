@@ -40,18 +40,24 @@ class Table extends ConfirmsActionsComponent
     {
         if ($post = Post::where('uuid', $this->confirmableId)->first()) {
             $this->workingPost = $post;
-            $this->showDeleteConfirmation = true;
             $this->workingPost->delete();
-            $this->workingPost = null;
-
             $this->notify([
                 'style' => 'success',
                 'message' => 'Post successfully deleted!',
+                'time' => 2500,
+            ]);
+            $this->emitSelf('post-updated');
+        } else {
+            $this->notify([
+                'style' => 'danger',
+                'message' => 'Error deleting post. Please try again later.',
                 'time' => 3000,
             ]);
-
-            $this->dispatchBrowserEvent('scrollToTop');
-            $this->emitSelf('post-updated');
         }
+
+        $this->workingPost = null;
+        $this->confirmableId = '';
+
+        $this->dispatchBrowserEvent('scrollToTop');
     }
 }

@@ -44,9 +44,9 @@
                                 </a>
                             </td>
                             <td class="px-6 py-4 text-right">
-                                <x-confirms-action wire:then="deleteCategory()" title="Delete Category" confirmable="{{ $category->uuid }}"
-                                    content="Are you sure you want to delete this category?" button="Delete">
-                                    <x-heroicon-o-trash wire:loading.attr="disabled" class="w-5 text-red-500 cursor-pointer hover:text-red-300" />
+                                <x-confirms-action wire:then="deleteCategory" title="Delete Category" id="{{ $category->uuid }}"
+                                    content="Are you sure you want to delete this category?" button="Delete" action="delete">
+                                    <x-heroicon-o-trash wire:loading.attr="disabled" wire:target="deleteCategory" class="w-5 text-red-500 cursor-pointer hover:text-red-300" />
                                 </x-confirms-action>
                             </td>
                         </tr>
