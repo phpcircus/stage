@@ -14,13 +14,18 @@ class PostsIndex extends Component
     /** @var string */
     public $search = '';
 
-    /** @var \App\Models\Category */
+    /** @var \App\Models\Category|null */
     public $category;
 
     /** @var array */
     protected $queryString = [
         'search' => ['except' => ''],
-        'category' => ['except' => ''],
+        'category' => [
+            'except' => [
+                null,
+                '',
+                ],
+        ],
     ];
 
     /** @var string */
@@ -77,7 +82,7 @@ class PostsIndex extends Component
         $category = $this->category ? $this->category : request()->input('category');
 
         match ($category) {
-            'all' => $this->category = '',
+            'all' => $this->category = null,
             default => $this->category = $category,
         };
 
@@ -105,6 +110,6 @@ class PostsIndex extends Component
     public function resetSearch(): void
     {
         $this->search = '';
-        $this->category = '';
+        $this->category = null;
     }
 }

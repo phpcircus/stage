@@ -15,10 +15,10 @@ class Form extends Component
     /** @var \App\Models\Post|null */
     public $post;
 
-    /** @var /Carbon/CarbonImmutable|null */
+    /** @var \Carbon\CarbonImmutable|string|null */
     public $published_at;
 
-    /** @var \Illuminate\Http\UploadedFile */
+    /** @var \Illuminate\Http\UploadedFile|null */
     public $primaryImage;
 
     /** @var string */
@@ -155,14 +155,14 @@ class Form extends Component
      */
     public function setFields(): void
     {
-        $this->published_at = $this->post->published_at ? $this->post->published_at->format('m/d/Y') : '';
+        $this->published_at = $this->post->published_at ? $this->post->published_at->format('m/d/Y') : null;
         $this->primaryImageUrl = $this->post->primary_image;
     }
 
     /**
      * Save the Post.
      *
-     * @return \Illuminate\Http\RedirectResponse|Livewire\Redirector
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function save()
     {

@@ -6,7 +6,7 @@ if (! function_exists('user')) {
     /**
      * Format the given number as money in US dollars.
      *
-     * @return \App\Models\User|\Illuminate\Auth\Authenticatable
+     * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
     function user()
     {
