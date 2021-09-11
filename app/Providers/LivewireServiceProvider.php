@@ -15,7 +15,9 @@ class LivewireServiceProvider extends ServiceProvider
     public function boot()
     {
         Component::macro('notify', function ($message) {
-            $this->dispatchBrowserEvent('banner-message', $message);
+            /** @var \Livewire\Component */
+            $component = $this;
+            $component->dispatchBrowserEvent('banner-message', $message);
         });
     }
 }

@@ -74,7 +74,7 @@ class Form extends Component
     /**
      * Save the Post.
      *
-     * @return \Illuminate\Http\RedirectResponse|Livewire\Redirector
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function save()
     {

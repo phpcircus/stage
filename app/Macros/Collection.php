@@ -13,7 +13,9 @@ class Collection
     public function paginate(): Closure
     {
         return function (int $perPage = 5) {
-            $items = $this->all();
+            /** @var \Illuminate\Support\Collection */
+            $collection = $this;
+            $items = $collection->all();
             $page = (int) request()->input('page') ?: 1;
             $offSet = ($page * $perPage) - $perPage;
             $itemsForCurrentPage = array_slice($items, $offSet, $perPage, true);
@@ -25,7 +27,7 @@ class Collection
                 'perPage' => $perPage,
                 'currentPage' => $page,
                 [
-                    'path'  => "/{$path}",
+                    'path' => "/{$path}",
                 ],
             ]);
 
