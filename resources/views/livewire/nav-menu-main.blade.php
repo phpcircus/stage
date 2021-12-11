@@ -6,20 +6,18 @@
                     <x-jet-application-mark />
                 </a>
                 <div x-cloak class="relative hidden h-full isolate sm:ml-6 sm:flex lg:ml-24">
-                    <div x-ref="home" x-on:mouseover="setPosition('home')" x-on:mouseout="setPosition(currentPath)"
+                    <div x-ref="home"
                           class="inline-flex items-center justify-center w-24">
-                        <a href="@route('home')" class="z-20 font-bold inline-block w-full py-8 text-center uppercase tracking-tight transition-all duration-[500ms]"
-                        x-bind:class="position === 'home' ? 'text-white' : 'text-skin-muted'"
-                        x-bind:class="this.currentPath.split('/')[0] !== 'admin' ? 'hover:text-white' : ''">
+                        <a href="@route('home')" class="z-20 inline-block w-full py-8 font-black tracking-tight text-center uppercase"
+                            x-bind:class="pathIs('home') ? 'text-2xl text-red-600 dark:text-gray-100' : 'text-lg text-gray-400 hover:text-gray-600 hover:text-xl dark:hover:text-gray-100'">
                             Home
                         </a>
                     </div>
-                    <div x-ref="posts" x-on:mouseover="setPosition('posts')" x-on:mouseout="setPosition(currentPath)"
+                    <div x-ref="posts"
                           class="inline-flex items-center justify-center w-24">
                         <a href="@route('posts')" x-on:click="$store.stage.setSeenToNewest()"
-                           class="relative z-20 font-bold inline-block w-full py-8 text-center uppercase tracking-tight transition-all duration-[500ms]"
-                           x-bind:class="position === 'posts' ? 'text-white' : 'text-skin-muted'"
-                           x-bind:class="this.currentPath.split('/')[0] !== 'admin' ? 'hover:text-white' : ''">
+                           class="relative z-20 inline-block w-full py-8 font-bold tracking-tight text-center uppercase"
+                            x-bind:class="pathIs('posts') ? 'text-2xl text-red-600 dark:text-gray-100' : 'text-lg text-gray-400 hover:text-gray-600 hover:text-xl dark:hover:text-gray-100'">
                             Posts
                             <div x-cloak x-show="$store.stage.hasntSeenNewest()">
                                 <span
@@ -29,24 +27,19 @@
                             </div>
                         </a>
                     </div>
-                    <div x-ref="about" x-on:mouseover="setPosition('about')" x-on:mouseout="setPosition(currentPath)"
+                    <div x-ref="about"
                           class="inline-flex items-center justify-center w-24">
-                        <a href="@route('about')" class="z-20 font-bold inline-block w-full py-8 text-center uppercase tracking-tight transition-all duration-[500ms]"
-                        x-bind:class="position === 'about' ? 'text-white' : 'text-skin-muted'"
-                        x-bind:class="this.currentPath.split('/')[0] !== 'admin' ? 'hover:text-white' : ''">
+                        <a href="@route('about')" class="z-20 inline-block w-full py-8 font-bold tracking-tight text-center uppercase"
+                            x-bind:class="pathIs('about') ? 'text-2xl text-red-600 dark:text-gray-100' : 'text-lg text-gray-400 hover:text-gray-600 hover:text-xl dark:hover:text-gray-100'">
                             About
                         </a>
                     </div>
-                    <div x-ref="projects" x-on:mouseover="setPosition('projects')" x-on:mouseout="setPosition(currentPath)"
+                    <div x-ref="projects"
                           class="inline-flex items-center justify-center w-24">
-                        <a href="@route('projects')" class="z-20 font-bold inline-block w-full py-8 text-center uppercase tracking-tight transition-all duration-[500ms]"
-                        x-bind:class="position === 'projects' ? 'text-white' : 'text-skin-muted'"
-                        x-bind:class="this.currentPath.split('/')[0] !== 'admin' ? 'hover:text-white' : ''">
+                        <a href="@route('projects')" class="z-20 inline-block w-full py-8 font-bold tracking-tight text-center uppercase"
+                            x-bind:class="pathIs('projects') ? 'text-2xl text-red-600 dark:text-gray-100' : 'text-lg text-gray-400 hover:text-gray-600 hover:text-xl dark:hover:text-gray-100'">
                             Projects
                         </a>
-                    </div>
-                    <div x-ref="slider" style="transition: all .25s linear;" x-bind:class="pathIs('admin') ? 'hidden' : ''"
-                        class="absolute bottom-0 z-10 w-24 h-full">
                     </div>
                 </div>
                 <span class="ml-auto cursor-pointer group">
@@ -174,7 +167,7 @@
     </div>
     @push('scripts')
         <script>
-            document.addEventListener('alpine:initializing', function() {
+            document.addEventListener('alpine:init', function() {
                 Alpine.data('nav', () => ({
                     mobileMenuOpen: false,
                     userMenuOpen: false,
@@ -202,36 +195,8 @@
                             this.$refs.userMenuButton.focus();
                         }
                     },
-                    positions: {
-                        home: {
-                            right: '18rem',
-                        },
-                        posts: {
-                            right: '12rem',
-                        },
-                        about: {
-                            right: '6rem',
-                        },
-                        projects: {
-                            right: '0',
-                        },
-                    },
-                    setPosition(position) {
-                        var position = position.split('/')[0];
-                        var path = this.currentPath.split('/')[0];
-                        if (this.positions.hasOwnProperty(position) && this.positions.hasOwnProperty(path)) {
-                            this.position = position;
-                            this.$refs.slider.style.right = this.positions[position]['right'];
-                            if (position === path) {
-                                this.$refs.slider.style.backgroundColor = '#ff3d40';
-                            } else {
-                                this.$refs.slider.style.backgroundColor = '#ff9496';
-                            }
-                        }
-                    },
                     init() {
                         this.$store.stage.newest = '{{ $newest }}';
-                        this.setPosition(this.currentPath);
                     }
                 }));
             });
