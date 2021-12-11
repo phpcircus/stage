@@ -35,7 +35,7 @@
             <li class="pt-4 mb-4 first:pt-0 group-link-underline">
                 <div class="flex flex-col">
                     <div
-                        class="flex flex-col mb-1 space-y-4 md:mb-2 md:space-y-0 md:space-x-4 md:items-center md:flex-row">
+                        class="flex flex-col mb-1 space-y-4 md:mb-2 md:space-y-0 md:items-center md:flex-row {{ $post->categories->count() > 0 ? 'md:space-x-4' : '' }}">
                         <x-categories :categories="$post->categories" />
                         <p class="font-mono text-xs font-normal text-gray-400">
                             {{ $post->published_at->diffForHumans() }}</p>

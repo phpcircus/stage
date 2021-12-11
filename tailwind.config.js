@@ -10,8 +10,7 @@ function withOpacity(variableName) {
 }
 
 module.exports = {
-    mode: 'jit',
-    purge: [
+    content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
@@ -94,12 +93,6 @@ module.exports = {
                 'small-dark': '0 0 6px 3px rgba(0,0,0,0.3)',
                 'lower-right': '3px 4px 12px -1px rgba(0,0,0,0.95)',
             },
-        },
-    },
-
-    variants: {
-        extend: {
-
         },
     },
 
