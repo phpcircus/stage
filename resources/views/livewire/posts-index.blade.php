@@ -17,10 +17,10 @@
                         </x-input.text>
                     </div>
                     <div class="flex w-full space-x-4 md:w-1/3 md:ml-2">
-                        <x-button.secondary wire:click="search" x-cloak
+                        <x-button.primary wire:click="search" x-cloak
                             class="text-gray-800 bg-gray-200 border-gray-300 shadow hover:shadow-none hover:border-transparent hover:text-gray-400 dark:border-gray-300 dark:text-gray-300 dark:bg-gray-800 dark:hover:border-gray-400 dark:hover:text-gray-400">
                             Search
-                        </x-button.secondary>
+                        </x-button.primary>
                         <x-button.link wire:click="resetSearch"
                             class="ml-auto hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-400">
                             Clear
@@ -37,16 +37,16 @@
                     <div
                         class="flex flex-col mb-1 space-y-4 md:mb-2 md:space-y-0 md:items-center md:flex-row {{ $post->categories->count() > 0 ? 'md:space-x-4' : '' }}">
                         <x-categories :categories="$post->categories" />
-                        <p class="font-mono text-xs font-normal text-gray-400">
+                        <p class="font-mono text-xs font-normal text-slate-500 dark:text-slate-400">
                             {{ $post->published_at->diffForHumans() }}</p>
                     </div>
                     <a href="{{ route('posts.show', $post->slug) }}" class="block">
                         <span
-                            class="font-sans text-2xl font-semibold tracking-tight text-gray-800 dark:text-gray-300 link link-underline">
+                            class="font-sans text-2xl font-semibold tracking-tight text-slate-800 dark:text-white link link-underline">
                             {{ $post->title }}
                         </span>
                     </a>
-                    <p class="mt-2 font-sans text-base font-semibold text-skin-quiet">
+                    <p class="mt-2 font-sans text-base font-semibold text-slate-600 dark:text-slate-300">
                         {{ $post->summary }}
                     </p>
                 </div>

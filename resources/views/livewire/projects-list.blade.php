@@ -1,6 +1,6 @@
 <div x-data="{ show : false, src: '', description: '' }" class="flex flex-col p-4 lg:p-6"
     x-on:close.window="show = false; src = ''; description = '';">
-    <p class="max-w-4xl mb-8 text-lg font-semibold text-skin-base">
+    <p class="max-w-4xl mb-8 text-lg font-semibold text-slate-700 dark:text-slate-300">
         Here are a few of the projects I've worked on recently. These are mostly side projects as well as apps that I
         use for my day-job, which is not web-development. As I'm finally getting around to putting together a portfolio
         of sorts, I'll update this page as that progresses.
@@ -86,7 +86,7 @@
                 </div>
             </div>
         @else
-            <h1 class="w-full text-4xl text-skin-base font-protogrotesk">No Projects Found. 🙁 Check back later.</h1>
+            <h1 class="w-full text-4xl text-slate-700 dark:text-slate-300 font-protogrotesk">No Projects Found. 🙁 Check back later.</h1>
         @endif
     </div>
     <div class="flex justify-end w-full">

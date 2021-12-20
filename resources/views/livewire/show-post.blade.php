@@ -1,16 +1,15 @@
-<div x-data="highlight" class="py-12">
+<div x-data="highlight" class="px-4 py-12 mx-auto sm:px-6 lg:px-8 max-w-7xl">
     <div class="pb-6 mx-auto -mt-8 md:mt-0 max-w-7xl lg:pb-8">
         <div class="flex flex-col">
-            <span class="mb-6 text-sm italic text-skin-quiet">
+            <span class="mb-6 text-sm italic text-slate-500 dark:text-slate-400">
                 Published {{ $post->published_at->format('m/d/Y') }}
             </span>
-            <h1 class="mb-2 text-3xl font-bold leading-tight lg:mb-4 sm:text-6xl font-protogrotesk text-skin-loud">
+            <h1 class="mb-2 text-3xl font-bold leading-tight lg:mb-4 sm:text-6xl font-protogrotesk text-slate-800 dark:text-white">
                 {{ $post->title }}
             </h1>
             <x-categories :categories="$post->categories" />
-            <div class="flex items-center justify-center h-24 py-4 mt-4 mb-4 xxs:h-44 xs:h-52 ws:h-72 sm:h-96 aspect-w-4 aspect-h-3 sm:aspect-w-16 sm:aspect-h-9">
-                <img alt="primary_post_image" src="{{ $post->primary_image }}"
-                    class="object-cover object-center w-full rounded-md shadow-md ring-2 ring-gray-200/50 ring-offset-2 ring-offset-gray-50 dark:ring-offset-gray-800">
+            <div class="flex items-center justify-center p-4 my-4 border rounded-lg border-slate-300 dark:border-slate-700 bg-checkered-light dark:bg-checkered-dark">
+                <img alt="primary_post_image" src="{{ $post->primary_image }}" class="object-cover object-center rounded-lg aspect-[4/3] sm:aspect-video">
             </div>
             <div class="!leading-relaxed trix-content text-skin-base">
                 {!! $post->body !!}

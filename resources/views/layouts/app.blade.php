@@ -55,13 +55,13 @@
 </head>
 
 <body x-data x-cloak
-    class="relative font-sans antialiased selection:bg-red-300 selection:text-white bg-gradient-to-br from-skin-stop-core to-skin-stop-crust"
+    class="relative font-sans antialiased selection:bg-red-300 selection:text-white"
     x-bind:class="{ 'dark': $store.stage.darkMode }">
     <x-jet-banner />
     <div x-data
-        class="absolute top-0 left-0 w-full min-h-screen isolate bg-gradient-to-br from-skin-stop-core to-skin-stop-crust">
-        <img src="/img/geometric.jpg"
-            class="fixed top-0 left-0 object-cover object-left w-full h-full opacity-25 md:object-center dark:opacity-10 mix-blend-normal dark:mix-blend-color-burn blur-lg"
+        class="absolute top-0 left-0 w-full min-h-screen isolate bg-white dark:bg-[#0E172B]">
+        <img src="/img/shape.jpg"
+            class="fixed top-0 left-0 object-cover object-left w-full h-full md:object-center opacity-10 dark:opacity-[15%] mix-blend-normal dark:mix-blend-overlay blur-lg"
             alt="cad background" style="z-index: 0;" />
         <div class="isolate" style="z-index: 2;">
             <livewire:nav-menu-main />

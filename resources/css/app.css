@@ -2,7 +2,15 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@layer utilities {
+@layer components {
+    .bg-checkered-dark {
+        background-color: #1b2234;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%230e172b' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .bg-checkered-light {
+        background-color: #f2f8fa;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23d6def0' fill-opacity='0.37'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
+    }
 }
 
 
@@ -65,7 +73,7 @@
     }
 
     .trix-content pre.hljs {
-        @apply rounded-lg p-2 bg-gray-100 !important;
+        @apply rounded-lg p-2 bg-gray-100 border border-slate-300 dark:border-slate-700 !important;
     }
 
     blockquote {
