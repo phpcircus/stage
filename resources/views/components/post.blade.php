@@ -3,7 +3,7 @@
 <div class="flex flex-col items-start w-full mb-4">
     <div class="flex items-center justify-center w-full p-4 mb-4 border rounded-lg border-slate-300 dark:border-slate-700 bg-checkered-light dark:bg-checkered-dark">
         <img src="{{ $post->primary_image }}"
-            class="object-cover object-center rounded-lg aspect-video" />
+            class="object-cover object-top rounded-lg aspect-video" />
     </div>
     <x-categories :categories="$post->categories" />
     <p class="mt-4 font-mono text-xs text-slate-500 dark:text-slate-400">
