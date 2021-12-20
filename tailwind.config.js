@@ -31,7 +31,7 @@ module.exports = {
         },
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Inter', ...defaultTheme.fontFamily.sans],
                 mono: ['Fira Mono', ...defaultTheme.fontFamily.mono],
                 protogrotesk: ['Proto Grotesk Web', ...defaultTheme.fontFamily.sans],
                 soloist: ['soloist', ...defaultTheme.fontFamily.sans],
@@ -100,6 +100,5 @@ module.exports = {
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         require('@tailwindcss/line-clamp'),
-        require('@tailwindcss/aspect-ratio'),
     ],
 };

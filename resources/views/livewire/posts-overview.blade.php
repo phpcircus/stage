@@ -14,7 +14,7 @@
         @endforeach
 
         @if (! $featured && $posts->count() < 1)
-            <h1 class="col-span-6 text-4xl text-gray-700 dark:text-gray-400 font-protogrotesk">No Posts Found. 🙁 Check back later.</h1>
+            <h1 class="col-span-6 text-4xl text-slate-600 dark:text-slate-300 font-protogrotesk">No Posts Found. 🙁 Check back later.</h1>
         @endif
     </div>
     <div class="flex justify-end w-full">
