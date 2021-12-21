@@ -1,19 +1,23 @@
 <div x-data="highlight" class="px-4 py-12 mx-auto sm:px-6 lg:px-8 max-w-7xl">
     <div class="pb-6 mx-auto -mt-8 md:mt-0 max-w-7xl lg:pb-8">
-        <div class="flex flex-col">
-            <span class="mb-6 text-sm italic text-slate-500 dark:text-slate-400">
-                Published {{ $post->published_at->format('m/d/Y') }}
-            </span>
-            <h1 class="mb-2 text-3xl font-bold leading-tight lg:mb-4 sm:text-6xl font-protogrotesk text-slate-800 dark:text-white">
-                {{ $post->title }}
-            </h1>
-            <x-categories :categories="$post->categories" />
-            <div class="flex items-center justify-center p-4 my-4 border rounded-lg border-slate-300 dark:border-slate-700 bg-checkered-light dark:bg-checkered-dark">
-                <img alt="primary_post_image" src="{{ $post->primary_image }}" class="object-cover object-center rounded-lg aspect-[4/3] sm:aspect-video">
+        <div class="flex flex-col xl:flex-row xl:space-x-12">
+            <div class="flex flex-col">
+                <span class="mb-6 text-sm italic text-slate-500 dark:text-slate-400">
+                    Published {{ $post->published_at->format('m/d/Y') }}
+                </span>
+                <h1 class="mb-2 text-3xl font-bold leading-tight lg:mb-4 sm:text-6xl font-protogrotesk text-slate-800 dark:text-white">
+                    {{ $post->title }}
+                </h1>
+                <x-categories :categories="$post->categories" />
             </div>
-            <div class="!leading-relaxed trix-content text-skin-base">
-                {!! $post->body !!}
+            <div class="flex flex-col">
+                <div class="flex items-center justify-center p-4 my-4 border rounded-lg border-slate-300 dark:border-slate-700 bg-checkered-light dark:bg-checkered-dark">
+                    <img alt="primary_post_image" src="{{ $post->primary_image }}" class="object-cover object-center rounded-lg aspect-[4/3] sm:aspect-video">
+                </div>
             </div>
+        </div>
+        <div class="!leading-relaxed trix-content text-skin-base">
+            {!! $post->body !!}
         </div>
     </div>
     @section('seo')
