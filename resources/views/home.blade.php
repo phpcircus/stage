@@ -4,7 +4,9 @@
             <div class="relative z-10 md:flex md:items-center md:justify-evenly">
                 <div class="h-36 md:h-56">
                     <h1 class="font-mono text-base font-black tracking-wide md:text-2xl xl:text-3xl 2xl:text-5xl text-slate-800 dark:text-slate-300">
-                        I'm Clay<br>A Web Developer Who Loves<br>Laravel,Livewire,AlpineJS<br>and Tailwindcss
+                        I'm <span class="text-realteal">Clay</span><br>
+                        A <span class="text-realteal">Web Developer</span> Who <span class="text-realteal">Loves</span><br>
+                        Laravel,Livewire,AlpineJS<br>and Tailwindcss
                     </h1>
                 </div>
 
