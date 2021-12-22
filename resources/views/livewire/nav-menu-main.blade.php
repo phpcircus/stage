@@ -9,7 +9,7 @@
                     <div x-ref="home"
                           class="inline-flex items-center justify-center w-24">
                         <a href="@route('home')" class="z-20 inline-block w-full py-8 font-black tracking-tight text-center"
-                            x-bind:class="pathIs('home') ? 'text-2xl text-slate-800 dark:text-gray-100' : 'text-lg text-gray-400 hover:text-gray-600 hover:text-xl dark:hover:text-gray-100'">
+                            x-bind:class="pathIs('home') ? 'text-2xl text-slate-700 dark:text-gray-100' : 'text-lg text-realteal hover:text-gray-600 hover:text-xl dark:hover:text-sky-600'">
                             Home
                         </a>
                     </div>
@@ -17,7 +17,7 @@
                           class="inline-flex items-center justify-center w-24">
                         <a href="@route('posts')" x-on:click="$store.stage.setSeenToNewest()"
                            class="relative z-20 inline-block w-full py-8 font-bold tracking-tight text-center"
-                            x-bind:class="pathIs('posts') ? 'text-2xl text-slate-800 dark:text-gray-100' : 'text-lg text-gray-400 hover:text-gray-600 hover:text-xl dark:hover:text-gray-100'">
+                            x-bind:class="pathIs('posts') ? 'text-2xl text-slate-700 dark:text-gray-100' : 'text-lg text-realteal hover:text-gray-600 hover:text-xl dark:hover:text-sky-600'">
                             Posts
                             <div x-cloak x-show="$store.stage.hasntSeenNewest()">
                                 <span
@@ -30,14 +30,14 @@
                     <div x-ref="about"
                           class="inline-flex items-center justify-center w-24">
                         <a href="@route('about')" class="z-20 inline-block w-full py-8 font-bold tracking-tight text-center"
-                            x-bind:class="pathIs('about') ? 'text-2xl text-slate-800 dark:text-gray-100' : 'text-lg text-gray-400 hover:text-gray-600 hover:text-xl dark:hover:text-gray-100'">
+                            x-bind:class="pathIs('about') ? 'text-2xl text-slate-700 dark:text-gray-100' : 'text-lg text-realteal hover:text-gray-600 hover:text-xl dark:hover:text-sky-600'">
                             About
                         </a>
                     </div>
                     <div x-ref="projects"
                           class="inline-flex items-center justify-center w-24">
                         <a href="@route('projects')" class="z-20 inline-block w-full py-8 font-bold tracking-tight text-center"
-                            x-bind:class="pathIs('projects') ? 'text-2xl text-slate-800 dark:text-gray-100' : 'text-lg text-gray-400 hover:text-gray-600 hover:text-xl dark:hover:text-gray-100'">
+                            x-bind:class="pathIs('projects') ? 'text-2xl text-slate-700 dark:text-gray-100' : 'text-lg text-realteal hover:text-gray-600 hover:text-xl dark:hover:text-sky-600'">
                             Projects
                         </a>
                     </div>

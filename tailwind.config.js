@@ -40,6 +40,10 @@ module.exports = {
             transitionProperty: {
                 'width': 'width'
             },
+            colors: {
+                realblack: '#0B0A0D',
+                realteal: '#0EA4E8',
+            },
             scale: {
                '10': '.10',
                '25': '.25',
