@@ -39,7 +39,7 @@ class SlugOptions
     /**
      * The field to generate slugs from.
      *
-     * @param string|array|callable $fieldName
+     * @param  string|array|callable  $fieldName
      */
     public function generateSlugsFrom($fieldName): self
     {
@@ -77,7 +77,7 @@ class SlugOptions
     /**
      * Set maximum slug length.
      *
-     * @param int $maximumLength
+     * @param  int  $maximumLength
      */
     public function slugsShouldBeNoLongerThan(int $maximumLength): self
     {

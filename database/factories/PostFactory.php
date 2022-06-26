@@ -33,7 +33,7 @@ class PostFactory extends Factory
             'body' => $this->faker->paragraph(12),
             'published_at' => now()->subDays(rand(0, 5)),
             'uuid' => $uuid,
-            'slug' => Str::slug($title) . '-' . $uuid->toString(),
+            'slug' => Str::slug($title).'-'.$uuid->toString(),
             'user_id' => User::factory(),
         ];
     }

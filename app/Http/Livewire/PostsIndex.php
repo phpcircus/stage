@@ -24,7 +24,7 @@ class PostsIndex extends Component
             'except' => [
                 null,
                 '',
-                ],
+            ],
         ],
     ];
 
