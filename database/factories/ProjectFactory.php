@@ -25,7 +25,7 @@ class ProjectFactory extends Factory
             'name' => $this->faker->catchPhrase(),
             'description' => $this->faker->paragraph(3),
             'image' => '/img/placeholder.jpg',
-            'github_url' => 'https://github.com/phpcircus/' . $this->faker->word(),
+            'github_url' => 'https://github.com/phpcircus/'.$this->faker->word(),
             'website_url' => $this->faker->url(),
         ];
     }

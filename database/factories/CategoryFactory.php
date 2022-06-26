@@ -25,7 +25,7 @@ class CategoryFactory extends Factory
         return [
             'name' => $name,
             'uuid' => $uuid,
-            'slug' => Str::slug($name) . '-' . $uuid->toString(),
+            'slug' => Str::slug($name).'-'.$uuid->toString(),
         ];
     }
 }

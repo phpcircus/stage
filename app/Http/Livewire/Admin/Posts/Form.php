@@ -206,7 +206,7 @@ class Form extends Component
     protected function handlePrimaryImage(): string
     {
         if ($this->primaryImage) {
-            return '/' . $this->primaryImage->storePublicly('images');
+            return '/'.$this->primaryImage->storePublicly('images');
         } elseif ($this->primaryImageUrl) {
             return $this->primaryImageUrl;
         } else {
