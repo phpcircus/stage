@@ -108,6 +108,14 @@
                             </span>
                         </span>
                     </a>
+                    <a href="https://linux.social/@devcircus" target="_blank" rel="me" class="inline-flex my-2">
+                        <span class="inline-flex items-center justify-start group">
+                            <x-bxs-heart class="w-4 mr-2 text-skin-muted group-hover:text-skin-base-inverted" />
+                            <span class="font-sans font-bold text-skin-quiet group-hover:text-skin-muted">
+                                Linux.social - Mastadon
+                            </span>
+                        </span>
+                    </a>
                 </div>
                 <div class="flex flex-col">
                     <span class="mt-4 mb-2 font-bold uppercase text-skin-base md:mt-0">
